@@ -11,7 +11,7 @@ test('Lead Management', async ({ page }) => {
     await allure.severity('normal');
     await allure.label('pre-requisite', '1.1 User has logged into Salesforce as Sales profile');
 
-    await test.step('S01 - Open Leads list view', async () => {
+    await test.step('TC001_S01 - Open Leads list view', async () => {
         await page.goto('https://b2b-io--cpqpro.sandbox.my.salesforce.com/');
         await page.getByRole('textbox', { name: 'Username' }).fill('o.harliansyah@ioh.co.id.cpqpro');
         await page.getByRole('textbox', { name: 'Password' }).click();
@@ -23,7 +23,7 @@ test('Lead Management', async ({ page }) => {
         await expect(page.getByRole('button', { name: 'Select a List View: Leads' })).toBeVisible();
     });
 
-    await test.step('S02 - Select All my Leads', async () => {
+    await test.step('TC001_S02 - Select All my Leads', async () => {
         await page.getByRole('button', { name: 'Select a List View: Leads' }).click();
         await page.getByText('All my Lead').click();
 
@@ -39,14 +39,14 @@ test('Lead Management', async ({ page }) => {
     await allure.story('Create New Lead');
     await allure.severity('critical');
 
-    await test.step('S02 - Click the New button', async () => {
+    await test.step('TC002_S01 - Click the New button', async () => {
         await page.getByRole('button', { name: 'New' }).click();
 
         // Expected: Create new lead screen is displayed
         await expect(page.getByRole('heading', { name: 'New Lead' })).toBeVisible();
     });
 
-    await test.step('S03 - Fill all mandatory fields', async () => {
+    await test.step('TC002_S02 - Fill all mandatory fields', async () => {
         await page.getByRole('combobox', { name: 'Account Name' }).click();
         await page.getByRole('combobox', { name: 'Account Name' }).fill('petromas pertiwi');
         await page.getByRole('option', { name: 'PETROMAS PERTIWI-LA CUST' }).click();
@@ -109,7 +109,7 @@ test('Lead Management', async ({ page }) => {
         await expect(page.getByRole('textbox', { name: 'Project Name' })).toHaveValue(`Mantap bos ${counter}`);
     });
 
-    await test.step('S04 - Click Save', async () => {
+    await test.step('TC002_S03 - Click Save', async () => {
         await page.getByRole('button', { name: 'Save' }).click();
         await page.waitForURL('**/lightning/r/Lead/**');
 
@@ -125,20 +125,3 @@ test('Lead Management', async ({ page }) => {
         await expect(page.locator('lightning-formatted-text').filter({ hasText: 'New' })).toContainText('New');
     });
 });
-
-// test('TC002_New Lead', async ({ page }) => {
-//     await allure.epic('Lead Management');
-//     await allure.feature('Manage My Leads');
-//     await allure.story('Create New Lead');
-//     await allure.severity('critical');
-//     await allure.label('pre-requisite', '1.1 User has logged into Salesforce as Sales profile');
-
-//     // await test.step('S01 - In Salesforce, open Leads', async () => {
-//     //     await page.goto('https://b2b-io--cpqpro.sandbox.lightning.force.com/lightning/o/Lead/list?filterName=__Recent');
-
-//     //     // Expected: Leads list view is displayed
-//     //     await expect(page.getByRole('button', { name: 'Select a List View: Leads' })).toBeVisible();
-//     // });
-
-    
-// });
