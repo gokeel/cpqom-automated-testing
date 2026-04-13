@@ -1,0 +1,17 @@
+{
+  "counter": 6,
+  "login": {
+    "url": "https://b2b-io--cpqpro.sandbox.my.salesforce.com/",
+    "username": "o.harliansyah@ioh.co.id.cpqpro",
+    "password": "QFbe3fqe1osXwA"
+  },
+  "tc001": {
+    "accountName": "Test CCA",
+    "phone": "25567889"
+  },
+  "tc002": {
+    "accountName": "Test CA",
+    "idReference": "123456789012",
+    "phone": "25567889"
+  }
+}

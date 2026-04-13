@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import data from "../../test-data/lead-mgmt.json" assert { type: "json" };
 
-let counter = 11;
+const counter = data.counter;
 
 test('Lead Management', async ({ page }) => {
     await allure.epic('Lead Management');
