@@ -1,5 +1,5 @@
 {
-  "counter": 10,
+  "counter": 11,
   "login": {
     "url": "https://b2b-io--cpqpro.sandbox.my.salesforce.com/",
     "username": "o.harliansyah@ioh.co.id.cpqpro",
@@ -12,6 +12,11 @@
   "tc002": {
     "accountName": "Test CA",
     "idReference": "123456789012",
+    "phone": "25567889"
+  },
+  "tc007": {
+    "accountName": "Test CA 1",
+    "email": "account.ca.1@company.co.id",
     "phone": "25567889"
   }
 }
