@@ -1,13 +1,38 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import data from "../../test-data/lead-mgmt.json" assert { type: "json" };
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const counter = data.counter;
 let instanceUrl;
 let accessToken;
 let leadId;
 let opportunityId;
-let leadPageUrl;
+
+const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
+let context;
+let page;
+
+// runs only once before all tests in the file
+test.beforeAll(async () => {
+    context = await chromium.launchPersistentContext(userDataDirectory, {
+        headless: false,
+        args: ['--start-maximized'],
+    });
+    page = await context.newPage();
+
+    await page.goto(data.login.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(data.login.username);
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill(data.login.password);
+    await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
+
+    await page.waitForURL('**/lightning/**', { timeout: 60000 });
+    await context.storageState({ path: '.sf-profile/sf-state.json' });
+});
 
 /**
  * Fetches the Status field of a Lead via Salesforce REST API.
@@ -70,7 +95,7 @@ test('API Connection Test', async ({ request }) => {
     console.log('Instance URL is: ', instanceUrl);
 });
 
-test('TC001_View All My Leads', async ({ page, request }) => {
+test('TC001_View All My Leads', async () => {
     await allure.epic('Lead Management');
     await allure.feature('Manage My Leads');
 
@@ -79,12 +104,8 @@ test('TC001_View All My Leads', async ({ page, request }) => {
     await allure.label('pre-requisite', '1.1 User has logged into Salesforce as Sales profile');
 
     await test.step('TC001_S01 - Open Leads list view', async () => {
-        await page.goto(data.login.url);
-        await page.getByRole('textbox', { name: 'Username' }).fill(data.login.username);
-        await page.getByRole('textbox', { name: 'Password' }).click();
-        await page.getByRole('textbox', { name: 'Password' }).fill(data.login.password);
-        await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
-        await page.getByRole('link', { name: 'Leads' }).click();
+        
+        await page.goto(`${data.login.afterLoginUrl}lightning/o/Lead/list?filterName=__Recent`);
 
         // Expected: Leads list view is displayed
         await expect(page.getByRole('button', { name: 'Select a List View: Leads' })).toBeVisible();
@@ -103,7 +124,7 @@ test('TC001_View All My Leads', async ({ page, request }) => {
     });
 });
 
-test('TC002_Create New Lead', async ({ page, request }) => {
+test('TC002_Create New Lead', async ({ request }) => {
     await allure.epic('Lead Management');
     await allure.feature('Manage My Leads');
     await allure.story('Create New Lead');
@@ -206,7 +227,7 @@ test('TC002_Create New Lead', async ({ page, request }) => {
     });
 });
 
-test('TC008_Update Lead Status', async ({ page, request }) => {
+test('TC008_Update Lead Status', async ({ request }) => {
     await allure.epic('Lead Management');
     await allure.feature('Manage My Leads');
     await allure.story('Update Lead Status');
@@ -236,7 +257,7 @@ test('TC008_Update Lead Status', async ({ page, request }) => {
     });
 });
 
-test('TC009_Convert Lead', async ({ page }) => {
+test('TC009_Convert Lead', async () => {
     await allure.epic('Lead Management');
     await allure.feature('Manage My Leads');
     await allure.story('Convert Lead');

@@ -1,23 +1,78 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import data from "../../test-data/non-ida-account-mgmt.json" assert { type: "json" };
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const counter = data.counter;
+let instanceUrl;
+let accessToken;
 
-test('Account Management', async ({ page }) => {
+const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
+let context;
+let page;
+
+// runs only once before all tests in the file
+test.beforeAll(async () => {
+    context = await chromium.launchPersistentContext(userDataDirectory, {
+        headless: false,
+        args: ['--start-maximized'],
+    });
+    page = await context.newPage();
+
+    await page.goto(data.login.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(data.login.username);
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill(data.login.password);
+    await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
+
+    await page.waitForURL('**/lightning/**', { timeout: 60000 });
+    await context.storageState({ path: '.sf-profile/sf-state.json' });
+});
+
+test('API Connection Test', async ({ request }) => {
+    const loginUrl = data.login.url+'/services/oauth2/token';
+
+    const grantType = 'client_credentials';
+    const clientId = data.login.clientId;
+    const clientSecret = data.login.clientSecret;
+
+  // Step 1: Authenticate and get access token
+    const loginResponse = await request.post(loginUrl, {
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded'
+      },
+      form: {
+        grant_type: grantType,
+        client_id: clientId,
+        client_secret: clientSecret
+      }
+    });
+
+    console.log('Login response is: ', (await (loginResponse).body()).toString());
+    expect((loginResponse).ok()).toBeTruthy();
+
+
+    const loginBody = await loginResponse.json();
+    accessToken = loginBody.access_token;
+    instanceUrl = loginBody.instance_url;
+
+    console.log('Access token is: ', accessToken);
+
+    console.log('Instance URL is: ', instanceUrl);
+});
+
+test('TC004_Create CCA', async () => {
     await allure.epic('Account Management');
     await allure.feature('Manage CCA and CA Records');
+
     await allure.story('Create Customer Corporate Account');
     await allure.severity('critical');
-    await allure.label('pre-requisite', '1.1 User has Marketing User profile');
 
     await test.step('TC004_S01 - Open Accounts list view', async () => {
-        await page.goto(data.login.url);
-        await page.getByRole('textbox', { name: 'Username' }).fill(data.login.username);
-        await page.getByRole('textbox', { name: 'Password' }).click();
-        await page.getByRole('textbox', { name: 'Password' }).fill(data.login.password);
-        await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
-        await page.getByRole('link', { name: 'Accounts' }).click();
+        await page.goto(`${data.login.afterLoginUrl}lightning/o/Account/list?filterName=__Recent`);
 
         // Expected: The Accounts list page is displayed
         await expect(page.getByRole('button', { name: 'Select a List View: Accounts' })).toBeVisible();
@@ -95,7 +150,11 @@ test('Account Management', async ({ page }) => {
         // Expected: A new Customer Corporate Account record is successfully created and the record detail page is displayed
         await expect(page.locator('div').filter({ hasText: 'Success notification.Account' }).nth(3)).toBeVisible();
     });
+});
 
+test('TC005_Create CA under CCA', async () => {
+    await allure.epic('Account Management');
+    await allure.feature('Manage CCA and CA Records');
 
     await allure.story('Create Customer Account');
     await allure.severity('critical');
@@ -223,11 +282,14 @@ test('Account Management', async ({ page }) => {
         // Expected: A new Customer Account record is successfully created and the record detail page is displayed
         await expect(page.locator('div').filter({ hasText: 'Success notification.Account' }).nth(3)).toBeVisible();
     });
+});
 
-    // test the duplicate CA creation with same Parent Account
+test('TC007_Check Duplicate CA Creation with Same Parent Account', async () => {
+    await allure.epic('Account Management');
+    await allure.feature('Manage CCA and CA Records');
+
     await allure.story('Check Duplicate CA Creation with Same Parent Account');
     await allure.severity('critical');
-    await allure.label('pre-requisite', '1.1 User has Marketing User profile');
 
     await test.step('TC007_S01 - Open Accounts list view', async () => {
         await page.getByRole('link', { name: 'Accounts' }).click();
