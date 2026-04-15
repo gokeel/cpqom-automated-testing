@@ -53,3 +53,7 @@ $RECYCLE.BIN/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+.sf-profile/
+.sf-profile/Default/
+allure-results/

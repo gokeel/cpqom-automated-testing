@@ -3,6 +3,7 @@ import * as allure from "allure-js-commons";
 import data from "../../test-data/lead-mgmt.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
+import { readFileSync, writeFileSync } from "fs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -266,9 +267,17 @@ test('TC009_Convert Lead', async () => {
     await test.step('TC009_S01 - Convert Lead', async () => {
         await page.goto(`${data.login.url}lightning/r/Lead/${leadId}/view`);
         await page.getByRole('button', { name: 'Convert' }).click();
+        await page.waitForURL('**/lightning/r/Opportunity/**', { timeout: 10000 });
+        
         await expect(page.locator('records-entity-label').filter({ hasText: 'Opportunity' })).toBeVisible();
         opportunityId = page.url().match(/\/lightning\/r\/Opportunity\/([^/]+)\//)?.[1];
         console.log(`[TC009] Opportunity ID: ${opportunityId}`);
+
+        const opptyDataPath = path.resolve(__dirname, '../../test-data/non-ida-oppty.json');
+        const opptyData = JSON.parse(readFileSync(opptyDataPath, 'utf-8'));
+        opptyData.opportunityId = opportunityId;
+        writeFileSync(opptyDataPath, JSON.stringify(opptyData, null, 2));
+        console.log(`[TC009] Updated opportunityId in non-ida-oppty.json`);
 
         await expect(page.locator('forcegenerated-highlightspanel_opportunity___012ms000000haxkyao___compact___view___recordlayout2')).toContainText(data.tc002.accountOption);
         await expect(page.locator('forcegenerated-highlightspanel_opportunity___012ms000000haxkyao___compact___view___recordlayout2')).toContainText('Scoping');

@@ -1,0 +1,26 @@
+{
+  "counter": 12,
+  "login": {
+    "url": "https://b2b-io--cpqpro.sandbox.my.salesforce.com/",
+    "afterLoginUrl": "https://b2b-io--cpqpro.sandbox.lightning.force.com/",
+    "username": "o.harliansyah@ioh.co.id.cpqpro",
+    "password": "QFbe3fqe1osXwA",
+    "clientId": "3MVG9lQbJ_RJ3FBavsjru_kK5FhaSvXieVOYWh.BTJUA.Qq768B.JJaCkjD0XcseLsW_TS1mCM5wMb.bdL1DP",
+    "clientSecret": "9C6D37E3E8E35074C1465C9AF8230BA28DD0010483F77D46A11E4678655CC044"
+  },
+  "opportunityId": "006MS000008yM5tYAE",
+  "tc010": {
+    "productName": "Alibaba Cloud IDR",
+    "otc": "5000000",
+    "mrc": "10000000",
+    "expectedOtc": "IDR 5,000,000",
+    "expectedMrc": "IDR 10,000,000",
+    "expectedTotal": "IDR 245,000,000",
+    "expectedAnnualRevenue": "IDR 122,500,000"
+  },
+  "tc002": {
+    "accountName": "Test CA",
+    "idReference": "123456789012",
+    "phone": "25567889"
+  }
+}
