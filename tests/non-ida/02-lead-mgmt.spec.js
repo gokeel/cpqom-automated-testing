@@ -37,7 +37,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-    await context.close();
+    if (context) await context.close();
 });
 
 /**
@@ -146,7 +146,7 @@ test('TC002_Create New Lead', async ({ request }) => {
     await test.step('TC002_S02 - Fill all mandatory fields', async () => {
         await page.getByRole('combobox', { name: 'Account Name' }).click();
         await page.getByRole('combobox', { name: 'Account Name' }).fill(data.tc002.accountName);
-        await page.getByRole('option', { name: data.tc002.accountOption }).click();
+        await page.getByRole('option', { name: data.tc002.accountOption, exact: true }).click();
 
         await page.getByRole('textbox', { name: 'Opportunity RFS Date' }).click();
         for (let i = 0; i < data.tc002.rfsDateMonthsAhead; i++) {

@@ -1,0 +1,3 @@
+Login response is:  {"access_token":"00DMS0000012uK5!AQEAQB3Ylj36SZntoqKV7no9tldilVE8q5T2EeNsTEft3UXKrhz.tUpt2ghKEc86vphIhfWR4NPKm3gFU_rVA4r0VqldSQ.X","signature":"jDQXupNoJd+D08TrkAuf0IG5/7XJ0t/Tbzfh0Dzowek=","scope":"api","instance_url":"https://b2b-io--cpqpro.sandbox.my.salesforce.com","id":"https://test.salesforce.com/id/00DMS0000012uK52AI/005MS000000QyOjYAK","token_type":"Bearer","issued_at":"1776253568553"}
+Access token is:  00DMS0000012uK5!AQEAQB3Ylj36SZntoqKV7no9tldilVE8q5T2EeNsTEft3UXKrhz.tUpt2ghKEc86vphIhfWR4NPKm3gFU_rVA4r0VqldSQ.X
+Instance URL is:  https://b2b-io--cpqpro.sandbox.my.salesforce.com

@@ -35,7 +35,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-    await context.close();
+    if (context) await context.close();
 });
 
 /**

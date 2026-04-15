@@ -1,0 +1,3 @@
+[TC002] Lead ID: 00QMS0000099eHC2AY
+Lead API response: {"attributes":{"type":"Lead","url":"/services/data/v65.0/sobjects/Lead/00QMS0000099eHC2AY"},"Status":"New","Id":"00QMS0000099eHC2AY"}
+Lead status from API: New

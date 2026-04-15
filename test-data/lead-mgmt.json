@@ -1,5 +1,5 @@
 {
-  "counter": 24,
+  "counter": 29,
   "login": {
     "url": "https://b2b-io--cpqpro.sandbox.my.salesforce.com/",
     "afterLoginUrl": "https://b2b-io--cpqpro.sandbox.lightning.force.com/",
@@ -16,8 +16,8 @@
     ]
   },
   "tc002": {
-    "accountName": "TEST CA 16",
-    "accountOption": "TEST CA 16",
+    "accountName": "TEST CA 22",
+    "accountOption": "TEST CA 22",
     "rfsDateMonthsAhead": 2,
     "rfsDateDay": "30",
     "projectName": "Mantap bos",

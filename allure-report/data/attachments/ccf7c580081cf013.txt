@@ -1,0 +1,4 @@
+Lead API response: {"attributes":{"type":"Lead","url":"/services/data/v65.0/sobjects/Lead/00QMS0000099eHC2AY"},"Status":"Working","Id":"00QMS0000099eHC2AY"}
+Lead status from API: Working
+Lead API response: {"attributes":{"type":"Lead","url":"/services/data/v65.0/sobjects/Lead/00QMS0000099eHC2AY"},"Status":"Qualified","Id":"00QMS0000099eHC2AY"}
+Lead status from API: Qualified
