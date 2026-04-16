@@ -26,10 +26,10 @@ test.beforeAll(async () => {
     });
     page = await context.newPage();
 
-    await page.goto(dataAuth.sysadmin.url);
-    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.sysadmin.username);
+    await page.goto(dataAuth.salesOperation.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.salesOperation.username);
     await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.sysadmin.password);
+    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.salesOperation.password);
     await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
 
     await page.waitForURL('**/lightning/**', { timeout: 60000 });
@@ -101,6 +101,13 @@ test('API Connection Test', async ({ request }) => {
     console.log('Instance URL is: ', instanceUrl);
 });
 
+test('TC001_Navigate to IOS ESM app', async () => {
+    await page.getByRole('button', { name: 'App Launcher' }).click();
+    await page.getByRole('combobox', { name: 'Search apps and items...' }).fill('IOH ESM');
+    await page.getByLabel('Apps', { exact: true }).waitFor({ state: 'visible' });
+    await expect(page.getByLabel('Apps', { exact: true }).getByText('IOH ESM')).toBeVisible();
+});
+
 test('TC001_View All My Leads', async () => {
     await allure.epic('Lead Management');
     await allure.feature('Manage My Leads');
@@ -110,7 +117,7 @@ test('TC001_View All My Leads', async () => {
     await allure.label('pre-requisite', '1.1 User has logged into Salesforce as Sales profile');
 
     await test.step('TC001_S01 - Open Leads list view', async () => {
-        await page.goto(`${dataAuth.sysadmin.afterLoginUrl}lightning/o/Lead/list?filterName=__Recent`);
+        await page.goto(`${dataAuth.salesOperation.afterLoginUrl}lightning/o/Lead/list?filterName=__Recent`);
 
         // Expected: Leads list view is displayed
         await expect(page.getByRole('button', { name: 'Select a List View: Leads' })).toBeVisible();
@@ -136,7 +143,7 @@ test('TC002_Create New Lead', async ({ request }) => {
     await allure.severity('critical');
 
     await test.step('TC002_S01 - Click the New button', async () => {
-        await page.goto(`${dataAuth.sysadmin.afterLoginUrl}lightning/o/Lead/list?filterName=__Recent`);
+        await page.goto(`${dataAuth.salesOperation.afterLoginUrl}lightning/o/Lead/list?filterName=__Recent`);
         await page.getByRole('button', { name: 'New' }).click();
 
         // Expected: Create new lead screen is displayed

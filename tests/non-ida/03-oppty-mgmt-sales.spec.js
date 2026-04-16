@@ -24,10 +24,10 @@ test.beforeAll(async () => {
     });
     page = await context.newPage();
 
-    await page.goto(dataAuth.sysadmin.url);
-    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.sysadmin.username);
+    await page.goto(dataAuth.salesOperation.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.salesOperation.username);
     await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.sysadmin.password);
+    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.salesOperation.password);
     await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
 
     await page.waitForURL('**/lightning/**', { timeout: 60000 });
@@ -198,10 +198,10 @@ test('TC013_Add Opportunity Team Member', async () => {
     await page.getByRole('button', { name: 'Team Role', exact: true }).click();
     await page.getByRole('option', { name: 'ICT Expert' }).click();
     await page.getByRole('button', { name: 'Edit User: Item' }).first().click();
-    await page.getByRole('option', { name: 'OCKY HARLIANSYAH' }).click();
+    await page.getByRole('option', { name: 'Tester ES' }).click();
     await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForTimeout(3000);
-    await expect(page.getByRole('listitem').filter({ hasText: 'OCKY HARLIANSYAH User' })).toBeVisible();
+    await expect(page.getByRole('listitem').filter({ hasText: 'Tester ES' })).toBeVisible();
 });
 
 test('TC015_Update Credit Scoring', async () => {
@@ -249,6 +249,33 @@ test('TC017_TC018_Update Score Card', async () => {
     await allure.severity('normal');
 
     await page.getByRole('tab', { name: 'Score Card' }).click();
+
+    // assert sales team can edit
+    await expect(page.getByRole('button', { name: 'Edit Has Incumbent' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit RFP Influence' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Implementation Risk' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Partnership Tier with' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Customer Favor' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Customer Budget' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Project Timeline' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Customer Relationship' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Core Product' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Deal Registered' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit Internal Capabilities' })).toBeVisible();
+
+    // assert ES team cannot edit
+    await expect(page.getByRole('button', { name: 'Edit (ES) Has Incumbent' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) RFP Influence' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Implementation Risk' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Partnership Tier' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Favor' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Budget' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Project Timeline' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Relationship' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Core Product' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Deal Registered' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Edit (ES) Internal' })).not.toBeVisible();
+
     await page.getByRole('button', { name: 'Edit Has Incumbent' }).click();
     await page.getByRole('combobox', { name: 'Has Incumbent', exact: true }).click();
     await page.getByRole('option', { name: 'No', exact: true }).click();
@@ -279,37 +306,6 @@ test('TC017_TC018_Update Score Card', async () => {
     await page.getByRole('option', { name: 'Yes, Fully IOH Product' }).click();
 
     await page.getByRole('combobox', { name: 'Internal Capabilities', exact: true }).click();
-    await page.getByRole('option', { name: 'Has full internal capability' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Customer Budget' }).click();
-    await page.getByRole('option', { name: 'Budget available' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Project Timeline' }).click();
-    await page.getByRole('option', { name: '<3 Months' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Has Incumbent' }).click();
-    await page.getByRole('option', { name: 'Yes' }).click();
-
-    await page.getByLabel('(ES) Customer Relationship').getByText('IT Head', { exact: true }).click();
-    await page.getByLabel('(ES) Customer Relationship').getByRole('option', { name: 'IT Head' }).click();
-    await page.getByLabel('(ES) Customer Relationship').getByRole('button', { name: 'Move selection to Chosen' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Implementation Risk' }).click();
-    await page.getByRole('option', { name: 'High' }).click();
-    
-    // await page.getByRole('combobox', { name: '(ES) Partnership Tier with' }).click();
-    // await page.getByRole('option', { name: 'Highest Partnership' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Customer Favor' }).click();
-    await page.getByRole('option', { name: 'Customer preferred IOH' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Core Product' }).click();
-    await page.getByRole('option', { name: 'Yes, Fully IOH Product' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Deal Registered' }).click();
-    await page.getByRole('option', { name: 'Yes' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Internal Capabilities' }).click();
     await page.getByRole('option', { name: 'Has full internal capability' }).click();
     
     await page.getByRole('button', { name: 'Save' }).click();

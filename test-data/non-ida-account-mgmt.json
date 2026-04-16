@@ -1,13 +1,5 @@
 {
   "counter": 22,
-  "login": {
-    "url": "https://b2b-io--cpqpro.sandbox.my.salesforce.com/",
-    "afterLoginUrl": "https://b2b-io--cpqpro.sandbox.lightning.force.com/",
-    "username": "o.harliansyah@ioh.co.id.cpqpro",
-    "password": "QFbe3fqe1osXwA",
-    "clientId": "3MVG9lQbJ_RJ3FBavsjru_kK5FhaSvXieVOYWh.BTJUA.Qq768B.JJaCkjD0XcseLsW_TS1mCM5wMb.bdL1DP",
-    "clientSecret": "9C6D37E3E8E35074C1465C9AF8230BA28DD0010483F77D46A11E4678655CC044"
-  },
   "tc001": {
     "accountName": "Test CCA",
     "phone": "25567889"

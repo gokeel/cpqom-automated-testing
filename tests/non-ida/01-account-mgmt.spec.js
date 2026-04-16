@@ -24,10 +24,10 @@ test.beforeAll(async () => {
     });
     page = await context.newPage();
 
-    await page.goto(dataAuth.sysadmin.url);
-    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.sysadmin.username);
+    await page.goto(dataAuth.marketing.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.marketing.username);
     await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.sysadmin.password);
+    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.marketing.password);
     await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
 
     await page.waitForURL('**/lightning/**', { timeout: 60000 });
@@ -70,6 +70,13 @@ test('API Connection Test', async ({ request }) => {
     console.log('Instance URL is: ', instanceUrl);
 });
 
+test('TC004_Navigate to IOS ESM app', async () => {
+    await page.getByRole('button', { name: 'App Launcher' }).click();
+    await page.getByRole('combobox', { name: 'Search apps and items...' }).fill('IOH ESM');
+    await page.getByLabel('Apps', { exact: true }).waitFor({ state: 'visible' });
+    await expect(page.getByLabel('Apps', { exact: true }).getByText('IOH ESM')).toBeVisible();
+});
+
 test('TC004_Create CCA', async () => {
     await allure.epic('Account Management');
     await allure.feature('Manage CCA and CA Records');
@@ -78,7 +85,7 @@ test('TC004_Create CCA', async () => {
     await allure.severity('critical');
 
     await test.step('TC004_S01 - Open Accounts list view', async () => {
-        await page.goto(`${dataAuth.sysadmin.afterLoginUrl}lightning/o/Account/list?filterName=__Recent`);
+        await page.goto(`${dataAuth.marketing.afterLoginUrl}lightning/o/Account/list?filterName=__Recent`);
 
         // Expected: The Accounts list page is displayed
         await expect(page.getByRole('button', { name: 'Select a List View: Accounts' })).toBeVisible();
