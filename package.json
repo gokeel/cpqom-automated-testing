@@ -17,6 +17,7 @@
     "precommit": "lint-staged",
     "test:e2e": "rm -rf allure-results && playwright test",
     "test:non-ida": "rm -rf allure-results && playwright test tests/non-ida/01-account-mgmt.spec.js tests/non-ida/02-lead-mgmt.spec.js tests/non-ida/03-oppty-mgmt.spec.js",
+    "run-server": "node utils/run-server.js",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results"
@@ -53,6 +54,7 @@
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "pg": "^8.20.0"
   }
 }

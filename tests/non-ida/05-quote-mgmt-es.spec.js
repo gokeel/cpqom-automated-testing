@@ -1,16 +1,15 @@
 import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import dataAuth from "../../test-data/auth.json" assert { type: "json" };
-import data from "../../test-data/non-ida-oppty.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
+import { getRuntimeState, closeDb } from "../../utils/db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const counter = data.counter;
 let instanceUrl;
 let accessToken;
-let opportunityId = data.opportunityId;
+let opportunityId;
 
 const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
 let context;
@@ -18,6 +17,8 @@ let page;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
+    opportunityId = await getRuntimeState('opportunityId');
+
     context = await chromium.launchPersistentContext(userDataDirectory, {
         headless: false,
         args: ['--start-maximized'],
@@ -35,6 +36,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+    await closeDb();
     if (context) await context.close();
 });
 

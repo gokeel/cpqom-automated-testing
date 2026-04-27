@@ -1,16 +1,17 @@
 import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import dataAuth from "../../test-data/auth.json" assert { type: "json" };
-import data from "../../test-data/non-ida-oppty.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
+import { getModule, getTestParams, getRuntimeState, closeDb } from "../../utils/db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const counter = data.counter;
+let counter;
+let tc010;
 let instanceUrl;
 let accessToken;
-let opportunityId = data.opportunityId;
+let opportunityId;
 
 const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
 let context;
@@ -18,6 +19,11 @@ let page;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
+    const module = await getModule('oppty_mgmt');
+    counter = module.counter;
+    tc010 = await getTestParams('oppty_mgmt', 'tc010');
+    opportunityId = await getRuntimeState('opportunityId');
+
     context = await chromium.launchPersistentContext(userDataDirectory, {
         headless: false,
         args: ['--start-maximized'],
@@ -35,6 +41,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+    await closeDb();
     if (context) await context.close();
 });
 
@@ -108,7 +115,7 @@ test('API Connection Test', async ({ request }) => {
 
     console.log('Instance URL is: ', instanceUrl);
 
-    if (!data.opportunityId) {
+    if (!opportunityId) {
         const userInfoResponse = await request.get(`${instanceUrl}/services/oauth2/userinfo`, {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
@@ -143,22 +150,22 @@ test('TC010_Managing my opportunity', async () => {
     await page.getByRole('button', { name: 'Show actions for Products' }).click();
     await page.getByRole('menuitem', { name: 'Add Products' }).click();
     await page.getByRole('combobox', { name: 'Search Products Search' }).click();
-    await page.getByRole('combobox', { name: 'Search Products Search' }).fill(data.tc010.productName);
+    await page.getByRole('combobox', { name: 'Search Products Search' }).fill(tc010.productName);
     await page.getByRole('combobox', { name: 'Search Products Search' }).press('Enter');
     await page.waitForTimeout(3000);
     await page.locator('td:nth-child(2) > span').first().click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('button', { name: 'Edit MRC: Item' }).click();
-    await page.getByRole('textbox', { name: 'MRC *' }).fill(data.tc010.mrc);
+    await page.getByRole('textbox', { name: 'MRC *' }).fill(tc010.mrc);
     await page.getByRole('button', { name: 'Edit OTC: Item null' }).click();
-    await page.getByRole('textbox', { name: 'OTC' }).fill(data.tc010.otc);
+    await page.getByRole('textbox', { name: 'OTC' }).fill(tc010.otc);
     await page.getByRole('button', { name: 'Edit Line Description: Item' }).click();
     await page.getByRole('button', { name: 'Save' }).click();
 
-    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${data.tc010.expectedOtc}` })).toBeVisible();
-    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${data.tc010.expectedMrc}` })).toBeVisible();
-    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${data.tc010.expectedTotal}` })).toBeVisible();
-    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${data.tc010.expectedAnnualRevenue}` })).toBeVisible();
+    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${tc010.expectedOtc}` })).toBeVisible();
+    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${tc010.expectedMrc}` })).toBeVisible();
+    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${tc010.expectedTotal}` })).toBeVisible();
+    await expect(page.locator('lightning-formatted-text').filter({ hasText: `${tc010.expectedAnnualRevenue}` })).toBeVisible();
 });
 
 test('TC012_Update Sales Scenario and Credit Scoring', async () => {

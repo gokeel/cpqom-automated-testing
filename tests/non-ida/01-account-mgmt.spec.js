@@ -1,14 +1,15 @@
 import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
 import dataAuth from "../../test-data/auth.json" assert { type: "json" };
-import data from "../../test-data/non-ida-account-mgmt.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
-import { readFileSync, writeFileSync } from "fs";
+import { getModule, getTestParams, updateTestParams, closeDb } from "../../utils/db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const counter = data.counter;
+let counter;
+let tc001;
+let tc002;
 let instanceUrl;
 let accessToken;
 
@@ -18,6 +19,11 @@ let page;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
+    const module = await getModule('account_mgmt');
+    counter = module.counter;
+    tc001 = await getTestParams('account_mgmt', 'tc001');
+    tc002 = await getTestParams('account_mgmt', 'tc002');
+
     context = await chromium.launchPersistentContext(userDataDirectory, {
         headless: false,
         args: ['--start-maximized'],
@@ -34,9 +40,10 @@ test.beforeAll(async () => {
     await context.storageState({ path: '.sf-profile/sf-state.json' });
 });
 
-// test.afterAll(async () => {
-//     if (context) await context.close();
-// });
+test.afterAll(async () => {
+    await closeDb();
+    if (context) await context.close();
+});
 
 test('API Connection Test', async ({ request }) => {
     const loginUrl = dataAuth.sysadmin.url+'/services/oauth2/token';
@@ -114,7 +121,7 @@ test('TC004_Create CCA', async () => {
         await page.getByRole('option', { name: 'Indosat Vendor Data' }).click();
 
         await page.getByRole('textbox', { name: 'Account Name' }).click();
-        await page.getByRole('textbox', { name: 'Account Name' }).fill(data.tc001.accountName + ' ' + counter);
+        await page.getByRole('textbox', { name: 'Account Name' }).fill(tc001.accountName + ' ' + counter);
 
         await page.getByRole('textbox', { name: 'Description' }).click();
         await page.getByRole('textbox', { name: 'Description' }).fill('Created by Automation Testing');
@@ -129,7 +136,7 @@ test('TC004_Create CCA', async () => {
         await page.getByRole('textbox', { name: 'Main Contact Area Code' }).fill('021');
 
         await page.getByRole('textbox', { name: 'Phone' }).click();
-        await page.getByRole('textbox', { name: 'Phone' }).fill(data.tc001.phone);
+        await page.getByRole('textbox', { name: 'Phone' }).fill(tc001.phone);
 
         await page.getByRole('textbox', { name: 'Email' }).click();
         await page.getByRole('textbox', { name: 'Email' }).fill('account.cca.' + counter + '@company.co.id');
@@ -153,7 +160,7 @@ test('TC004_Create CCA', async () => {
         await page.getByRole('button', { name: 'Move selection to Chosen' }).click();
 
         // Expected: All required fields are populated and no validation errors appear
-        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(data.tc001.accountName + ' ' + counter);
+        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(tc001.accountName + ' ' + counter);
     });
 
     await test.step('TC004_S05 - Click Save', async () => {
@@ -200,7 +207,7 @@ test('TC005_Create CA under CCA', async () => {
         await page.getByRole('option', { name: 'PT.' }).click();
 
         await page.getByRole('textbox', { name: 'Account Name' }).click();
-        await page.getByRole('textbox', { name: 'Account Name' }).fill(data.tc002.accountName + ' ' + counter);
+        await page.getByRole('textbox', { name: 'Account Name' }).fill(tc002.accountName + ' ' + counter);
 
         await page.getByRole('combobox', { name: 'Account Source' }).click();
         await page.getByRole('option', { name: 'Indosat Vendor Data' }).click();
@@ -239,10 +246,10 @@ test('TC005_Create CA under CCA', async () => {
         await page.getByRole('button', { name: '31' }).click();
 
         await page.getByRole('textbox', { name: 'ID Reference' }).click();
-        await page.getByRole('textbox', { name: 'ID Reference' }).fill(data.tc002.idReference + counter.toString().padStart(4, '0'));
+        await page.getByRole('textbox', { name: 'ID Reference' }).fill(tc002.idReference + counter.toString().padStart(4, '0'));
 
         await page.getByRole('textbox', { name: 'NPWP' }).click();
-        await page.getByRole('textbox', { name: 'NPWP' }).fill(data.tc002.idReference + counter.toString().padStart(4, '0'));
+        await page.getByRole('textbox', { name: 'NPWP' }).fill(tc002.idReference + counter.toString().padStart(4, '0'));
 
         await page.getByRole('combobox', { name: 'Line Of Business', exact: true }).click();
         await page.getByRole('option', { name: 'Communications & Technologies' }).click();
@@ -260,7 +267,7 @@ test('TC005_Create CA under CCA', async () => {
         await page.getByRole('textbox', { name: 'Main Contact Area Code' }).fill('021');
 
         await page.getByRole('textbox', { name: 'Phone' }).click();
-        await page.getByRole('textbox', { name: 'Phone' }).fill(data.tc002.phone);
+        await page.getByRole('textbox', { name: 'Phone' }).fill(tc002.phone);
 
         await page.getByRole('textbox', { name: 'Email' }).click();
         await page.getByRole('textbox', { name: 'Email' }).fill('account.ca.' + counter + '@company.co.id');
@@ -273,19 +280,19 @@ test('TC005_Create CA under CCA', async () => {
         await page.getByRole('button', { name: 'Move selection to Chosen' }).click();
 
         // Expected: All required fields are populated and no validation errors appear
-        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(data.tc002.accountName + ' ' + counter);
+        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(tc002.accountName + ' ' + counter);
     });
 
     await test.step('TC005_S05 - Select the appropriate Level 1 Customer Account in the Parent Account field', async () => {
         await page.getByRole('combobox', { name: 'Parent Account' }).click();
-        await page.getByRole('combobox', { name: 'Parent Account' }).fill(data.tc001.accountName + ' ' + counter);
+        await page.getByRole('combobox', { name: 'Parent Account' }).fill(tc001.accountName + ' ' + counter);
         await page.getByRole('listbox', { name: 'Parent Account' })
         .getByRole('group', { name: 'Search Results' })
-        .getByRole('option', { name: data.tc001.accountName + ' ' + counter })
+        .getByRole('option', { name: tc001.accountName + ' ' + counter })
         .click();
 
         // Expected: The Parent Account field displays the selected Level 1 CA
-        await expect(page.getByRole('combobox', { name: 'Parent Account' })).toHaveValue(data.tc001.accountName.toUpperCase() + ' ' + counter);
+        await expect(page.getByRole('combobox', { name: 'Parent Account' })).toHaveValue(tc001.accountName.toUpperCase() + ' ' + counter);
     });
 
     await test.step('TC005_S06 - Click Save', async () => {
@@ -295,12 +302,8 @@ test('TC005_Create CA under CCA', async () => {
         // Expected: A new Customer Account record is successfully created and the record detail page is displayed
         await expect(page.locator('div').filter({ hasText: 'Success notification.Account' }).nth(3)).toBeVisible();
 
-        const newAccountName = (data.tc002.accountName + ' ' + counter).toUpperCase();
-        const leadDataPath = path.resolve(__dirname, '../../test-data/lead-mgmt.json');
-        const leadJson = JSON.parse(readFileSync(leadDataPath, 'utf-8'));
-        leadJson.tc002.accountName = newAccountName;
-        leadJson.tc002.accountOption = newAccountName;
-        writeFileSync(leadDataPath, JSON.stringify(leadJson, null, 2));
+        const newAccountName = (tc002.accountName + ' ' + counter).toUpperCase();
+        await updateTestParams('lead_mgmt', 'tc002', { accountName: newAccountName, accountOption: newAccountName });
         console.log(`[TC005] Updated tc002.accountName and tc002.accountOption to: ${newAccountName}`);
     });
 });
@@ -339,7 +342,7 @@ test('TC007_Check Duplicate CA Creation with Same Parent Account', async () => {
         await page.getByRole('option', { name: 'PT.' }).click();
 
         await page.getByRole('textbox', { name: 'Account Name' }).click();
-        await page.getByRole('textbox', { name: 'Account Name' }).fill(data.tc002.accountName + ' ' + counter);
+        await page.getByRole('textbox', { name: 'Account Name' }).fill(tc002.accountName + ' ' + counter);
 
         await page.getByRole('combobox', { name: 'Account Source' }).click();
         await page.getByRole('option', { name: 'Indosat Vendor Data' }).click();
@@ -378,10 +381,10 @@ test('TC007_Check Duplicate CA Creation with Same Parent Account', async () => {
         await page.getByRole('button', { name: '31' }).click();
 
         await page.getByRole('textbox', { name: 'ID Reference' }).click();
-        await page.getByRole('textbox', { name: 'ID Reference' }).fill(data.tc002.idReference + counter.toString().padStart(4, '0'));
+        await page.getByRole('textbox', { name: 'ID Reference' }).fill(tc002.idReference + counter.toString().padStart(4, '0'));
 
         await page.getByRole('textbox', { name: 'NPWP' }).click();
-        await page.getByRole('textbox', { name: 'NPWP' }).fill(data.tc002.idReference + counter.toString().padStart(4, '0'));
+        await page.getByRole('textbox', { name: 'NPWP' }).fill(tc002.idReference + counter.toString().padStart(4, '0'));
 
         await page.getByRole('combobox', { name: 'Line Of Business', exact: true }).click();
         await page.getByRole('option', { name: 'Communications & Technologies' }).click();
@@ -399,7 +402,7 @@ test('TC007_Check Duplicate CA Creation with Same Parent Account', async () => {
         await page.getByRole('textbox', { name: 'Main Contact Area Code' }).fill('021');
 
         await page.getByRole('textbox', { name: 'Phone' }).click();
-        await page.getByRole('textbox', { name: 'Phone' }).fill(data.tc002.phone);
+        await page.getByRole('textbox', { name: 'Phone' }).fill(tc002.phone);
 
         await page.getByRole('textbox', { name: 'Email' }).click();
         await page.getByRole('textbox', { name: 'Email' }).fill('account.ca.' + counter + '@company.co.id');
@@ -412,19 +415,19 @@ test('TC007_Check Duplicate CA Creation with Same Parent Account', async () => {
         await page.getByRole('button', { name: 'Move selection to Chosen' }).click();
 
         // Expected: All required fields are populated and no validation errors appear
-        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(data.tc002.accountName + ' ' + counter);
+        await expect(page.getByRole('textbox', { name: 'Account Name' })).toHaveValue(tc002.accountName + ' ' + counter);
     });
 
     await test.step('TC007_S05 - Select the appropriate Level 1 Customer Account in the Parent Account field', async () => {
         await page.getByRole('combobox', { name: 'Parent Account' }).click();
-        await page.getByRole('combobox', { name: 'Parent Account' }).fill(data.tc001.accountName + ' ' + counter);
+        await page.getByRole('combobox', { name: 'Parent Account' }).fill(tc001.accountName + ' ' + counter);
         await page.getByRole('listbox', { name: 'Parent Account' })
         .getByRole('group', { name: 'Search Results' })
-        .getByRole('option', { name: data.tc001.accountName + ' ' + counter })
+        .getByRole('option', { name: tc001.accountName + ' ' + counter })
         .click();
 
         // Expected: The Parent Account field displays the selected Level 1 CA
-        await expect(page.getByRole('combobox', { name: 'Parent Account' })).toHaveValue(data.tc001.accountName.toUpperCase() + ' ' + counter);
+        await expect(page.getByRole('combobox', { name: 'Parent Account' })).toHaveValue(tc001.accountName.toUpperCase() + ' ' + counter);
     });
 
     await test.step('TC007_S06 - Click Save', async () => {
