@@ -1,0 +1,585 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "Add favorite" [ref=e1996] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "Add favorite"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]:
+                  - img [ref=e97]
+                  - tooltip "Global Actions"
+            - listitem [ref=e100]:
+              - button "Guidance Center" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]:
+                  - img [ref=e107]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e110]:
+              - button "Salesforce Help" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - img [ref=e118]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e121]:
+              - button "Setup" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]:
+                  - img [ref=e132]
+                  - tooltip "Setup"
+            - listitem [ref=e135]:
+              - button "Notifications" [ref=e138] [cursor=pointer]:
+                - generic [ref=e139]:
+                  - img [ref=e144]
+                  - tooltip "Notifications"
+            - listitem [ref=e148]:
+              - button "View profile" [ref=e151] [cursor=pointer]:
+                - generic [ref=e152]:
+                  - tooltip "View profile"
+    - generic [ref=e156]:
+      - generic [ref=e159]:
+        - generic [ref=e161]:
+          - navigation "App" [ref=e162]:
+            - button "App Launcher" [ref=e164] [cursor=pointer]:
+              - generic [ref=e175]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e176]:
+            - generic "IOH ESM" [ref=e177]
+        - navigation "Global" [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Home" [ref=e183] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e184]: Home
+            - listitem [ref=e185]:
+              - link "Leads" [ref=e186] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e187]: Leads
+              - button "Leads List" [ref=e191] [cursor=pointer]:
+                - img [ref=e195]
+                - generic [ref=e198]: Leads List
+            - listitem [ref=e199]:
+              - link "Accounts" [ref=e200] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e201]: Accounts
+              - button "Accounts List" [ref=e205] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Accounts List
+            - listitem [ref=e213]:
+              - link "Opportunities" [ref=e214] [cursor=pointer]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e215]: Opportunities
+              - button "Opportunities List" [ref=e219] [cursor=pointer]:
+                - img [ref=e223]
+                - generic [ref=e226]: Opportunities List
+            - listitem [ref=e227]:
+              - link "Quotes" [ref=e228] [cursor=pointer]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e229]: Quotes
+              - button "Quotes List" [ref=e233] [cursor=pointer]:
+                - img [ref=e237]
+                - generic [ref=e240]: Quotes List
+            - listitem [ref=e241]:
+              - link "Field Service" [ref=e242] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e243]: Field Service
+            - listitem [ref=e244]:
+              - link "Contracts" [ref=e245] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e246]: Contracts
+              - button "Contracts List" [ref=e250] [cursor=pointer]:
+                - img [ref=e254]
+                - generic [ref=e257]: Contracts List
+            - listitem [ref=e1997] [cursor=pointer]:
+              - link "* Enterprise Sales App" [ref=e1998]:
+                - /url: /lightning/n/vlocity_cmt__EnterpriseSalesApp?c__accountId=001MS00000AKh0o&c__cartId=0Q0MR000001OhOD0A0&c__cartName=Test%20Oppty%201%20v2&c__ContainerName=cfB2bSampleAppCard&c__objType=Quote
+                - generic "Not added to nav bar" [ref=e1999]: "*"
+                - generic [ref=e2000]: Enterprise Sales App
+              - button "Enterprise Sales App List" [ref=e2004]:
+                - img [ref=e2008]
+                - generic [ref=e2011]: Enterprise Sales App List
+              - button "Close tab" [ref=e2012]:
+                - img [ref=e2016]
+                - generic [ref=e2019]: Close tab
+            - listitem [ref=e272]:
+              - button "Show more navigation items" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: More
+                - img [ref=e279]
+                - generic [ref=e282]: Show more navigation items
+            - listitem [ref=e283]:
+              - button "Edit nav items" [ref=e285] [cursor=pointer]:
+                - img [ref=e287]
+                - generic [ref=e290]: Edit nav items
+      - main [ref=e292]:
+        - generic [ref=e2442]:
+          - generic [ref=e2445]:
+            - generic [ref=e2446]:
+              - generic [ref=e2447]:
+                - img [ref=e2450]
+                - generic [ref=e2453]:
+                  - heading "Enterprise Quote" [level=1] [ref=e2454]
+                  - generic [ref=e2456]: Test Oppty 1 v2
+              - generic [ref=e2459]:
+                - group [ref=e2461]:
+                  - generic [ref=e2463]:
+                    - button "Add Assets" [ref=e2464] [cursor=pointer]
+                    - button "Add Products" [ref=e2465] [cursor=pointer]
+                    - button "Number Mgmt" [ref=e2466] [cursor=pointer]
+                - group [ref=e2467]:
+                  - generic [ref=e2469]:
+                    - button "Configure Enterprise Guided Quote" [ref=e2470] [cursor=pointer]
+                    - button "Discounts and Promotions" [ref=e2471] [cursor=pointer]
+                    - button "Create Final Orders" [ref=e2472] [cursor=pointer]
+                    - button "Show menu" [ref=e2474] [cursor=pointer]:
+                      - img [ref=e2476]
+                      - generic [ref=e2479]: Show menu
+            - generic [ref=e2481]:
+              - generic [ref=e2482]:
+                - generic [ref=e2483]: One Time Total
+                - generic "IDR 0.00" [ref=e2484]
+              - generic [ref=e2485]:
+                - generic [ref=e2486]: Monthly Total
+                - generic "IDR 0.00" [ref=e2487]
+              - generic [ref=e2488]:
+                - generic [ref=e2489]:
+                  - generic [ref=e2490]: Price Difference
+                  - button "Help" [ref=e2494] [cursor=pointer]:
+                    - img [ref=e2496]
+                    - generic [ref=e2499]: Help
+                - generic [ref=e2500]:
+                  - generic "IDR 0.00" [ref=e2501]
+                  - generic "0" [ref=e2502]:
+                    - text: (0%
+                    - img [ref=e2506]
+                    - text: )
+              - generic [ref=e2509]:
+                - generic [ref=e2510]: Quote Total
+                - generic "IDR 0.00" [ref=e2511]
+              - generic [ref=e2514]:
+                - generic [ref=e2515]: Contract Term(Months)
+                - generic [ref=e2516]: "12"
+              - generic [ref=e2517]:
+                - generic [ref=e2518]: Settings
+                - button "Currency display settings" [ref=e2521] [cursor=pointer]:
+                  - img [ref=e2523]
+                  - generic [ref=e2526]: Currency display settings
+          - generic [ref=e2528]:
+            - generic [ref=e2529]:
+              - generic [ref=e2532]:
+                - heading "Product Category" [level=2] [ref=e2533]
+                - generic "Product Category" [ref=e2535]:
+                  - tree [ref=e2537]:
+                    - treeitem "All Products" [level=1] [selected] [ref=e2538]:
+                      - link "All Products" [ref=e2541] [cursor=pointer]:
+                        - /url: javascript:void(0)
+                        - generic "All Products" [ref=e2542]
+                    - treeitem "Devices" [level=1] [ref=e2543]:
+                      - generic [ref=e2544]:
+                        - button [ref=e2545] [cursor=pointer]:
+                          - img [ref=e2547]
+                          - generic [ref=e2550]: Expand Tree Branch
+                        - link "Devices" [ref=e2552] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Devices" [ref=e2553]
+                    - treeitem "Mobility" [level=1] [ref=e2554]:
+                      - generic [ref=e2555]:
+                        - button [ref=e2556] [cursor=pointer]:
+                          - img [ref=e2558]
+                          - generic [ref=e2561]: Expand Tree Branch
+                        - link "Mobility" [ref=e2563] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Mobility" [ref=e2564]
+                    - treeitem "Data Management & Analytics" [level=1] [ref=e2565]:
+                      - generic [ref=e2566]:
+                        - button [ref=e2567] [cursor=pointer]:
+                          - img [ref=e2569]
+                          - generic [ref=e2572]: Expand Tree Branch
+                        - link "Data Management & Analytics" [ref=e2574] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Data Management & Analytics" [ref=e2575]
+                    - treeitem "Communication & Collaboration" [level=1] [ref=e2576]:
+                      - generic [ref=e2577]:
+                        - button [ref=e2578] [cursor=pointer]:
+                          - img [ref=e2580]
+                          - generic [ref=e2583]: Expand Tree Branch
+                        - link "Communication & Collaboration" [ref=e2585] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Communication & Collaboration" [ref=e2586]
+                    - treeitem "Connectivity" [level=1] [ref=e2587]:
+                      - generic [ref=e2588]:
+                        - button [ref=e2589] [cursor=pointer]:
+                          - img [ref=e2591]
+                          - generic [ref=e2594]: Expand Tree Branch
+                        - link "Connectivity" [ref=e2596] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Connectivity" [ref=e2597]
+                    - treeitem "Digital Application" [level=1] [ref=e2598]:
+                      - generic [ref=e2599]:
+                        - button [ref=e2600] [cursor=pointer]:
+                          - img [ref=e2602]
+                          - generic [ref=e2605]: Expand Tree Branch
+                        - link "Digital Application" [ref=e2607] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Digital Application" [ref=e2608]
+                    - treeitem "DC & Cloud" [level=1] [ref=e2609]:
+                      - generic [ref=e2610]:
+                        - button [ref=e2611] [cursor=pointer]:
+                          - img [ref=e2613]
+                          - generic [ref=e2616]: Expand Tree Branch
+                        - link "DC & Cloud" [ref=e2618] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "DC & Cloud" [ref=e2619]
+                    - treeitem "Security" [expanded] [level=1] [ref=e2620]:
+                      - generic [ref=e2621] [cursor=pointer]:
+                        - button [active] [ref=e2622]:
+                          - generic [ref=e2623]:
+                            - img
+                          - generic [ref=e2627]: Collapse Tree Branch
+                        - link "Security" [ref=e2629]:
+                          - /url: javascript:void(0)
+                          - generic "Security" [ref=e2630]
+                      - group [ref=e3138]:
+                        - treeitem "Network Security" [level=2] [ref=e3139]:
+                          - link "Network Security" [ref=e3142] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Network Security" [ref=e3143]
+                        - treeitem "Endpoint Security" [level=2] [ref=e3144]:
+                          - link "Endpoint Security" [ref=e3147] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Endpoint Security" [ref=e3148]
+                        - treeitem "Security Assessment" [level=2] [ref=e3149]:
+                          - link "Security Assessment" [ref=e3152] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Security Assessment" [ref=e3153]
+                        - treeitem "Data & Application Security" [level=2] [ref=e3154]:
+                          - link "Data & Application Security" [ref=e3157] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Data & Application Security" [ref=e3158]
+                        - treeitem "Cloud Security" [level=2] [ref=e3159]:
+                          - link "Cloud Security" [ref=e3162] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Cloud Security" [ref=e3163]
+                        - treeitem "Operational Security" [level=2] [ref=e3164]:
+                          - link "Operational Security" [ref=e3167] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Operational Security" [ref=e3168]
+                    - treeitem "Promotions" [level=1] [ref=e2631]:
+                      - link "Promotions" [ref=e2634] [cursor=pointer]:
+                        - /url: javascript:void(0)
+                        - generic "Promotions" [ref=e2635]
+              - generic [ref=e2636]:
+                - generic [ref=e2639]:
+                  - generic [ref=e2640]: Selected Locations (0)
+                  - generic [ref=e2646]:
+                    - generic [ref=e2649]:
+                      - img [ref=e2650]
+                      - generic [ref=e2652]: Edit
+                    - combobox "Search" [ref=e2653]
+                  - generic [ref=e2654]:
+                    - 'generic "Option selected: None" [ref=e2655]':
+                      - button "Sort Sort catalog products" [ref=e2656] [cursor=pointer]:
+                        - text: Sort
+                        - img [ref=e2658]
+                        - img [ref=e2662]
+                        - generic [ref=e2665]: Sort catalog products
+                    - button "Preview Cart (0)" [ref=e2667] [cursor=pointer]:
+                      - img [ref=e2669]
+                      - text: Preview Cart (0)
+                - generic [ref=e2691]:
+                  - heading "All Products(20+)" [level=2] [ref=e2692]
+                  - generic [ref=e2693]:
+                    - generic [ref=e2698]:
+                      - generic "Access Point" [ref=e2700]
+                      - paragraph [ref=e2702]: A wireless networking device that provides seamless Wi-Fi connectivity to users and devices within a local network, ensuring reliable and scalable coverage.
+                      - generic [ref=e2703]:
+                        - generic [ref=e2704]:
+                          - paragraph [ref=e2705]: Monthly
+                          - paragraph [ref=e2706]: IDR 0.00
+                        - generic [ref=e2707]:
+                          - paragraph [ref=e2708]: One Time
+                          - paragraph [ref=e2709]: IDR 0.00
+                      - generic [ref=e2711]:
+                        - button "Show Details" [ref=e2713] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2715] [cursor=pointer]
+                    - generic [ref=e2720]:
+                      - generic "Account Inquiry" [ref=e2722]
+                      - paragraph [ref=e2724]: A KYC solution to verify and assess customer eligibility through phone number checks via API integration.
+                      - generic [ref=e2725]:
+                        - generic [ref=e2726]:
+                          - paragraph [ref=e2727]: Monthly
+                          - paragraph [ref=e2728]: IDR 0.00
+                        - generic [ref=e2729]:
+                          - paragraph [ref=e2730]: One Time
+                          - paragraph [ref=e2731]: IDR 0.00
+                      - generic [ref=e2733]:
+                        - button "Show Details" [ref=e2735] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2737] [cursor=pointer]
+                    - generic [ref=e2742]:
+                      - generic "AI Contact Center" [ref=e2744]
+                      - paragraph [ref=e2746]: An intelligent, omnichannel contact center solution powered by AI that automates interactions, enhances customer experience, and streamlines operations across digital and voice channels.
+                      - generic [ref=e2747]:
+                        - generic [ref=e2748]:
+                          - paragraph [ref=e2749]: Monthly
+                          - paragraph [ref=e2750]: IDR 0.00
+                        - generic [ref=e2751]:
+                          - paragraph [ref=e2752]: One Time
+                          - paragraph [ref=e2753]: IDR 0.00
+                      - generic [ref=e2755]:
+                        - button "Show Details" [ref=e2757] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2759] [cursor=pointer]
+                    - generic [ref=e2764]:
+                      - generic "AI Know" [ref=e2766]
+                      - paragraph [ref=e2768]: AIKnow is an AI-powered knowledge management platform designed to help users access, understand, and utilize important information from internal documents and databases. Its goal is to improve work efficiency and ease of information access by using smart technology that can understand context, answer questions, and provide automated solutions
+                      - generic [ref=e2769]:
+                        - generic [ref=e2770]:
+                          - paragraph [ref=e2771]: Monthly
+                          - paragraph [ref=e2772]: IDR 0.00
+                        - generic [ref=e2773]:
+                          - paragraph [ref=e2774]: One Time
+                          - paragraph [ref=e2775]: IDR 0.00
+                      - generic [ref=e2777]:
+                        - button "Show Details" [ref=e2779] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2781] [cursor=pointer]
+                    - generic [ref=e2786]:
+                      - generic "AI-in-a-box" [ref=e2788]
+                      - paragraph [ref=e2790]: An integrated AI solution that enables private use of AI services. The Gen AI model includes LLM, ASR, and TTS that have been fine-tuned using the Indonesian language. AI in a Box utilizes Cloudeka’s AI infrastructure, ensuring that data processing and storage remain in Indonesia (Data Sovereignty). The AI in a Box service is also dedicated, and customer data is not used for training purposes.
+                      - generic [ref=e2791]:
+                        - generic [ref=e2792]:
+                          - paragraph [ref=e2793]: Monthly
+                          - paragraph [ref=e2794]: IDR 0.00
+                        - generic [ref=e2795]:
+                          - paragraph [ref=e2796]: One Time
+                          - paragraph [ref=e2797]: IDR 0.00
+                      - generic [ref=e2799]:
+                        - button "Show Details" [ref=e2801] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2803] [cursor=pointer]
+                    - generic [ref=e2808]:
+                      - generic "Air Fiber Broadband Internet" [ref=e2810]
+                      - paragraph [ref=e2812]: Exclusive, ultra-fast wireless internet connection designed for uninterrupted business operations.
+                      - generic [ref=e2813]:
+                        - generic [ref=e2814]:
+                          - paragraph [ref=e2815]: Monthly
+                          - paragraph [ref=e2816]: IDR 0.00
+                        - generic [ref=e2817]:
+                          - paragraph [ref=e2818]: One Time
+                          - paragraph [ref=e2819]: IDR 0.00
+                      - generic [ref=e2821]:
+                        - button "Show Details" [ref=e2823] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2825] [cursor=pointer]
+                    - generic [ref=e2830]:
+                      - generic "Air Fiber Dedicated Internet" [ref=e2832]
+                      - paragraph [ref=e2834]: High-speed, reliable wireless internet delivering fiber-like performance without the cables.
+                      - generic [ref=e2835]:
+                        - generic [ref=e2836]:
+                          - paragraph [ref=e2837]: Monthly
+                          - paragraph [ref=e2838]: IDR 0.00
+                        - generic [ref=e2839]:
+                          - paragraph [ref=e2840]: One Time
+                          - paragraph [ref=e2841]: IDR 0.00
+                      - generic [ref=e2843]:
+                        - button "Show Details" [ref=e2845] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2847] [cursor=pointer]
+                    - generic [ref=e2852]:
+                      - generic "Air Fiber Leased Line IPVPN" [ref=e2854]
+                      - paragraph [ref=e2856]: Secure, private virtual network over Air Fiber for seamless and protected data communications.
+                      - generic [ref=e2857]:
+                        - generic [ref=e2858]:
+                          - paragraph [ref=e2859]: Monthly
+                          - paragraph [ref=e2860]: IDR 0.00
+                        - generic [ref=e2861]:
+                          - paragraph [ref=e2862]: One Time
+                          - paragraph [ref=e2863]: IDR 0.00
+                      - generic [ref=e2865]:
+                        - button "Show Details" [ref=e2867] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2869] [cursor=pointer]
+                    - generic [ref=e2874]:
+                      - generic "Air Fiber Services" [ref=e2876]
+                      - paragraph [ref=e2878]: POC/Custom delivers flexible, high-speed wireless connectivity tailored to your specific needs, with rapid proof-of-concept deployment to validate performance before full rollout. Designed for scalability and reliability, it ensures seamless integration into your network environment with minimal setup time.
+                      - generic [ref=e2879]:
+                        - generic [ref=e2880]:
+                          - paragraph [ref=e2881]: Monthly
+                          - paragraph [ref=e2882]: IDR 0.00
+                        - generic [ref=e2883]:
+                          - paragraph [ref=e2884]: One Time
+                          - paragraph [ref=e2885]: IDR 0.00
+                      - generic [ref=e2887]:
+                        - button "Show Details" [ref=e2889] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2891] [cursor=pointer]
+                    - generic [ref=e2896]:
+                      - generic "Alibaba Cloud" [ref=e2898]
+                      - paragraph [ref=e2900]: Cloud provider delivering elastic compute, big data, and AI services with strong regional compliance and global scalability.
+                      - generic [ref=e2901]:
+                        - generic [ref=e2902]:
+                          - paragraph [ref=e2903]: Monthly
+                          - paragraph [ref=e2904]: IDR 0.00
+                        - generic [ref=e2905]:
+                          - paragraph [ref=e2906]: One Time
+                          - paragraph [ref=e2907]: IDR 0.00
+                      - generic [ref=e2909]:
+                        - button "Show Details" [ref=e2911] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2913] [cursor=pointer]
+                    - generic [ref=e2918]:
+                      - generic "Anti-DDoS - Fortinet" [ref=e2920]
+                      - paragraph [ref=e2922]: A high-capacity defense that detects and mitigates volumetric and application-layer distributed denial-of-service attacks in real time.
+                      - generic [ref=e2923]:
+                        - generic [ref=e2924]:
+                          - paragraph [ref=e2925]: Monthly
+                          - paragraph [ref=e2926]: IDR 0.00
+                        - generic [ref=e2927]:
+                          - paragraph [ref=e2928]: One Time
+                          - paragraph [ref=e2929]: IDR 0.00
+                      - generic [ref=e2931]:
+                        - button "Show Details" [ref=e2933] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2935] [cursor=pointer]
+                    - generic [ref=e2940]:
+                      - generic "API Alliance" [ref=e2942]
+                      - generic [ref=e2943]:
+                        - paragraph
+                        - paragraph [ref=e2944]: ...
+                      - generic [ref=e2945]:
+                        - generic [ref=e2946]:
+                          - paragraph [ref=e2947]: Monthly
+                          - paragraph [ref=e2948]: IDR 0.00
+                        - generic [ref=e2949]:
+                          - paragraph [ref=e2950]: One Time
+                          - paragraph [ref=e2951]: IDR 0.00
+                      - generic [ref=e2953]:
+                        - button "Show Details" [ref=e2955] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2957] [cursor=pointer]
+                    - generic [ref=e2962]:
+                      - generic "Automation Tools" [ref=e2964]
+                      - paragraph [ref=e2966]: A highly customizable offer that can include only the RPA software license or a complete package with both the license and implementation services billed per manday.
+                      - generic [ref=e2967]:
+                        - generic [ref=e2968]:
+                          - paragraph [ref=e2969]: Monthly
+                          - paragraph [ref=e2970]: IDR 0.00
+                        - generic [ref=e2971]:
+                          - paragraph [ref=e2972]: One Time
+                          - paragraph [ref=e2973]: IDR 0.00
+                      - generic [ref=e2975]:
+                        - button "Show Details" [ref=e2977] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e2979] [cursor=pointer]
+                    - generic [ref=e2984]:
+                      - generic "AWS Cloud" [ref=e2986]
+                      - paragraph [ref=e2988]: Leading cloud computing platform offering flexible and secure services for compute, storage, analytics, AI/ML, and enterprise-grade application hosting.
+                      - generic [ref=e2989]:
+                        - generic [ref=e2990]:
+                          - paragraph [ref=e2991]: Monthly
+                          - paragraph [ref=e2992]: IDR 0.00
+                        - generic [ref=e2993]:
+                          - paragraph [ref=e2994]: One Time
+                          - paragraph [ref=e2995]: IDR 0.00
+                      - generic [ref=e2997]:
+                        - button "Show Details" [ref=e2999] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3001] [cursor=pointer]
+                    - generic [ref=e3006]:
+                      - generic "Azure Cloud" [ref=e3008]
+                      - paragraph [ref=e3010]: Enterprise-grade cloud platform providing hybrid capabilities, advanced AI, and integrated Microsoft services across global and local data centers.
+                      - generic [ref=e3011]:
+                        - generic [ref=e3012]:
+                          - paragraph [ref=e3013]: Monthly
+                          - paragraph [ref=e3014]: IDR 0.00
+                        - generic [ref=e3015]:
+                          - paragraph [ref=e3016]: One Time
+                          - paragraph [ref=e3017]: IDR 0.00
+                      - generic [ref=e3019]:
+                        - button "Show Details" [ref=e3021] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3023] [cursor=pointer]
+                    - generic [ref=e3028]:
+                      - generic "B2B Flex Mobile" [ref=e3030]
+                      - paragraph [ref=e3032]: Business SIM card package designed to support Flex Mobile bulk connectivity services.
+                      - generic [ref=e3033]:
+                        - generic [ref=e3034]:
+                          - paragraph [ref=e3035]: Monthly
+                          - paragraph [ref=e3036]: IDR 0.00
+                        - generic [ref=e3037]:
+                          - paragraph [ref=e3038]: One Time
+                          - paragraph [ref=e3039]: IDR 0.00
+                      - generic [ref=e3041]:
+                        - button "Show Details" [ref=e3043] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3045] [cursor=pointer]
+                    - generic [ref=e3050]:
+                      - generic "Bandwidth on Demand and Extension" [ref=e3052]
+                      - paragraph [ref=e3054]: Bandwidth on Demand is a feature on top of connectivity and internet services that allow the customers to upgrade the committed bandwidth on scheduled period.
+                      - generic [ref=e3055]:
+                        - generic [ref=e3056]:
+                          - paragraph [ref=e3057]: Monthly
+                          - paragraph [ref=e3058]: IDR 0.00
+                        - generic [ref=e3059]:
+                          - paragraph [ref=e3060]: One Time
+                          - paragraph [ref=e3061]: IDR 0.00
+                      - generic [ref=e3063]:
+                        - button "Show Details" [ref=e3065] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3067] [cursor=pointer]
+                    - generic [ref=e3072]:
+                      - generic "Bulk Online Gaming Pack" [ref=e3074]
+                      - paragraph [ref=e3076]: High-speed bulk data package optimized for online gaming activities.
+                      - generic [ref=e3077]:
+                        - generic [ref=e3078]:
+                          - paragraph [ref=e3079]: Monthly
+                          - paragraph [ref=e3080]: IDR 0.00
+                        - generic [ref=e3081]:
+                          - paragraph [ref=e3082]: One Time
+                          - paragraph [ref=e3083]: IDR 0.00
+                      - generic [ref=e3085]:
+                        - button "Show Details" [ref=e3087] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3089] [cursor=pointer]
+                    - generic [ref=e3094]:
+                      - generic "Bulk Online Merchant Pack" [ref=e3096]
+                      - paragraph [ref=e3098]: Bulk data solution enabling stable internet access for online merchants and sellers.
+                      - generic [ref=e3099]:
+                        - generic [ref=e3100]:
+                          - paragraph [ref=e3101]: Monthly
+                          - paragraph [ref=e3102]: IDR 0.00
+                        - generic [ref=e3103]:
+                          - paragraph [ref=e3104]: One Time
+                          - paragraph [ref=e3105]: IDR 0.00
+                      - generic [ref=e3107]:
+                        - button "Show Details" [ref=e3109] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3111] [cursor=pointer]
+                    - generic [ref=e3116]:
+                      - generic "Bulk Roaming Pack" [ref=e3118]
+                      - paragraph [ref=e3120]: Bulk roaming service providing international connectivity at controlled costs.
+                      - generic [ref=e3121]:
+                        - generic [ref=e3122]:
+                          - paragraph [ref=e3123]: Monthly
+                          - paragraph [ref=e3124]: IDR 0.00
+                        - generic [ref=e3125]:
+                          - paragraph [ref=e3126]: One Time
+                          - paragraph [ref=e3127]: IDR 0.00
+                      - generic [ref=e3129]:
+                        - button "Show Details" [ref=e3131] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3133] [cursor=pointer]
+                  - button "Show more" [ref=e3136] [cursor=pointer]:
+                    - generic "Show more" [ref=e3137]
+            - generic [ref=e2681]:
+              - button "Back" [ref=e2683] [cursor=pointer]:
+                - generic [ref=e2684]: Back
+              - button "Add to Configuration Cart" [ref=e2686] [cursor=pointer]:
+                - generic [ref=e2687]: Add to Configuration Cart
+  - generic:
+    - status

@@ -23,7 +23,7 @@ class JiraReporter {
   }
 
   async _createJiraTicket(test, result) {
-    const { JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY } = process.env;
+    const { JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY, TESTING_ENVIRONMENT } = process.env;
 
     if (!JIRA_BASE_URL || !JIRA_EMAIL || !JIRA_API_TOKEN || !JIRA_PROJECT_KEY) {
       console.warn('[JiraReporter] Missing Jira config in .env — skipping ticket creation.');
@@ -73,6 +73,7 @@ class JiraReporter {
         issuetype: { name: 'Bug' },
         description,
         labels: ['automation', 'playwright'],
+        ...(TESTING_ENVIRONMENT && { customfield_11352: { value: TESTING_ENVIRONMENT } }),
       },
     };
 

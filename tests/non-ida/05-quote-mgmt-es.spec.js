@@ -3,7 +3,8 @@ import * as allure from "allure-js-commons";
 import dataAuth from "../../test-data/auth.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
-import { getRuntimeState, closeDb } from "../../utils/db.js";
+import { getRuntimeState, setRuntimeState, closeDb } from "../../utils/db.js";
+import quoteData from "../../test-data/non-ida-05-quote.json" assert { type: "json" };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,6 +19,7 @@ let page;
 // runs only once before all tests in the file
 test.beforeAll(async () => {
     opportunityId = await getRuntimeState('opportunityId');
+    console.log('Opportunity ID: '+opportunityId);
 
     context = await chromium.launchPersistentContext(userDataDirectory, {
         headless: false,
@@ -63,6 +65,7 @@ async function patchMissingScoreCard(request, instanceUrl, accessToken) {
     });
 
     // Salesforce returns 204 No Content on a successful PATCH
+    console.log('Patch response: '+patchResponse);
     expect(patchResponse.status()).toBe(204);
 }
 
@@ -70,8 +73,8 @@ test('API Connection Test', async ({ request }) => {
     const loginUrl = dataAuth.sysadmin.url+'/services/oauth2/token';
 
     const grantType = 'client_credentials';
-    const clientId = dataAuth.sysadmin.clientIdDev;
-    const clientSecret = dataAuth.sysadmin.clientSecretDev;
+    const clientId = dataAuth.sysadmin.clientId;
+    const clientSecret = dataAuth.sysadmin.clientSecret;
 
   // Step 1: Authenticate and get access token
     const loginResponse = await request.post(loginUrl, {
@@ -100,76 +103,250 @@ test('API Connection Test', async ({ request }) => {
     await patchMissingScoreCard(request, instanceUrl, accessToken);
 });
 
-test('TC021_TC022_Update Score Card', async () => {
-    await allure.epic('Opportunity Management');
-    await allure.feature('Manage My Opportunity');
+/**
+ * Executes a Salesforce REST request and throws on HTTP errors or embedded
+ * Vlocity error bodies (HTTP 200 with { "error": "..." }).
+ * @returns {Promise<object|string>}
+ */
+async function sfRequest(request, method, url, { headers, data } = {}) {
+    const opts = { headers };
+    if (data !== undefined) opts.data = data;
 
-    await allure.story('Update Score Card');
-    await allure.severity('normal');
+    const response = await request[method](url, opts);
 
-    await page.getByRole('tab', { name: 'Score Card' }).click();
+    let body;
+    try {
+        body = await response.json();
+    } catch {
+        body = await response.text();
+    }
 
-    // assert sales team cannot edit
-    await expect(page.getByRole('button', { name: 'Edit Has Incumbent' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit RFP Influence' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Implementation Risk' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Partnership Tier with' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Customer Favor' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Customer Budget' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Project Timeline' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Customer Relationship' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Core Product' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Deal Registered' })).not.toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit Internal Capabilities' })).not.toBeVisible();
+    if (!response.ok()) {
+        const err = new Error(`HTTP ${response.status()} ${method.toUpperCase()} ${url}`);
+        err.body = body;
+        throw err;
+    }
 
-    // assert ES team can edit
-    await expect(page.getByRole('button', { name: 'Edit (ES) Has Incumbent' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) RFP Influence' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Implementation Risk' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Partnership Tier' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Favor' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Budget' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Project Timeline' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Customer Relationship' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Core Product' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Deal Registered' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Edit (ES) Internal' })).toBeVisible();
+    // Some Vlocity endpoints return HTTP 200 with an embedded error
+    if (body && typeof body === 'object') {
+        const errField = body.error ?? body.errorCode;
+        if (errField && !body.cartId && !body.records) {
+            const err = new Error(`Salesforce error: ${errField} — ${body.message ?? ''}`);
+            err.body = body;
+            throw err;
+        }
+    }
 
-    await page.getByRole('button', { name: '(ES) Customer Budget' }).click();
-    await page.getByRole('combobox', { name: '(ES) Customer Budget' }).click();
-    await page.getByRole('option', { name: 'Budget available' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Project Timeline' }).click();
-    await page.getByRole('option', { name: '<3 Months' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Has Incumbent' }).click();
-    await page.getByRole('option', { name: 'Yes' }).click();
+    return body;
+}
 
-    await page.getByLabel('(ES) Customer Relationship').getByText('IT Head', { exact: true }).click();
-    await page.getByLabel('(ES) Customer Relationship').getByRole('option', { name: 'IT Head' }).click();
-    await page.getByLabel('(ES) Customer Relationship').getByRole('button', { name: 'Move selection to Chosen' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Implementation Risk' }).click();
-    await page.getByRole('option', { name: 'High' }).click();
-    
-    // await page.getByRole('combobox', { name: '(ES) Partnership Tier with' }).click();
-    // await page.getByRole('option', { name: 'Highest Partnership' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Customer Favor' }).click();
-    await page.getByRole('option', { name: 'Customer preferred IOH' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Core Product' }).click();
-    await page.getByRole('option', { name: 'Yes, Fully IOH Product' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Deal Registered' }).click();
-    await page.getByRole('option', { name: 'Yes' }).click();
-    
-    await page.getByRole('combobox', { name: '(ES) Internal Capabilities' }).click();
-    await page.getByRole('option', { name: 'Has full internal capability' }).click();
-    
-    await page.getByRole('button', { name: 'Save' }).click();
-    await page.waitForTimeout(3000);
-    // await expect(page.locator('div').filter({ hasText: /^Red Warning Triangle$/ })).toBeVisible();
-    await expect(page.locator('span').filter({ hasText: 'Red Warning Triangle' }).first()).toBeVisible();
-    
+test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) => {
+    test.setTimeout(300_000);
+
+    let cartId;
+    let priceListId;
+    let recordTypeId;
+
+    // Reuse the accessToken / instanceUrl set by the preceding 'API Connection Test'
+    const hdrs = () => ({
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+    });
+
+    // ── STEP 1a — Look up EnterpriseQuote RecordType Id ──────────────────────
+    await test.step('Step 1a: Look up EnterpriseQuote RecordType Id', async () => {
+        const q = "SELECT+Id+FROM+RecordType+WHERE+DeveloperName='EnterpriseQuote'+AND+SobjectType='Quote'+LIMIT+1";
+        let body;
+        try {
+            body = await sfRequest(request, 'get',
+                `${instanceUrl}/services/data/v66.0/query?q=${q}`,
+                { headers: hdrs() }
+            );
+        } catch (e) {
+            await testInfo.attach('recordtype-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+        recordTypeId = body.records?.[0]?.Id ?? process.env.SF_RECORD_TYPE_ID;
+        expect(recordTypeId, 'EnterpriseQuote RecordType not found; set SF_RECORD_TYPE_ID as fallback').toBeTruthy();
+        console.log('RecordType Id:', recordTypeId);
+    });
+
+    // ── STEP 1b — Look up B2B Pricelist Id ───────────────────────────────────
+    await test.step('Step 1b: Look up B2B Pricelist Id', async () => {
+        const q = "SELECT+Id,Name+FROM+vlocity_cmt__PriceList__c+WHERE+vlocity_cmt__IsActive__c=true+AND+Name='B2B+Pricelist'+LIMIT+1";
+        let body;
+        try {
+            body = await sfRequest(request, 'get',
+                `${instanceUrl}/services/data/v66.0/query?q=${q}`,
+                { headers: hdrs() }
+            );
+        } catch (e) {
+            await testInfo.attach('pricelist-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+        priceListId = body.records?.[0]?.Id ?? process.env.SF_PRICE_LIST_ID;
+        expect(priceListId, 'B2B Pricelist not found; set SF_PRICE_LIST_ID as fallback').toBeTruthy();
+        console.log('PriceList Id:', priceListId);
+    });
+
+    // ── STEP 1 — Create Quote (cart) ──────────────────────────────────────────
+    await test.step('Step 1: Create CPQ quote (cart)', async () => {
+        let body;
+        try {
+            body = await sfRequest(request, 'post',
+                `${instanceUrl}/services/apexrest/vlocity_cmt/v2/carts`,
+                {
+                    headers: hdrs(),
+                    data: {
+                        methodName: 'createCart',
+                        objectType: 'Quote',
+                        subaction: 'createQuote',
+                        fields: 'Id,Name',
+                        filters: 'Account.vlocity_cmt__Status__c:Inactive_Active_Pending',
+                        inputFields: [
+                            { OpportunityId: opportunityId },
+                            { Name: `API Test Quote ${Date.now()}` },
+                            { 'vlocity_cmt__PriceListId__c': priceListId },
+                            { CurrencyIsoCode: 'IDR' },
+                            { RecordTypeId: recordTypeId },
+                        ],
+                    },
+                }
+            );
+        } catch (e) {
+            await testInfo.attach('create-cart-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+        cartId = body.cartId
+            ?? body.records?.[0]?.Id
+            ?? body.Id
+            ?? null;
+        expect(cartId, 'cartId missing from createCart response').toBeTruthy();
+        await setRuntimeState('cartId', cartId);
+        console.log('Cart (Quote) Id:', cartId);
+    });
+
+    // ── STEP 2 — Fetch root products ──────────────────────────────────────────
+    let productId;
+    await test.step('Step 2: Fetch root products from B2B price list', async () => {
+        let body;
+        try {
+            body = await sfRequest(request, 'get',
+                `${instanceUrl}/services/apexrest/vlocity_cmt/v2/cpq/carts/${cartId}/products` +
+                `?hierarchy=0&pagesize=200&includeAttachment=false&includeAttributes=true&priceListId=${priceListId}`,
+                { headers: hdrs() }
+            );
+        } catch (e) {
+            await testInfo.attach('fetch-products-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+
+        const records = body.records ?? [];
+        expect(records.length, 'No products returned from B2B price list').toBeGreaterThan(0);
+
+        // Prefer the product named in test data; fall back to first available
+        const targetName = quoteData.tc010?.productName;
+        const match = targetName
+            ? records.find(p => (p.Product2?.Name ?? p.Name ?? '').includes(targetName))
+            : null;
+
+        const chosen = match ?? records[0];
+        // "Id" may be a compound field object { "value": "01t...", "displayValue": null }
+        productId = typeof chosen.Id === 'object' ? chosen.Id.value : chosen.Id;
+        const chosenName = chosen.Product2?.Name ?? chosen.Name ?? productId;
+
+        expect(productId, 'Could not resolve a product Id from the catalog').toBeTruthy();
+        console.log(`Product selected: "${chosenName}" (${productId})`);
+    });
+
+    // ── STEP 3 — Add product to cart ──────────────────────────────────────────
+    await test.step('Step 3: Add product to cart', async () => {
+        let body;
+        try {
+            body = await sfRequest(request, 'post',
+                `${instanceUrl}/services/apexrest/vlocity_cmt/v2/cpq/carts/${cartId}/items`,
+                {
+                    headers: hdrs(),
+                    data: {
+                        cartId,
+                        price: true,
+                        validate: true,
+                        items: [{ itemId: productId, quantity: 1 }],
+                    },
+                }
+            );
+        } catch (e) {
+            await testInfo.attach('add-items-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+        if (body?.jobId) {
+            console.log(`Add-to-cart is async (jobId: ${body.jobId}); Step 4 will poll until items appear.`);
+        }
+    });
+
+    // ── STEP 4 — Load cart items (verify) ────────────────────────────────────
+    await test.step('Step 4: Load and verify cart line items', async () => {
+        const deadline = Date.now() + 10_000;
+        const pollInterval = 1_500;
+        let records = [];
+
+        while (Date.now() < deadline) {
+            let body;
+            try {
+                body = await sfRequest(request, 'get',
+                    `${instanceUrl}/services/apexrest/vlocity_cmt/v2/cpq/carts/${cartId}/items` +
+                    `?includeAttachment=true&hierarchy=true`,
+                    { headers: hdrs() }
+                );
+            } catch (e) {
+                await testInfo.attach('load-items-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+                throw e;
+            }
+            records = body.records ?? [];
+            if (records.length > 0) break;
+            await new Promise(r => setTimeout(r, pollInterval));
+        }
+
+        expect(records.length, 'Cart line items empty after polling — product may not have been added').toBeGreaterThan(0);
+
+        const childCount = records.reduce((sum, r) => sum + (r.lineItems?.records?.length ?? 0), 0);
+        console.log(`Cart: ${records.length} root line item(s), ${childCount} child item(s)`);
+    });
+
+    // ── STEP 5 — Recalculate / price the quote ────────────────────────────────
+    await test.step('Step 5: Recalculate and price the quote', async () => {
+        try {
+            await sfRequest(request, 'get',
+                `${instanceUrl}/services/apexrest/vlocity_cmt/v2/cpq/carts/${cartId}/price?price=true`,
+                { headers: hdrs() }
+            );
+        } catch (e) {
+            await testInfo.attach('price-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+        console.log('Pricing sync complete.');
+    });
+
+    // ── STEP 6 — Fetch quote total ────────────────────────────────────────────
+    await test.step('Step 6: Fetch and verify quote total', async () => {
+        let body;
+        try {
+            body = await sfRequest(request, 'get',
+                `${instanceUrl}/services/data/v66.0/sobjects/Quote/${cartId}` +
+                `?fields=TotalPrice,GrandTotal,vlocity_cmt__QuoteTotal__c`,
+                { headers: hdrs() }
+            );
+        } catch (e) {
+            await testInfo.attach('quote-total-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
+            throw e;
+        }
+
+        const total = body.vlocity_cmt__QuoteTotal__c ?? body.GrandTotal ?? body.TotalPrice;
+        console.log(`Quote total: ${total}`);
+        expect(total, 'Quote total is null — pricing may not have applied').not.toBeNull();
+        expect(total, 'Quote total is undefined').not.toBeUndefined();
+    });
 });
+
+

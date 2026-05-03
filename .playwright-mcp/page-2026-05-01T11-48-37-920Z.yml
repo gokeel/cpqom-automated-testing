@@ -1,0 +1,411 @@
+- generic [active]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "Add favorite" [ref=e1996] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "Add favorite"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]:
+                  - img [ref=e97]
+                  - tooltip "Global Actions"
+            - listitem [ref=e100]:
+              - button "Guidance Center" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]:
+                  - img [ref=e107]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e110]:
+              - button "Salesforce Help" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - img [ref=e118]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e121]:
+              - button "Setup" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]:
+                  - img [ref=e132]
+                  - tooltip "Setup"
+            - listitem [ref=e135]:
+              - button "Notifications" [ref=e138] [cursor=pointer]:
+                - generic [ref=e139]:
+                  - img [ref=e144]
+                  - tooltip "Notifications"
+            - listitem [ref=e148]:
+              - button "View profile" [ref=e151] [cursor=pointer]:
+                - generic [ref=e152]:
+                  - tooltip "View profile"
+    - generic [ref=e156]:
+      - generic [ref=e159]:
+        - generic [ref=e161]:
+          - navigation "App" [ref=e162]:
+            - button "App Launcher" [ref=e164] [cursor=pointer]:
+              - generic [ref=e175]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e176]:
+            - generic "IOH ESM" [ref=e177]
+        - navigation "Global" [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Home" [ref=e183] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e184]: Home
+            - listitem [ref=e185]:
+              - link "Leads" [ref=e186] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e187]: Leads
+              - button "Leads List" [ref=e191] [cursor=pointer]:
+                - img [ref=e195]
+                - generic [ref=e198]: Leads List
+            - listitem [ref=e199]:
+              - link "Accounts" [ref=e200] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e201]: Accounts
+              - button "Accounts List" [ref=e205] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Accounts List
+            - listitem [ref=e213]:
+              - link "Opportunities" [ref=e214] [cursor=pointer]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e215]: Opportunities
+              - button "Opportunities List" [ref=e219] [cursor=pointer]:
+                - img [ref=e223]
+                - generic [ref=e226]: Opportunities List
+            - listitem [ref=e227]:
+              - link "Quotes" [ref=e228] [cursor=pointer]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e229]: Quotes
+              - button "Quotes List" [ref=e233] [cursor=pointer]:
+                - img [ref=e237]
+                - generic [ref=e240]: Quotes List
+            - listitem [ref=e241]:
+              - link "Field Service" [ref=e242] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e243]: Field Service
+            - listitem [ref=e244]:
+              - link "Contracts" [ref=e245] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e246]: Contracts
+              - button "Contracts List" [ref=e250] [cursor=pointer]:
+                - img [ref=e254]
+                - generic [ref=e257]: Contracts List
+            - listitem [ref=e1997] [cursor=pointer]:
+              - link "* Enterprise Sales App" [ref=e1998]:
+                - /url: /lightning/n/vlocity_cmt__EnterpriseSalesApp?c__accountId=001MS00000AKh0o&c__cartId=0Q0MR000001OhOD0A0&c__cartName=Test%20Oppty%201%20v2&c__ContainerName=cfB2bSampleAppCard&c__objType=Quote
+                - generic "Not added to nav bar" [ref=e1999]: "*"
+                - generic [ref=e2000]: Enterprise Sales App
+              - button "Enterprise Sales App List" [ref=e2004]:
+                - img [ref=e2008]
+                - generic [ref=e2011]: Enterprise Sales App List
+              - button "Close tab" [ref=e2012]:
+                - img [ref=e2016]
+                - generic [ref=e2019]: Close tab
+            - listitem [ref=e272]:
+              - button "Show more navigation items" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: More
+                - img [ref=e279]
+                - generic [ref=e282]: Show more navigation items
+            - listitem [ref=e283]:
+              - button "Edit nav items" [ref=e285] [cursor=pointer]:
+                - img [ref=e287]
+                - generic [ref=e290]: Edit nav items
+      - main [ref=e292]:
+        - generic [ref=e2442]:
+          - generic [ref=e2445]:
+            - generic [ref=e2446]:
+              - generic [ref=e2447]:
+                - img [ref=e2450]
+                - generic [ref=e2453]:
+                  - heading "Enterprise Quote" [level=1] [ref=e2454]
+                  - generic [ref=e2456]: Test Oppty 1 v2
+              - generic [ref=e2459]:
+                - group [ref=e2461]:
+                  - generic [ref=e2463]:
+                    - button "Add Assets" [ref=e2464] [cursor=pointer]
+                    - button "Add Products" [ref=e2465] [cursor=pointer]
+                    - button "Number Mgmt" [ref=e2466] [cursor=pointer]
+                - group [ref=e2467]:
+                  - generic [ref=e2469]:
+                    - button "Configure Enterprise Guided Quote" [ref=e2470] [cursor=pointer]
+                    - button "Discounts and Promotions" [ref=e2471] [cursor=pointer]
+                    - button "Create Final Orders" [ref=e2472] [cursor=pointer]
+                    - button "Show menu" [ref=e2474] [cursor=pointer]:
+                      - img [ref=e2476]
+                      - generic [ref=e2479]: Show menu
+            - generic [ref=e2481]:
+              - generic [ref=e2482]:
+                - generic [ref=e2483]: One Time Total
+                - generic "IDR 0.00" [ref=e2484]
+              - generic [ref=e2485]:
+                - generic [ref=e2486]: Monthly Total
+                - generic "IDR 0.00" [ref=e2487]
+              - generic [ref=e2488]:
+                - generic [ref=e2489]:
+                  - generic [ref=e2490]: Price Difference
+                  - button "Help" [ref=e2494] [cursor=pointer]:
+                    - img [ref=e2496]
+                    - generic [ref=e2499]: Help
+                - generic [ref=e2500]:
+                  - generic "IDR 0.00" [ref=e2501]
+                  - generic "0" [ref=e2502]:
+                    - text: (0%
+                    - img [ref=e2506]
+                    - text: )
+              - generic [ref=e2509]:
+                - generic [ref=e2510]: Quote Total
+                - generic "IDR 0.00" [ref=e2511]
+              - generic [ref=e2514]:
+                - generic [ref=e2515]: Contract Term(Months)
+                - generic [ref=e2516]: "12"
+              - generic [ref=e2517]:
+                - generic [ref=e2518]: Settings
+                - button "Currency display settings" [ref=e2521] [cursor=pointer]:
+                  - img [ref=e2523]
+                  - generic [ref=e2526]: Currency display settings
+          - generic [ref=e2528]:
+            - generic [ref=e2529]:
+              - generic [ref=e2532]:
+                - heading "Product Category" [level=2] [ref=e2533]
+                - generic "Product Category" [ref=e2535]:
+                  - tree [ref=e2537]:
+                    - treeitem "All Products" [level=1] [ref=e2538]:
+                      - link "All Products" [ref=e2541] [cursor=pointer]:
+                        - /url: javascript:void(0)
+                        - generic "All Products" [ref=e2542]
+                    - treeitem "Devices" [level=1] [ref=e2543]:
+                      - generic [ref=e2544]:
+                        - button [ref=e2545] [cursor=pointer]:
+                          - img [ref=e2547]
+                          - generic [ref=e2550]: Expand Tree Branch
+                        - link "Devices" [ref=e2552] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Devices" [ref=e2553]
+                    - treeitem "Mobility" [level=1] [ref=e2554]:
+                      - generic [ref=e2555]:
+                        - button [ref=e2556] [cursor=pointer]:
+                          - img [ref=e2558]
+                          - generic [ref=e2561]: Expand Tree Branch
+                        - link "Mobility" [ref=e2563] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Mobility" [ref=e2564]
+                    - treeitem "Data Management & Analytics" [level=1] [ref=e2565]:
+                      - generic [ref=e2566]:
+                        - button [ref=e2567] [cursor=pointer]:
+                          - img [ref=e2569]
+                          - generic [ref=e2572]: Expand Tree Branch
+                        - link "Data Management & Analytics" [ref=e2574] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Data Management & Analytics" [ref=e2575]
+                    - treeitem "Communication & Collaboration" [level=1] [ref=e2576]:
+                      - generic [ref=e2577]:
+                        - button [ref=e2578] [cursor=pointer]:
+                          - img [ref=e2580]
+                          - generic [ref=e2583]: Expand Tree Branch
+                        - link "Communication & Collaboration" [ref=e2585] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Communication & Collaboration" [ref=e2586]
+                    - treeitem "Connectivity" [level=1] [ref=e2587]:
+                      - generic [ref=e2588]:
+                        - button [ref=e2589] [cursor=pointer]:
+                          - img [ref=e2591]
+                          - generic [ref=e2594]: Expand Tree Branch
+                        - link "Connectivity" [ref=e2596] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Connectivity" [ref=e2597]
+                    - treeitem "Digital Application" [level=1] [ref=e2598]:
+                      - generic [ref=e2599]:
+                        - button [ref=e2600] [cursor=pointer]:
+                          - img [ref=e2602]
+                          - generic [ref=e2605]: Expand Tree Branch
+                        - link "Digital Application" [ref=e2607] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Digital Application" [ref=e2608]
+                    - treeitem "DC & Cloud" [level=1] [ref=e2609]:
+                      - generic [ref=e2610]:
+                        - button [ref=e2611] [cursor=pointer]:
+                          - img [ref=e2613]
+                          - generic [ref=e2616]: Expand Tree Branch
+                        - link "DC & Cloud" [ref=e2618] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "DC & Cloud" [ref=e2619]
+                    - treeitem "Security" [expanded] [level=1] [ref=e2620]:
+                      - generic [ref=e2621]:
+                        - button [ref=e2622] [cursor=pointer]:
+                          - img [ref=e2624]
+                          - generic [ref=e2627]: Collapse Tree Branch
+                        - link "Security" [ref=e2629] [cursor=pointer]:
+                          - /url: javascript:void(0)
+                          - generic "Security" [ref=e2630]
+                      - group [ref=e3138]:
+                        - treeitem "Network Security" [level=2] [selected] [ref=e3139]:
+                          - link "Network Security" [ref=e3142] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Network Security" [ref=e3143]
+                        - treeitem "Endpoint Security" [level=2] [ref=e3144]:
+                          - link "Endpoint Security" [ref=e3147] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Endpoint Security" [ref=e3148]
+                        - treeitem "Security Assessment" [level=2] [ref=e3149]:
+                          - link "Security Assessment" [ref=e3152] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Security Assessment" [ref=e3153]
+                        - treeitem "Data & Application Security" [level=2] [ref=e3154]:
+                          - link "Data & Application Security" [ref=e3157] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Data & Application Security" [ref=e3158]
+                        - treeitem "Cloud Security" [level=2] [ref=e3159]:
+                          - link "Cloud Security" [ref=e3162] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Cloud Security" [ref=e3163]
+                        - treeitem "Operational Security" [level=2] [ref=e3164]:
+                          - link "Operational Security" [ref=e3167] [cursor=pointer]:
+                            - /url: javascript:void(0)
+                            - generic "Operational Security" [ref=e3168]
+                    - treeitem "Promotions" [level=1] [ref=e2631]:
+                      - link "Promotions" [ref=e2634] [cursor=pointer]:
+                        - /url: javascript:void(0)
+                        - generic "Promotions" [ref=e2635]
+              - generic [ref=e2636]:
+                - generic [ref=e2639]:
+                  - generic [ref=e2640]: Selected Locations (0)
+                  - generic [ref=e2646]:
+                    - generic [ref=e2649]:
+                      - img [ref=e2650]
+                      - generic [ref=e2652]: Edit
+                    - combobox "Search" [ref=e2653]
+                  - generic [ref=e2654]:
+                    - 'generic "Option selected: None" [ref=e2655]':
+                      - button "Sort Sort catalog products" [ref=e2656] [cursor=pointer]:
+                        - text: Sort
+                        - img [ref=e2658]
+                        - img [ref=e2662]
+                        - generic [ref=e2665]: Sort catalog products
+                    - button "Preview Cart (0)" [ref=e2667] [cursor=pointer]:
+                      - img [ref=e2669]
+                      - text: Preview Cart (0)
+                - generic [ref=e3170]:
+                  - heading "Network Security(7)" [level=2] [ref=e3171]
+                  - generic [ref=e3172]:
+                    - generic [ref=e3177]:
+                      - generic "Anti-DDoS - Fortinet" [ref=e3179]
+                      - paragraph [ref=e3181]: A high-capacity defense that detects and mitigates volumetric and application-layer distributed denial-of-service attacks in real time.
+                      - generic [ref=e3182]:
+                        - generic [ref=e3183]:
+                          - paragraph [ref=e3184]: Monthly
+                          - paragraph [ref=e3185]: IDR 0.00
+                        - generic [ref=e3186]:
+                          - paragraph [ref=e3187]: One Time
+                          - paragraph [ref=e3188]: IDR 0.00
+                      - generic [ref=e3190]:
+                        - button "Show Details" [ref=e3192] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3194] [cursor=pointer]
+                    - generic [ref=e3199]:
+                      - generic "Network Detection and Response (NDR) - Extrahop" [ref=e3201]
+                      - paragraph [ref=e3203]: A proactive system that monitors network behavior, detects sophisticated threats, and orchestrates automated response actions.
+                      - generic [ref=e3204]:
+                        - generic [ref=e3205]:
+                          - paragraph [ref=e3206]: Monthly
+                          - paragraph [ref=e3207]: IDR 0.00
+                        - generic [ref=e3208]:
+                          - paragraph [ref=e3209]: One Time
+                          - paragraph [ref=e3210]: IDR 0.00
+                      - generic [ref=e3212]:
+                        - button "Show Details" [ref=e3214] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3216] [cursor=pointer]
+                    - generic [ref=e3221]:
+                      - generic "Network Detection and Response (NDR) - Vectra" [ref=e3223]
+                      - paragraph [ref=e3225]: A proactive system that monitors network behavior, detects sophisticated threats, and orchestrates automated response actions.
+                      - generic [ref=e3226]:
+                        - generic [ref=e3227]:
+                          - paragraph [ref=e3228]: Monthly
+                          - paragraph [ref=e3229]: IDR 0.00
+                        - generic [ref=e3230]:
+                          - paragraph [ref=e3231]: One Time
+                          - paragraph [ref=e3232]: IDR 0.00
+                      - generic [ref=e3234]:
+                        - button "Show Details" [ref=e3236] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3238] [cursor=pointer]
+                    - generic [ref=e3243]:
+                      - generic "Network Packet Broker (NPB) - Extrahop" [ref=e3245]
+                      - paragraph [ref=e3247]: A traffic intelligence device that aggregates, filters, and distributes network data to security and monitoring tools, ensuring they receive the right traffic at the right time for optimal performance and visibility.
+                      - generic [ref=e3248]:
+                        - generic [ref=e3249]:
+                          - paragraph [ref=e3250]: Monthly
+                          - paragraph [ref=e3251]: IDR 0.00
+                        - generic [ref=e3252]:
+                          - paragraph [ref=e3253]: One Time
+                          - paragraph [ref=e3254]: IDR 0.00
+                      - generic [ref=e3256]:
+                        - button "Show Details" [ref=e3258] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3260] [cursor=pointer]
+                    - generic [ref=e3265]:
+                      - generic "Network Packet Broker (NPB) - Keysight" [ref=e3267]
+                      - paragraph [ref=e3269]: A traffic intelligence device that aggregates, filters, and distributes network data to security and monitoring tools, ensuring they receive the right traffic at the right time for optimal performance and visibility.
+                      - generic [ref=e3270]:
+                        - generic [ref=e3271]:
+                          - paragraph [ref=e3272]: Monthly
+                          - paragraph [ref=e3273]: IDR 0.00
+                        - generic [ref=e3274]:
+                          - paragraph [ref=e3275]: One Time
+                          - paragraph [ref=e3276]: IDR 0.00
+                      - generic [ref=e3278]:
+                        - button "Show Details" [ref=e3280] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3282] [cursor=pointer]
+                    - generic [ref=e3287]:
+                      - generic "Security Information and Event Management (SIEM) - Fortinet" [ref=e3289]
+                      - paragraph [ref=e3291]: A centralized security solution that collects and analyzes logs from across your IT environment to detect threats, enable real-time alerts, and support compliance reporting.
+                      - generic [ref=e3292]:
+                        - generic [ref=e3293]:
+                          - paragraph [ref=e3294]: Monthly
+                          - paragraph [ref=e3295]: IDR 0.00
+                        - generic [ref=e3296]:
+                          - paragraph [ref=e3297]: One Time
+                          - paragraph [ref=e3298]: IDR 0.00
+                      - generic [ref=e3300]:
+                        - button "Show Details" [ref=e3302] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3304] [cursor=pointer]
+                    - generic [ref=e3309]:
+                      - generic "Security Information and Event Management (SIEM) - Splunk" [ref=e3311]
+                      - paragraph [ref=e3313]: A centralized security solution that collects and analyzes logs from across your IT environment to detect threats, enable real-time alerts, and support compliance reporting.
+                      - generic [ref=e3314]:
+                        - generic [ref=e3315]:
+                          - paragraph [ref=e3316]: Monthly
+                          - paragraph [ref=e3317]: IDR 0.00
+                        - generic [ref=e3318]:
+                          - paragraph [ref=e3319]: One Time
+                          - paragraph [ref=e3320]: IDR 0.00
+                      - generic [ref=e3322]:
+                        - button "Show Details" [ref=e3324] [cursor=pointer]
+                        - button "+Add to Cart" [ref=e3326] [cursor=pointer]
+            - generic [ref=e2681]:
+              - button "Back" [ref=e2683] [cursor=pointer]:
+                - generic [ref=e2684]: Back
+              - button "Add to Configuration Cart" [ref=e2686] [cursor=pointer]:
+                - generic [ref=e2687]: Add to Configuration Cart
+  - generic:
+    - status

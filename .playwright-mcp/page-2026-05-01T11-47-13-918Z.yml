@@ -1,0 +1,202 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "This item doesn't support favorites" [ref=e1820] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "This item doesn't support favorites"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]:
+                  - img [ref=e97]
+                  - tooltip "Global Actions"
+            - listitem [ref=e100]:
+              - button "Guidance Center" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]:
+                  - img [ref=e107]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e110]:
+              - button "Salesforce Help" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - img [ref=e118]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e121]:
+              - button "Setup" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]:
+                  - img [ref=e132]
+                  - tooltip "Setup"
+            - listitem [ref=e135]:
+              - button "Notifications" [ref=e138] [cursor=pointer]:
+                - generic [ref=e139]:
+                  - img [ref=e144]
+                  - tooltip "Notifications"
+            - listitem [ref=e148]:
+              - button "View profile" [ref=e151] [cursor=pointer]:
+                - generic [ref=e152]:
+                  - tooltip "View profile"
+    - generic [ref=e156]:
+      - generic [ref=e159]:
+        - generic [ref=e161]:
+          - navigation "App" [ref=e162]:
+            - button "App Launcher" [ref=e164] [cursor=pointer]:
+              - generic [ref=e175]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e176]:
+            - generic "IOH ESM" [ref=e177]
+        - navigation "Global" [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Home" [ref=e183] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e184]: Home
+            - listitem [ref=e185]:
+              - link "Leads" [ref=e186] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e187]: Leads
+              - button "Leads List" [ref=e191] [cursor=pointer]:
+                - img [ref=e195]
+                - generic [ref=e198]: Leads List
+            - listitem [ref=e199]:
+              - link "Accounts" [ref=e200] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e201]: Accounts
+              - button "Accounts List" [ref=e205] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Accounts List
+            - listitem [ref=e213]:
+              - link "Opportunities" [ref=e214] [cursor=pointer]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e215]: Opportunities
+              - button "Opportunities List" [ref=e219] [cursor=pointer]:
+                - img [ref=e223]
+                - generic [ref=e226]: Opportunities List
+            - listitem [ref=e227]:
+              - link "Quotes" [ref=e228] [cursor=pointer]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e229]: Quotes
+              - button "Quotes List" [ref=e233] [cursor=pointer]:
+                - img [ref=e237]
+                - generic [ref=e240]: Quotes List
+            - listitem [ref=e241]:
+              - link "Field Service" [ref=e242] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e243]: Field Service
+            - listitem [ref=e244]:
+              - link "Contracts" [ref=e245] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e246]: Contracts
+              - button "Contracts List" [ref=e250] [cursor=pointer]:
+                - img [ref=e254]
+                - generic [ref=e257]: Contracts List
+            - listitem [ref=e258]:
+              - link "Orders" [ref=e259] [cursor=pointer]:
+                - /url: /lightning/o/Order/home
+                - generic [ref=e260]: Orders
+              - button "Orders List" [ref=e264] [cursor=pointer]:
+                - img [ref=e268]
+                - generic [ref=e271]: Orders List
+            - listitem [ref=e272]:
+              - button "Show more navigation items" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: More
+                - img [ref=e279]
+                - generic [ref=e282]: Show more navigation items
+            - listitem [ref=e283]:
+              - button "Edit nav items" [ref=e285] [cursor=pointer]:
+                - img [ref=e287]
+                - generic [ref=e290]: Edit nav items
+      - main [ref=e292]:
+        - article [ref=e1842]:
+          - generic [ref=e1843]:
+            - generic [ref=e1844]:
+              - heading "ESM Guided Journey" [level=2] [ref=e1846]
+              - generic [ref=e1849]:
+                - generic [ref=e1872]: Manage Enterprise Quote
+                - generic [ref=e1889]:
+                  - generic [ref=e1891]:
+                    - img [ref=e1892]
+                    - generic [ref=e1895]: Create Quote
+                  - generic [ref=e1902]:
+                    - generic [ref=e1908]: Create an Enterprise Quote
+                    - generic [ref=e1914]: Provide basic quote details and select whether to include guided assistance when creating a quote.
+                - group [ref=e1918]:
+                  - generic [ref=e1919]:
+                    - heading [level=3]
+                  - group [ref=e1920]:
+                    - group [ref=e1925]:
+                      - generic [ref=e1926]:
+                        - heading [level=3]
+                      - group [ref=e1927]:
+                        - generic [ref=e1928]:
+                          - generic [ref=e1932]:
+                            - generic [ref=e1934]: Account Name
+                            - textbox "Account Name" [ref=e1936]: ABAKUS INFORMINDO SYSTEMS
+                            - status
+                          - generic [ref=e1940]:
+                            - generic [ref=e1942]: "*Quote Name"
+                            - textbox "Quote Name" [ref=e1944]:
+                              - /placeholder: ""
+                              - text: Test Oppty 1 v2
+                            - status
+                          - group [ref=e1948]:
+                            - generic [ref=e1950]: "*Price List Name"
+                            - generic "Price List Name" [ref=e1952]:
+                              - generic [ref=e1953]:
+                                - combobox "Price List Name" [expanded] [active] [ref=e1954]
+                                - generic:
+                                  - generic:
+                                    - img [ref=e1955]
+                                    - generic [ref=e1958]: lookup
+                              - listbox [ref=e1989]:
+                                - option "Select a value" [ref=e1990]:
+                                  - generic [ref=e1992]: Select a value
+                                - option "B2B Pricelist" [ref=e1993]:
+                                  - generic [ref=e1995]: B2B Pricelist
+                            - status
+                          - generic [ref=e1962]:
+                            - generic [ref=e1964]: "*Number of Contracted Months"
+                            - generic [ref=e1965]:
+                              - textbox "Number of Contracted Months" [ref=e1966]:
+                                - /placeholder: ""
+                                - text: "12"
+                              - status
+                          - generic [ref=e1970]:
+                            - radiogroup "Create quote with guided assistance" [ref=e1971]:
+                              - generic [ref=e1972]: Create quote with guided assistance
+                              - generic [ref=e1974]:
+                                - generic [ref=e1975]:
+                                  - radio "Yes" [ref=e1976]
+                                  - generic [ref=e1977]: "Yes"
+                                - generic [ref=e1979]:
+                                  - radio "No" [checked] [ref=e1980]
+                                  - generic [ref=e1981]: "No"
+                            - status
+            - button "Next" [ref=e1987] [cursor=pointer]:
+              - generic [ref=e1988]: Next
+  - generic:
+    - status

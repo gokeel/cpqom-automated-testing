@@ -1,0 +1,599 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "Add favorite" [ref=e437] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "Add favorite"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]:
+                  - img [ref=e97]
+                  - tooltip "Global Actions"
+            - listitem [ref=e100]:
+              - button "Guidance Center" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]:
+                  - img [ref=e107]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e110]:
+              - button "Salesforce Help" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - img [ref=e118]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e121]:
+              - button "Setup" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]:
+                  - img [ref=e132]
+                  - tooltip "Setup"
+            - listitem [ref=e135]:
+              - button "Notifications" [ref=e138] [cursor=pointer]:
+                - generic [ref=e139]:
+                  - img [ref=e144]
+                  - tooltip "Notifications"
+            - listitem [ref=e148]:
+              - button "View profile" [ref=e151] [cursor=pointer]:
+                - generic [ref=e152]:
+                  - tooltip "View profile"
+    - generic [ref=e156]:
+      - generic [ref=e159]:
+        - generic [ref=e161]:
+          - navigation "App" [ref=e162]:
+            - button "App Launcher" [ref=e164] [cursor=pointer]:
+              - generic [ref=e175]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e176]:
+            - generic "IOH ESM" [ref=e177]
+        - navigation "Global" [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Home" [ref=e183] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e184]: Home
+            - listitem [ref=e185]:
+              - link "Leads" [ref=e186] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e187]: Leads
+              - button "Leads List" [ref=e191] [cursor=pointer]:
+                - img [ref=e195]
+                - generic [ref=e198]: Leads List
+            - listitem [ref=e199]:
+              - link "Accounts" [ref=e200] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e201]: Accounts
+              - button "Accounts List" [ref=e205] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Accounts List
+            - listitem [ref=e213] [cursor=pointer]:
+              - link "Opportunities" [ref=e214]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e215]: Opportunities
+              - button "Opportunities List" [ref=e219]:
+                - img [ref=e223]
+                - generic [ref=e226]: Opportunities List
+            - listitem [ref=e227]:
+              - link "Quotes" [ref=e228] [cursor=pointer]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e229]: Quotes
+              - button "Quotes List" [ref=e233] [cursor=pointer]:
+                - img [ref=e237]
+                - generic [ref=e240]: Quotes List
+            - listitem [ref=e241]:
+              - link "Field Service" [ref=e242] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e243]: Field Service
+            - listitem [ref=e244]:
+              - link "Contracts" [ref=e245] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e246]: Contracts
+              - button "Contracts List" [ref=e250] [cursor=pointer]:
+                - img [ref=e254]
+                - generic [ref=e257]: Contracts List
+            - listitem [ref=e258]:
+              - link "Orders" [ref=e259] [cursor=pointer]:
+                - /url: /lightning/o/Order/home
+                - generic [ref=e260]: Orders
+              - button "Orders List" [ref=e264] [cursor=pointer]:
+                - img [ref=e268]
+                - generic [ref=e271]: Orders List
+            - listitem [ref=e272]:
+              - button "Show more navigation items" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: More
+                - img [ref=e279]
+                - generic [ref=e282]: Show more navigation items
+            - listitem [ref=e283]:
+              - button "Edit nav items" [ref=e285] [cursor=pointer]:
+                - img [ref=e287]
+                - generic [ref=e290]: Edit nav items
+      - main [ref=e292]:
+        - generic [ref=e831]:
+          - generic [ref=e840]:
+            - generic [ref=e841]:
+              - heading "Opportunity Test Oppty 1" [level=1] [ref=e848]:
+                - generic [ref=e850]: Opportunity
+                - generic [ref=e851]: Test Oppty 1
+              - button "Follow" [ref=e856] [cursor=pointer]:
+                - generic [ref=e857]:
+                  - img [ref=e861]
+                  - text: Follow
+              - generic "Create Enterprise Quote" [ref=e868]:
+                - button "Create Enterprise Quote" [ref=e873] [cursor=pointer]
+            - generic [ref=e874]:
+              - generic [ref=e876]:
+                - paragraph [ref=e877]: Account Name
+                - paragraph [ref=e878]:
+                  - generic [ref=e883]:
+                    - link "ABAKUS INFORMINDO SYSTEMS" [ref=e884] [cursor=pointer]:
+                      - /url: /lightning/r/Account/001MS00000AKh0oYAD/view
+                      - generic [ref=e888]: ABAKUS INFORMINDO SYSTEMS
+                    - button "Open ABAKUS INFORMINDO SYSTEMS Preview" [ref=e890] [cursor=pointer]:
+                      - img [ref=e892]
+                      - generic [ref=e895]: Open ABAKUS INFORMINDO SYSTEMS Preview
+              - generic [ref=e897]:
+                - paragraph [ref=e898]: Opportunity Owner
+                - paragraph [ref=e899]:
+                  - generic [ref=e902]:
+                    - generic [ref=e907]:
+                      - link "OCKY HARLIANSYAH" [ref=e908] [cursor=pointer]:
+                        - /url: /lightning/r/User/005J1000001AMWsIAO/view
+                        - generic [ref=e912]: OCKY HARLIANSYAH
+                      - button "Open OCKY HARLIANSYAH Preview" [ref=e914] [cursor=pointer]:
+                        - img [ref=e916]
+                        - generic [ref=e919]: Open OCKY HARLIANSYAH Preview
+                    - button "Change Owner" [ref=e921] [cursor=pointer]:
+                      - img [ref=e923]
+                      - generic [ref=e926]: Change Owner
+              - generic [ref=e928]:
+                - paragraph [ref=e929]: Stage
+                - paragraph [ref=e930]:
+                  - generic [ref=e931]: Quoting
+          - article [ref=e940]:
+            - generic [ref=e941]:
+              - heading "Path" [level=2] [ref=e942]
+              - generic [ref=e945]:
+                - generic [ref=e946]:
+                  - listbox "Path Options" [ref=e950]:
+                    - option "stage complete Scoping" [ref=e951] [cursor=pointer]:
+                      - generic [ref=e954]:
+                        - img [ref=e956]
+                        - generic [ref=e959]: stage complete
+                      - generic [ref=e960]: Scoping
+                    - option "Quoting" [selected] [ref=e961] [cursor=pointer]:
+                      - generic [ref=e962]: Quoting
+                    - option "Contracting" [ref=e963] [cursor=pointer]:
+                      - generic [ref=e964]: Contracting
+                    - option "Fulfillment" [ref=e965] [cursor=pointer]:
+                      - generic [ref=e966]: Fulfillment
+                    - option "Billed" [ref=e967] [cursor=pointer]:
+                      - generic [ref=e968]: Billed
+                    - option "Closed" [ref=e969] [cursor=pointer]:
+                      - generic [ref=e970]: Closed
+                  - tooltip "1 day in Scoping":
+                    - generic [ref=e972]: 1 day in Scoping
+                - button "Mark Stage as Complete" [ref=e974] [cursor=pointer]:
+                  - img [ref=e978]
+                  - generic [ref=e981]: Mark Stage as Complete
+          - generic [ref=e982]:
+            - generic [ref=e988]:
+              - heading "Tabs" [level=2] [ref=e989]
+              - generic "Tabs" [ref=e990]:
+                - generic [ref=e991]:
+                  - heading "Tabs" [level=2] [ref=e992]
+                  - tablist "Tabs" [ref=e994]:
+                    - tab "Details" [selected] [ref=e995] [cursor=pointer]
+                    - tab "Chatter" [ref=e996] [cursor=pointer]
+                    - tab "Score Card" [ref=e997] [cursor=pointer]
+                    - tab "Credit Scoring" [ref=e998] [cursor=pointer]
+                  - tabpanel "Details" [ref=e1001]:
+                    - generic [ref=e1002]:
+                      - generic [ref=e1008]:
+                        - heading "Opportunity Information" [level=3] [ref=e1009]:
+                          - button "Opportunity Information" [expanded] [ref=e1010] [cursor=pointer]:
+                            - img [ref=e1014]
+                            - generic "Opportunity Information" [ref=e1017]
+                        - list [ref=e1020]:
+                          - generic [ref=e1021]:
+                            - generic [ref=e1024]:
+                              - listitem [ref=e1027]:
+                                - generic [ref=e1029]:
+                                  - generic [ref=e1030]: Opportunity Owner
+                                  - generic [ref=e1035]:
+                                    - generic [ref=e1042]:
+                                      - link "OCKY HARLIANSYAH" [ref=e1043] [cursor=pointer]:
+                                        - /url: /lightning/r/User/005J1000001AMWsIAO/view
+                                        - generic [ref=e1047]: OCKY HARLIANSYAH
+                                      - button "Open OCKY HARLIANSYAH Preview" [ref=e1049] [cursor=pointer]:
+                                        - img [ref=e1051]
+                                        - generic [ref=e1054]: Open OCKY HARLIANSYAH Preview
+                                    - button "Change Owner" [ref=e1056] [cursor=pointer]:
+                                      - img [ref=e1058]
+                                      - generic [ref=e1061]: Change Owner
+                              - listitem [ref=e1064]:
+                                - generic [ref=e1066]:
+                                  - generic [ref=e1067]: Opportunity Name
+                                  - generic [ref=e1068]:
+                                    - generic [ref=e1070]: Test Oppty 1
+                                    - button "Edit Opportunity Name" [ref=e1071] [cursor=pointer]:
+                                      - generic [ref=e1073]: Edit Opportunity Name
+                              - listitem [ref=e1076]:
+                                - generic [ref=e1078]:
+                                  - generic [ref=e1079]: Account Name
+                                  - generic [ref=e1080]:
+                                    - generic [ref=e1086]:
+                                      - link "ABAKUS INFORMINDO SYSTEMS" [ref=e1087] [cursor=pointer]:
+                                        - /url: /lightning/r/Account/001MS00000AKh0oYAD/view
+                                        - generic [ref=e1091]: ABAKUS INFORMINDO SYSTEMS
+                                      - button "Open ABAKUS INFORMINDO SYSTEMS Preview" [ref=e1093] [cursor=pointer]:
+                                        - img [ref=e1095]
+                                        - generic [ref=e1098]: Open ABAKUS INFORMINDO SYSTEMS Preview
+                                    - button "Edit Account Name" [ref=e1099] [cursor=pointer]:
+                                      - generic [ref=e1101]: Edit Account Name
+                              - listitem [ref=e1104]:
+                                - generic [ref=e1106]:
+                                  - generic [ref=e1107]: Sales Scenario
+                                  - generic [ref=e1108]:
+                                    - generic [ref=e1110]: BAU
+                                    - button "Edit Sales Scenario" [ref=e1111] [cursor=pointer]:
+                                      - generic [ref=e1113]: Edit Sales Scenario
+                              - listitem [ref=e1116]:
+                                - generic [ref=e1118]:
+                                  - generic [ref=e1119]: Product
+                                  - button "Edit Product" [ref=e1121] [cursor=pointer]:
+                                    - generic [ref=e1123]: Edit Product
+                              - listitem [ref=e1126]:
+                                - generic [ref=e1128]:
+                                  - generic [ref=e1129]: Next Step
+                                  - button "Edit Next Step" [ref=e1131] [cursor=pointer]:
+                                    - generic [ref=e1133]: Edit Next Step
+                              - listitem [ref=e1136]:
+                                - generic [ref=e1138]:
+                                  - generic [ref=e1139]: Opportunity Type
+                                  - generic [ref=e1140]:
+                                    - generic [ref=e1142]: New Connect
+                                    - button "Edit Opportunity Type" [ref=e1143] [cursor=pointer]:
+                                      - generic [ref=e1145]: Edit Opportunity Type
+                            - generic [ref=e1148]:
+                              - listitem [ref=e1151]:
+                                - generic [ref=e1153]:
+                                  - generic [ref=e1154]: Stage
+                                  - generic [ref=e1155]:
+                                    - generic [ref=e1157]: Quoting
+                                    - button "Edit Stage" [ref=e1158] [cursor=pointer]:
+                                      - generic [ref=e1160]: Edit Stage
+                              - listitem [ref=e1163]:
+                                - generic [ref=e1165]:
+                                  - generic [ref=e1166]: Submission Date
+                                  - button "Edit Submission Date" [ref=e1168] [cursor=pointer]:
+                                    - generic [ref=e1170]: Edit Submission Date
+                              - listitem [ref=e1173]:
+                                - generic [ref=e1175]:
+                                  - generic [ref=e1176]: Expected Closed Won Date
+                                  - button "Edit Expected Closed Won Date" [ref=e1178] [cursor=pointer]:
+                                    - generic [ref=e1180]: Edit Expected Closed Won Date
+                              - listitem [ref=e1183]:
+                                - generic [ref=e1185]:
+                                  - generic [ref=e1186]: RFS Date - From Customer
+                                  - generic [ref=e1187]:
+                                    - generic [ref=e1189]: 8/31/2026
+                                    - button "Edit RFS Date - From Customer" [ref=e1190] [cursor=pointer]:
+                                      - generic [ref=e1192]: Edit RFS Date - From Customer
+                              - listitem [ref=e1195]:
+                                - generic [ref=e1197]:
+                                  - generic [ref=e1198]: Confidence Level
+                                  - button "Help Confidence Level" [ref=e1201] [cursor=pointer]:
+                                    - img [ref=e1203]
+                                    - generic [ref=e1206]: Help Confidence Level
+                                  - button "Edit Confidence Level" [ref=e1208] [cursor=pointer]:
+                                    - generic [ref=e1210]: Edit Confidence Level
+                              - listitem [ref=e1213]:
+                                - generic [ref=e1215]:
+                                  - generic [ref=e1216]: Manager Notes
+                                  - button "Help Manager Notes" [ref=e1219] [cursor=pointer]:
+                                    - img [ref=e1221]
+                                    - generic [ref=e1224]: Help Manager Notes
+                                  - button "Edit Manager Notes" [ref=e1226] [cursor=pointer]:
+                                    - generic [ref=e1228]: Edit Manager Notes
+                              - listitem [ref=e1231]:
+                                - generic [ref=e1233]:
+                                  - generic [ref=e1234]: Payment Method
+                                  - button "Edit Payment Method" [ref=e1236] [cursor=pointer]:
+                                    - generic [ref=e1238]: Edit Payment Method
+                      - generic [ref=e1244]:
+                        - heading "Contract Information" [level=3] [ref=e1245]:
+                          - button "Contract Information" [expanded] [ref=e1246] [cursor=pointer]:
+                            - img [ref=e1250]
+                            - generic "Contract Information" [ref=e1253]
+                        - list [ref=e1256]:
+                          - generic [ref=e1257]:
+                            - generic [ref=e1260]:
+                              - listitem [ref=e1263]:
+                                - generic [ref=e1265]:
+                                  - generic [ref=e1266]: Budget Amount
+                                  - button "Edit Budget Amount" [ref=e1268] [cursor=pointer]:
+                                    - generic [ref=e1270]: Edit Budget Amount
+                              - listitem [ref=e1273]:
+                                - generic [ref=e1275]:
+                                  - generic [ref=e1276]: Total OTC
+                                  - generic [ref=e1281]: IDR 0 (USD 0.00)
+                              - listitem [ref=e1284]:
+                                - generic [ref=e1286]:
+                                  - generic [ref=e1287]: Total MRC
+                                  - generic [ref=e1292]: IDR 0 (USD 0.00)
+                            - generic [ref=e1295]:
+                              - listitem [ref=e1298]:
+                                - generic [ref=e1300]:
+                                  - generic [ref=e1301]: Number Of Contracted Months
+                                  - generic [ref=e1302]:
+                                    - generic [ref=e1304]: "12"
+                                    - button "Edit Number Of Contracted Months" [ref=e1305] [cursor=pointer]:
+                                      - generic [ref=e1307]: Edit Number Of Contracted Months
+                              - listitem [ref=e1310]:
+                                - generic [ref=e1312]:
+                                  - generic [ref=e1313]: Total Contract
+                                  - generic [ref=e1318]: IDR 0 (USD 0.00)
+                              - listitem [ref=e1321]:
+                                - generic [ref=e1323]:
+                                  - generic [ref=e1324]: Annual Contract Value
+                                  - generic [ref=e1329]: IDR 0 (USD 0.00)
+                      - heading "Sales Partner Engagement" [level=3] [ref=e1336]:
+                        - button "Sales Partner Engagement" [expanded] [ref=e1337] [cursor=pointer]:
+                          - img [ref=e1341]
+                          - generic "Sales Partner Engagement" [ref=e1344]
+            - generic [ref=e1349]:
+              - generic [ref=e1355]:
+                - paragraph [ref=e1356]:
+                  - strong [ref=e1357]: Mandatory legal documents & supporting documents
+                - paragraph [ref=e1358]:
+                  - strong [ref=e1359]: Existing Customer
+                - list [ref=e1360]:
+                  - listitem [ref=e1361]: FAB/FKB [signed by the customer and SVP Sales] & Term and Condition [initiated by PIC Sales and signed by PIC Customer], or PKS [signed by the customer and SVP Sales]
+                  - listitem [ref=e1362]: Purchase Order signed by the authorized person, or if generated by the system, no signature is required
+                  - listitem [ref=e1363]: "ID Card (KTP) of PIC: If there is a change of Customer PIC"
+              - generic [ref=e1369]:
+                - paragraph [ref=e1370]:
+                  - strong [ref=e1371]: Additional Documents (Low Risk)
+                - list [ref=e1372]:
+                  - listitem [ref=e1373]: Requires no Payment Guarantee
+              - generic [ref=e1377]:
+                - heading "Tabs" [level=2] [ref=e1378]
+                - generic "Tabs" [ref=e1379]:
+                  - generic [ref=e1380]:
+                    - heading "Tabs" [level=2] [ref=e1381]
+                    - tablist "Tabs" [ref=e1383]:
+                      - tab "Related" [selected] [ref=e1384] [cursor=pointer]
+                    - tabpanel "Related" [ref=e1387]:
+                      - generic [ref=e1388]:
+                        - generic [ref=e1392]:
+                          - article "Products" [ref=e1400]:
+                            - generic [ref=e1401]:
+                              - heading "Products (0)" [level=2] [ref=e1407]:
+                                - link "Products (0)" [ref=e1408] [cursor=pointer]:
+                                  - /url: /lightning/r/Opportunity/006MR000009TlHiYAK/related/OpportunityLineItems/view
+                                  - generic "Products" [ref=e1409]
+                                  - generic "(0)" [ref=e1410]
+                              - button "Show actions for Products" [ref=e1414] [cursor=pointer]:
+                                - generic [ref=e1416]:
+                                  - img [ref=e1418]
+                                  - generic [ref=e1421]: Show actions for Products
+                          - article "Quotes" [ref=e1427]:
+                            - generic [ref=e1428]:
+                              - generic [ref=e1429]:
+                                - generic [ref=e1432]:
+                                  - generic [ref=e1434]:
+                                    - img [ref=e1438]
+                                    - heading "Quotes (3+)" [level=2] [ref=e1440]:
+                                      - link "Quotes (3+)" [ref=e1441] [cursor=pointer]:
+                                        - /url: /lightning/r/Opportunity/006MR000009TlHiYAK/related/Quotes/view
+                                        - generic "Quotes" [ref=e1442]
+                                        - generic "(3+)" [ref=e1443]
+                                  - button "Show actions for Quotes" [ref=e1447] [cursor=pointer]:
+                                    - generic [ref=e1449]:
+                                      - img [ref=e1451]
+                                      - generic [ref=e1454]: Show actions for Quotes
+                                - generic [ref=e1462]:
+                                  - article "00083220" [ref=e1465]:
+                                    - generic [ref=e1466]:
+                                      - heading "00083220 Open 00083220 Preview" [level=3] [ref=e1468]:
+                                        - generic [ref=e1474]:
+                                          - link "00083220" [ref=e1475] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KBy20AG/view
+                                            - generic [ref=e1479]: "00083220"
+                                          - button "Open 00083220 Preview" [ref=e1481] [cursor=pointer]:
+                                            - img [ref=e1483]
+                                            - generic [ref=e1486]: Open 00083220 Preview
+                                      - generic [ref=e1488]:
+                                        - term [ref=e1489]: "Catalist Quote Name:"
+                                        - definition [ref=e1490]:
+                                          - link "Test Oppty 1 v1" [ref=e1495] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KBy20AG/view
+                                            - generic [ref=e1496]: Test Oppty 1 v1
+                                        - term [ref=e1497]: "Syncing:"
+                                        - definition [ref=e1498]:
+                                          - generic [ref=e1503]:
+                                            - generic "False" [ref=e1504]:
+                                              - generic [ref=e1505]:
+                                                - img [ref=e1507]
+                                                - generic [ref=e1510]: "False"
+                                            - generic [ref=e1511]: Syncing
+                                        - term [ref=e1512]: "Expiration Date:"
+                                        - definition
+                                    - button "Show Actions" [ref=e1517] [cursor=pointer]:
+                                      - img [ref=e1519]
+                                      - generic [ref=e1522]: Show Actions
+                                  - article "00083276" [ref=e1525]:
+                                    - generic [ref=e1526]:
+                                      - heading "00083276 Open 00083276 Preview" [level=3] [ref=e1528]:
+                                        - generic [ref=e1534]:
+                                          - link "00083276" [ref=e1535] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KXfC0AW/view
+                                            - generic [ref=e1539]: "00083276"
+                                          - button "Open 00083276 Preview" [ref=e1541] [cursor=pointer]:
+                                            - img [ref=e1543]
+                                            - generic [ref=e1546]: Open 00083276 Preview
+                                      - generic [ref=e1548]:
+                                        - term [ref=e1549]: "Catalist Quote Name:"
+                                        - definition [ref=e1550]:
+                                          - link "Test Working Cart" [ref=e1555] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KXfC0AW/view
+                                            - generic [ref=e1556]: Test Working Cart
+                                        - term [ref=e1557]: "Syncing:"
+                                        - definition [ref=e1558]:
+                                          - generic [ref=e1563]:
+                                            - generic "False" [ref=e1564]:
+                                              - generic [ref=e1565]:
+                                                - img [ref=e1567]
+                                                - generic [ref=e1570]: "False"
+                                            - generic [ref=e1571]: Syncing
+                                        - term [ref=e1572]: "Expiration Date:"
+                                        - definition
+                                    - button "Show Actions" [ref=e1577] [cursor=pointer]:
+                                      - img [ref=e1579]
+                                      - generic [ref=e1582]: Show Actions
+                                  - article "00083277" [ref=e1585]:
+                                    - generic [ref=e1586]:
+                                      - heading "00083277 Open 00083277 Preview" [level=3] [ref=e1588]:
+                                        - generic [ref=e1594]:
+                                          - link "00083277" [ref=e1595] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KYmX0AW/view
+                                            - generic [ref=e1599]: "00083277"
+                                          - button "Open 00083277 Preview" [ref=e1601] [cursor=pointer]:
+                                            - img [ref=e1603]
+                                            - generic [ref=e1606]: Open 00083277 Preview
+                                      - generic [ref=e1608]:
+                                        - term [ref=e1609]: "Catalist Quote Name:"
+                                        - definition [ref=e1610]:
+                                          - link "Test Working Cart" [ref=e1615] [cursor=pointer]:
+                                            - /url: /lightning/r/0Q0MR000001KYmX0AW/view
+                                            - generic [ref=e1616]: Test Working Cart
+                                        - term [ref=e1617]: "Syncing:"
+                                        - definition [ref=e1618]:
+                                          - generic [ref=e1623]:
+                                            - generic "False" [ref=e1624]:
+                                              - generic [ref=e1625]:
+                                                - img [ref=e1627]
+                                                - generic [ref=e1630]: "False"
+                                            - generic [ref=e1631]: Syncing
+                                        - term [ref=e1632]: "Expiration Date:"
+                                        - definition
+                                    - button "Show Actions" [ref=e1637] [cursor=pointer]:
+                                      - img [ref=e1639]
+                                      - generic [ref=e1642]: Show Actions
+                              - link "View All Quotes" [ref=e1643] [cursor=pointer]:
+                                - /url: /lightning/r/Opportunity/006MR000009TlHiYAK/related/Quotes/view
+                                - generic [ref=e1644]:
+                                  - text: View All
+                                  - generic [ref=e1645]: Quotes
+                          - article "Opportunity Team" [ref=e1653]:
+                            - generic [ref=e1654]:
+                              - heading "Opportunity Team (0)" [level=2] [ref=e1660]:
+                                - link "Opportunity Team (0)" [ref=e1661] [cursor=pointer]:
+                                  - /url: /lightning/r/Opportunity/006MR000009TlHiYAK/related/OpportunityTeamMembers/view
+                                  - generic "Opportunity Team" [ref=e1662]
+                                  - generic "(0)" [ref=e1663]
+                              - button "Show actions for Opportunity Team" [ref=e1667] [cursor=pointer]:
+                                - generic [ref=e1669]:
+                                  - img [ref=e1671]
+                                  - generic [ref=e1674]: Show actions for Opportunity Team
+                          - article [ref=e1680]:
+                            - generic [ref=e1681]:
+                              - img [ref=e1683]
+                              - heading "Contact Roles" [level=2] [ref=e1684]
+                          - article [ref=e1691]:
+                            - generic [ref=e1692]:
+                              - img [ref=e1694]
+                              - heading "Links" [level=2] [ref=e1695]
+                          - article [ref=e1702]:
+                            - generic [ref=e1703]:
+                              - img [ref=e1705]
+                              - heading "Contracts" [level=2] [ref=e1706]
+                          - article [ref=e1713]:
+                            - generic [ref=e1714]:
+                              - img [ref=e1716]
+                              - heading "Orders" [level=2] [ref=e1717]
+                          - article [ref=e1724]:
+                            - generic [ref=e1725]:
+                              - img [ref=e1727]
+                              - heading "Notes & Attachments" [level=2] [ref=e1728]
+                          - article [ref=e1735]:
+                            - generic [ref=e1736]:
+                              - img [ref=e1738]
+                              - heading "Opportunity Field History" [level=2] [ref=e1739]
+                          - article [ref=e1746]:
+                            - generic [ref=e1747]:
+                              - img [ref=e1749]
+                              - heading "Stage History" [level=2] [ref=e1750]
+                        - generic [ref=e1756]:
+                          - heading "Activity Publisher" [level=2] [ref=e1757]
+                          - group [ref=e1759]:
+                            - generic [ref=e1761]:
+                              - button "New Task" [ref=e1762] [cursor=pointer]:
+                                - generic [ref=e1764]:
+                                  - img [ref=e1766]
+                                  - generic [ref=e1769]: New Task
+                                - generic: New Task
+                              - generic [ref=e1770]:
+                                - button "No Additional New Task Actions" [disabled]:
+                                  - generic:
+                                    - img
+                                  - generic: No Additional New Task Actions
+                          - heading "Activity Timeline" [level=2] [ref=e1771]
+                          - generic [ref=e1773]:
+                            - link "Skip to the bottom of the activity timeline" [ref=e1774] [cursor=pointer]:
+                              - /url: javascript:void(0);
+                            - generic [ref=e1776]:
+                              - generic [ref=e1778]: "Filters: All time • All activities • All types"
+                              - button "Timeline Settings" [ref=e1779] [cursor=pointer]:
+                                - img [ref=e1781]
+                                - generic [ref=e1784]: Timeline Settings
+                            - generic [ref=e1787]:
+                              - button "Refresh" [ref=e1788] [cursor=pointer]
+                              - text: •
+                              - button "Expand All. Show details for activities in the timeline." [ref=e1789] [cursor=pointer]: Expand All
+                              - text: •
+                              - button "View All" [ref=e1790] [cursor=pointer]
+                            - generic [ref=e1792]:
+                              - heading "Upcoming & Overdue" [level=3] [ref=e1793]:
+                                - button "Upcoming & Overdue" [expanded] [ref=e1794] [cursor=pointer]:
+                                  - img [ref=e1796]
+                                  - text: Upcoming & Overdue
+                              - generic [ref=e1799]:
+                                - generic:
+                                  - list
+                                - generic [ref=e1802]:
+                                  - text: No activities to show.
+                                  - text: Get started by sending an email, scheduling a task, and more.
+                            - status [ref=e1803]:
+                              - generic [ref=e1805]:
+                                - img [ref=e1809]
+                                - generic [ref=e1812]: information
+                              - paragraph [ref=e1814]: To change what's shown, try changing your filters.
+                            - button "Show All Activities" [ref=e1816] [cursor=pointer]
+                            - link "Skip to the top of the activity timeline" [ref=e1817] [cursor=pointer]:
+                              - /url: javascript:void(0);
+  - generic:
+    - status

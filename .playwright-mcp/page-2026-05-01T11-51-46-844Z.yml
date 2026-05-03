@@ -1,0 +1,492 @@
+- generic [active]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "Add favorite" [ref=e1996] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "Add favorite"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e92] [cursor=pointer]:
+                - generic [ref=e93]:
+                  - img [ref=e97]
+                  - tooltip "Global Actions"
+            - listitem [ref=e100]:
+              - button "Guidance Center" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]:
+                  - img [ref=e107]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e110]:
+              - button "Salesforce Help" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - img [ref=e118]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e121]:
+              - button "Setup" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]:
+                  - img [ref=e132]
+                  - tooltip "Setup"
+            - listitem [ref=e135]:
+              - button "Notifications" [ref=e138] [cursor=pointer]:
+                - generic [ref=e139]:
+                  - img [ref=e144]
+                  - tooltip "Notifications"
+            - listitem [ref=e148]:
+              - button "View profile" [ref=e151] [cursor=pointer]:
+                - generic [ref=e152]:
+                  - tooltip "View profile"
+    - generic [ref=e156]:
+      - generic [ref=e159]:
+        - generic [ref=e161]:
+          - navigation "App" [ref=e162]:
+            - button "App Launcher" [ref=e164] [cursor=pointer]:
+              - generic [ref=e175]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e176]:
+            - generic "IOH ESM" [ref=e177]
+        - navigation "Global" [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Home" [ref=e183] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e184]: Home
+            - listitem [ref=e185]:
+              - link "Leads" [ref=e186] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e187]: Leads
+              - button "Leads List" [ref=e191] [cursor=pointer]:
+                - img [ref=e195]
+                - generic [ref=e198]: Leads List
+            - listitem [ref=e199]:
+              - link "Accounts" [ref=e200] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e201]: Accounts
+              - button "Accounts List" [ref=e205] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Accounts List
+            - listitem [ref=e213]:
+              - link "Opportunities" [ref=e214] [cursor=pointer]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e215]: Opportunities
+              - button "Opportunities List" [ref=e219] [cursor=pointer]:
+                - img [ref=e223]
+                - generic [ref=e226]: Opportunities List
+            - listitem [ref=e227]:
+              - link "Quotes" [ref=e228] [cursor=pointer]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e229]: Quotes
+              - button "Quotes List" [ref=e233] [cursor=pointer]:
+                - img [ref=e237]
+                - generic [ref=e240]: Quotes List
+            - listitem [ref=e241]:
+              - link "Field Service" [ref=e242] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e243]: Field Service
+            - listitem [ref=e244]:
+              - link "Contracts" [ref=e245] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e246]: Contracts
+              - button "Contracts List" [ref=e250] [cursor=pointer]:
+                - img [ref=e254]
+                - generic [ref=e257]: Contracts List
+            - listitem [ref=e1997] [cursor=pointer]:
+              - link "* Enterprise Sales App" [ref=e1998]:
+                - /url: /lightning/n/vlocity_cmt__EnterpriseSalesApp?c__accountId=001MS00000AKh0o&c__cartId=0Q0MR000001OhOD0A0&c__cartName=Test%20Oppty%201%20v2&c__ContainerName=cfB2bSampleAppCard&c__objType=Quote
+                - generic "Not added to nav bar" [ref=e1999]: "*"
+                - generic [ref=e2000]: Enterprise Sales App
+              - button "Enterprise Sales App List" [ref=e2004]:
+                - img [ref=e2008]
+                - generic [ref=e2011]: Enterprise Sales App List
+              - button "Close tab" [ref=e2012]:
+                - img [ref=e2016]
+                - generic [ref=e2019]: Close tab
+            - listitem [ref=e272]:
+              - button "Show more navigation items" [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: More
+                - img [ref=e279]
+                - generic [ref=e282]: Show more navigation items
+            - listitem [ref=e283]:
+              - button "Edit nav items" [ref=e285] [cursor=pointer]:
+                - img [ref=e287]
+                - generic [ref=e290]: Edit nav items
+      - main [ref=e292]:
+        - generic [ref=e3351]:
+          - generic [ref=e3354]:
+            - generic [ref=e3355]:
+              - generic [ref=e3356]:
+                - img [ref=e3359]
+                - generic [ref=e3362]:
+                  - heading "Enterprise Quote" [level=1] [ref=e3363]
+                  - generic [ref=e3365]: Test Oppty 1 v2
+              - generic [ref=e3368]:
+                - group [ref=e3370]:
+                  - generic [ref=e3372]:
+                    - button "Add Assets" [ref=e3373] [cursor=pointer]
+                    - button "Add Products" [ref=e3374] [cursor=pointer]
+                    - button "Number Mgmt" [ref=e3375] [cursor=pointer]
+                - group [ref=e3376]:
+                  - generic [ref=e3378]:
+                    - button "Configure Enterprise Guided Quote" [ref=e3379] [cursor=pointer]
+                    - button "Discounts and Promotions" [ref=e3380] [cursor=pointer]
+                    - button "Create Final Orders" [ref=e3381] [cursor=pointer]
+                    - button "Show menu" [ref=e3383] [cursor=pointer]:
+                      - img [ref=e3385]
+                      - generic [ref=e3388]: Show menu
+            - generic [ref=e3390]:
+              - generic [ref=e3391]:
+                - generic [ref=e3392]: One Time Total
+                - generic "IDR 0.00" [ref=e3393]
+              - generic [ref=e3394]:
+                - generic [ref=e3395]: Monthly Total
+                - generic "IDR 0.00" [ref=e3396]
+              - generic [ref=e3397]:
+                - generic [ref=e3398]:
+                  - generic [ref=e3399]: Price Difference
+                  - button "Help" [ref=e3403] [cursor=pointer]:
+                    - img [ref=e3405]
+                    - generic [ref=e3408]: Help
+                - generic [ref=e3409]:
+                  - generic "IDR 0.00" [ref=e3410]
+                  - generic "0" [ref=e3411]:
+                    - text: (0%
+                    - img [ref=e3415]
+                    - text: )
+              - generic [ref=e3418]:
+                - generic [ref=e3419]: Quote Total
+                - generic "IDR 0.00" [ref=e3420]
+              - generic [ref=e3423]:
+                - generic [ref=e3424]: Contract Term(Months)
+                - generic [ref=e3425]: "12"
+              - generic [ref=e3426]:
+                - generic [ref=e3427]: Settings
+                - button "Currency display settings" [ref=e3430] [cursor=pointer]:
+                  - img [ref=e3432]
+                  - generic [ref=e3435]: Currency display settings
+          - generic [ref=e3437]:
+            - generic [ref=e3446]:
+              - tablist [ref=e3447]:
+                - tab "Configuration Cart" [selected] [ref=e3448] [cursor=pointer]:
+                  - generic [ref=e3449]: Configuration Cart
+                - tab "Assign Services" [ref=e3450] [cursor=pointer]:
+                  - generic [ref=e3451]: Assign Services
+              - generic:
+                - generic "Configuration Cart":
+                  - tabpanel
+            - generic [ref=e4811]:
+              - generic [ref=e4813]:
+                - generic [ref=e4814]:
+                  - generic [ref=e4815]:
+                    - generic [ref=e4816]: Products (1)
+                    - generic [ref=e4818]:
+                      - button "Help" [ref=e4823] [cursor=pointer]:
+                        - img [ref=e4825]
+                        - generic [ref=e4828]: Help
+                      - button "Sync Cart with validation and pricing" [ref=e4830] [cursor=pointer]:
+                        - img [ref=e4833]
+                        - generic [ref=e4836]: Sync Cart with validation and pricing
+                  - generic [ref=e4838]:
+                    - button "Collapse All" [ref=e4839] [cursor=pointer]
+                    - button "Expand All" [ref=e4841] [cursor=pointer]
+                - generic [ref=e4844]:
+                  - img [ref=e4846]
+                  - text: Review 2 alerts in your cart - Click here to review all
+                - generic [ref=e4850]:
+                  - generic [ref=e4854]:
+                    - button "Expanded" [ref=e4857]:
+                      - generic "Expanded" [ref=e4858]:
+                        - img [ref=e4859]
+                    - generic [ref=e4864]:
+                      - checkbox "Anti-DDoS - Fortinet[Bundle] Add Quantity One Time Price IDR 0.00 Recurring Price IDR 0.00 One Time Total IDR 25,000,000.00 Recurring Total IDR 10,000,000.00 One Time Cost IDR 0.00 Recurring Cost IDR 0.00 Delete Show menu" [checked] [ref=e4865]
+                      - generic [ref=e4867] [cursor=pointer]:
+                        - generic [ref=e4868]:
+                          - img [ref=e4871]
+                          - generic [ref=e4874]: Anti-DDoS - Fortinet[Bundle]
+                        - generic [ref=e4875]:
+                          - generic [ref=e4877]: Add
+                          - generic [ref=e4878]:
+                            - generic [ref=e4879]: Quantity
+                            - spinbutton "Quantity" [disabled] [ref=e4881]: "1"
+                          - generic [ref=e4882]:
+                            - generic [ref=e4883]:
+                              - paragraph [ref=e4884]: One Time Price
+                              - generic [ref=e4885]:
+                                - generic [ref=e4886]: IDR
+                                - textbox "IDR 0.00" [ref=e4887]: "0.00"
+                            - generic [ref=e4888]:
+                              - paragraph [ref=e4889]: Recurring Price
+                              - generic [ref=e4890]:
+                                - generic [ref=e4891]: IDR
+                                - textbox "IDR 0.00" [ref=e4892]: "0.00"
+                            - generic [ref=e4893]:
+                              - paragraph [ref=e4894]: One Time Total
+                              - paragraph [ref=e4895]: IDR 25,000,000.00
+                            - generic [ref=e4896]:
+                              - paragraph [ref=e4897]: Recurring Total
+                              - paragraph [ref=e4898]: IDR 10,000,000.00
+                            - generic [ref=e4899]:
+                              - paragraph [ref=e4900]: One Time Cost
+                              - generic [ref=e4901]:
+                                - generic [ref=e4902]: IDR
+                                - textbox "IDR 0.00" [ref=e4903]: "0.00"
+                            - generic [ref=e4904]:
+                              - paragraph [ref=e4905]: Recurring Cost
+                              - generic [ref=e4906]:
+                                - generic [ref=e4907]: IDR
+                                - textbox "IDR 0.00" [ref=e4908]: "0.00"
+                          - button "Delete" [ref=e4911]:
+                            - img [ref=e4912]
+                          - button "Show menu" [ref=e4919]:
+                            - img [ref=e4921]
+                            - generic [ref=e4924]: Show menu
+                      - generic [ref=e4928]:
+                        - generic [ref=e4929]: Optional Products (3)
+                        - generic [ref=e4936]:
+                          - button "Support Services Ongoing assistance to ensure product uptime and performance. Show Details One Time IDR 0.00 Monthly IDR 0.00" [ref=e4940] [cursor=pointer]:
+                            - generic "Support Services" [ref=e4941]
+                            - generic [ref=e4943]: Ongoing assistance to ensure product uptime and performance.
+                            - generic [ref=e4944]:
+                              - button "Show Details" [ref=e4946]
+                              - generic [ref=e4949]:
+                                - generic [ref=e4950]:
+                                  - paragraph [ref=e4951]: One Time
+                                  - paragraph [ref=e4952]: IDR 0.00
+                                - generic [ref=e4953]:
+                                  - paragraph [ref=e4954]: Monthly
+                                  - paragraph [ref=e4955]: IDR 0.00
+                          - button "Managed Services Remote or on‑site oversight by expert teams handling day‑to‑day operations, monitoring, and management of the security solution. Show Details One Time IDR 0.00 Monthly IDR 0.00" [ref=e4959] [cursor=pointer]:
+                            - generic "Managed Services" [ref=e4960]
+                            - generic [ref=e4962]: Remote or on‑site oversight by expert teams handling day‑to‑day operations, monitoring, and management of the security solution.
+                            - generic [ref=e4963]:
+                              - button "Show Details" [ref=e4965]
+                              - generic [ref=e4968]:
+                                - generic [ref=e4969]:
+                                  - paragraph [ref=e4970]: One Time
+                                  - paragraph [ref=e4971]: IDR 0.00
+                                - generic [ref=e4972]:
+                                  - paragraph [ref=e4973]: Monthly
+                                  - paragraph [ref=e4974]: IDR 0.00
+                          - button "Engineer on Site Dedicated on‑premises technical personnel dispatched for installations, upgrades, or incident response support. Show Details One Time IDR 0.00 Monthly IDR 0.00" [ref=e4978] [cursor=pointer]:
+                            - generic "Engineer on Site" [ref=e4979]
+                            - generic [ref=e4981]: Dedicated on‑premises technical personnel dispatched for installations, upgrades, or incident response support.
+                            - generic [ref=e4982]:
+                              - button "Show Details" [ref=e4984]
+                              - generic [ref=e4987]:
+                                - generic [ref=e4988]:
+                                  - paragraph [ref=e4989]: One Time
+                                  - paragraph [ref=e4990]: IDR 0.00
+                                - generic [ref=e4991]:
+                                  - paragraph [ref=e4992]: Monthly
+                                  - paragraph [ref=e4993]: IDR 0.00
+                        - generic [ref=e4998]:
+                          - button "Collapsed" [ref=e5001]:
+                            - generic "Collapsed" [ref=e5002]:
+                              - img [ref=e5003]
+                          - generic [ref=e5007]:
+                            - checkbox "Equipment Billing TypePrepaid Equipment TypeAnti-DDoS Cost TypeCost of Sales Equipment Specification- EBITDA Service TypeReseller for IT Services Add Quantity One Time Price IDR 0.00 Recurring Price IDR 0.00 One Time Total IDR 0.00 Recurring Total IDR 0.00 One Time Cost IDR 0.00 Recurring Cost IDR 0.00 Delete Show menu" [ref=e5008]
+                            - generic [ref=e5010] [cursor=pointer]:
+                              - generic [ref=e5011]:
+                                - img [ref=e5014]
+                                - text: Equipment
+                                - generic [ref=e5017]:
+                                  - generic [ref=e5018]: Billing TypePrepaid
+                                  - generic [ref=e5019]: Equipment TypeAnti-DDoS
+                                  - generic [ref=e5020]: Cost TypeCost of Sales
+                                  - generic [ref=e5021]: Equipment Specification-
+                                  - generic [ref=e5022]: EBITDA Service TypeReseller for IT Services
+                              - generic [ref=e5023]:
+                                - generic [ref=e5025]: Add
+                                - generic [ref=e5026]:
+                                  - generic [ref=e5027]: Quantity
+                                  - spinbutton "Quantity" [ref=e5029]: "1"
+                                - generic [ref=e5030]:
+                                  - generic [ref=e5031]:
+                                    - paragraph [ref=e5032]: One Time Price
+                                    - generic [ref=e5033]:
+                                      - generic [ref=e5034]: IDR
+                                      - textbox "IDR 0.00" [ref=e5035]: "0.00"
+                                  - generic [ref=e5036]:
+                                    - paragraph [ref=e5037]: Recurring Price
+                                    - generic [ref=e5038]:
+                                      - generic [ref=e5039]: IDR
+                                      - textbox "IDR 0.00" [ref=e5040]: "0.00"
+                                  - generic [ref=e5041]:
+                                    - paragraph [ref=e5042]: One Time Total
+                                    - paragraph [ref=e5043]: IDR 0.00
+                                  - generic [ref=e5044]:
+                                    - paragraph [ref=e5045]: Recurring Total
+                                    - paragraph [ref=e5046]: IDR 0.00
+                                  - generic [ref=e5047]:
+                                    - paragraph [ref=e5048]: One Time Cost
+                                    - generic [ref=e5049]:
+                                      - generic [ref=e5050]: IDR
+                                      - textbox "IDR 0.00" [ref=e5051]: "0.00"
+                                  - generic [ref=e5052]:
+                                    - paragraph [ref=e5053]: Recurring Cost
+                                    - generic [ref=e5054]:
+                                      - generic [ref=e5055]: IDR
+                                      - textbox "IDR 0.00" [ref=e5056]: "0.00"
+                                - button "Delete" [ref=e5059]:
+                                  - img [ref=e5060]
+                                - button "Show menu" [ref=e5067]:
+                                  - img [ref=e5069]
+                                  - generic [ref=e5072]: Show menu
+                        - generic [ref=e5077]:
+                          - button "Collapsed" [ref=e5080]:
+                            - generic "Collapsed" [ref=e5081]:
+                              - img [ref=e5082]
+                          - generic [ref=e5086]:
+                            - checkbox "License Billing TypePrepaid License TypeAnti-DDoS Security PartnerFortinet Cost TypeCost of Sales License Specification- EBITDA Service TypeReseller for IT Services Add Quantity One Time Price IDR 25,000,000.00 IDR 0.00 Recurring Price IDR 10,000,000.00 IDR 0.00 One Time Total IDR 25,000,000.00 Recurring Total IDR 10,000,000.00 One Time Cost IDR 0.00 Recurring Cost IDR 0.00 Delete Show menu" [ref=e5087]
+                            - generic [ref=e5089] [cursor=pointer]:
+                              - generic [ref=e5090]:
+                                - text: License
+                                - generic [ref=e5091]:
+                                  - generic [ref=e5092]: Billing TypePrepaid
+                                  - generic [ref=e5093]: License TypeAnti-DDoS
+                                  - generic [ref=e5094]: Security PartnerFortinet
+                                  - generic [ref=e5095]: Cost TypeCost of Sales
+                                  - generic [ref=e5096]: License Specification-
+                                  - generic [ref=e5097]: EBITDA Service TypeReseller for IT Services
+                              - generic [ref=e5098]:
+                                - generic [ref=e5100]: Add
+                                - generic [ref=e5101]:
+                                  - generic [ref=e5102]: Quantity
+                                  - spinbutton "Quantity" [ref=e5104]: "1"
+                                - generic [ref=e5105]:
+                                  - generic [ref=e5106]:
+                                    - paragraph [ref=e5107]: One Time Price
+                                    - generic [ref=e5108]:
+                                      - generic [ref=e5109]: IDR
+                                      - textbox "IDR 25,000,000.00" [ref=e5110]: 25,000,000.00
+                                    - paragraph [ref=e5111]: IDR 0.00
+                                  - generic [ref=e5112]:
+                                    - paragraph [ref=e5113]: Recurring Price
+                                    - generic [ref=e5114]:
+                                      - generic [ref=e5115]: IDR
+                                      - textbox "IDR 10,000,000.00" [ref=e5116]: 10,000,000.00
+                                    - paragraph [ref=e5117]: IDR 0.00
+                                  - generic [ref=e5118]:
+                                    - paragraph [ref=e5119]: One Time Total
+                                    - paragraph [ref=e5120]: IDR 25,000,000.00
+                                  - generic [ref=e5121]:
+                                    - paragraph [ref=e5122]: Recurring Total
+                                    - paragraph [ref=e5123]: IDR 10,000,000.00
+                                  - generic [ref=e5124]:
+                                    - paragraph [ref=e5125]: One Time Cost
+                                    - generic [ref=e5126]:
+                                      - generic [ref=e5127]: IDR
+                                      - textbox "IDR 0.00" [ref=e5128]: "0.00"
+                                  - generic [ref=e5129]:
+                                    - paragraph [ref=e5130]: Recurring Cost
+                                    - generic [ref=e5131]:
+                                      - generic [ref=e5132]: IDR
+                                      - textbox "IDR 0.00" [ref=e5133]: "0.00"
+                                - button "Delete" [ref=e5136]:
+                                  - img [ref=e5137]
+                                - button "Show menu" [ref=e5144]:
+                                  - img [ref=e5146]
+                                  - generic [ref=e5149]: Show menu
+                        - generic [ref=e5154]:
+                          - button "Collapsed" [ref=e5157]:
+                            - generic "Collapsed" [ref=e5158]:
+                              - img [ref=e5159]
+                          - generic [ref=e5163]:
+                            - checkbox "Set Up and Installation Billing TypePostpaid Installation TypeAnti-DDoS Cost TypeCost of Sales Mandays1 Resource TypeInsource Service CategoryDay 1 EBITDA Service TypeReseller for IT Services Add Quantity One Time Price IDR 0.00 Recurring Price IDR 0.00 One Time Total IDR 0.00 Recurring Total IDR 0.00 One Time Cost IDR 0.00 Recurring Cost IDR 0.00 Delete Show menu" [ref=e5164]
+                            - generic [ref=e5166] [cursor=pointer]:
+                              - generic [ref=e5167]:
+                                - text: Set Up and Installation
+                                - generic [ref=e5168]:
+                                  - generic [ref=e5169]: Billing TypePostpaid
+                                  - generic [ref=e5170]: Installation TypeAnti-DDoS
+                                  - generic [ref=e5171]: Cost TypeCost of Sales
+                                  - generic [ref=e5172]: Mandays1
+                                  - generic [ref=e5173]: Resource TypeInsource
+                                  - generic [ref=e5174]: Service CategoryDay 1
+                                  - generic [ref=e5175]: EBITDA Service TypeReseller for IT Services
+                              - generic [ref=e5176]:
+                                - generic [ref=e5178]: Add
+                                - generic [ref=e5179]:
+                                  - generic [ref=e5180]: Quantity
+                                  - spinbutton "Quantity" [ref=e5182]: "1"
+                                - generic [ref=e5183]:
+                                  - generic [ref=e5184]:
+                                    - paragraph [ref=e5185]: One Time Price
+                                    - generic [ref=e5186]:
+                                      - generic [ref=e5187]: IDR
+                                      - textbox "IDR 0.00" [ref=e5188]: "0.00"
+                                  - generic [ref=e5189]:
+                                    - paragraph [ref=e5190]: Recurring Price
+                                    - generic [ref=e5191]:
+                                      - generic [ref=e5192]: IDR
+                                      - textbox "IDR 0.00" [ref=e5193]: "0.00"
+                                  - generic [ref=e5194]:
+                                    - paragraph [ref=e5195]: One Time Total
+                                    - paragraph [ref=e5196]: IDR 0.00
+                                  - generic [ref=e5197]:
+                                    - paragraph [ref=e5198]: Recurring Total
+                                    - paragraph [ref=e5199]: IDR 0.00
+                                  - generic [ref=e5200]:
+                                    - paragraph [ref=e5201]: One Time Cost
+                                    - generic [ref=e5202]:
+                                      - generic [ref=e5203]: IDR
+                                      - textbox "IDR 0.00" [ref=e5204]: "0.00"
+                                  - generic [ref=e5205]:
+                                    - paragraph [ref=e5206]: Recurring Cost
+                                    - generic [ref=e5207]:
+                                      - generic [ref=e5208]: IDR
+                                      - textbox "IDR 0.00" [ref=e5209]: "0.00"
+                                - button "Delete" [ref=e5212]:
+                                  - img [ref=e5213]
+                                - button "Show menu" [ref=e5220]:
+                                  - img [ref=e5222]
+                                  - generic [ref=e5225]: Show menu
+                  - separator [ref=e5226]
+              - generic [ref=e5227]:
+                - generic [ref=e5229]:
+                  - generic [ref=e5231]:
+                    - paragraph [ref=e5232]: Location
+                    - paragraph [ref=e5233]:
+                      - textbox [disabled] [ref=e5234]: "0"
+                      - img [ref=e5236]
+                  - generic [ref=e5240]:
+                    - paragraph [ref=e5241]: One Time Total
+                    - paragraph [ref=e5242]: IDR 25,000,000.00
+                  - generic [ref=e5244]:
+                    - paragraph [ref=e5245]: Monthly Total
+                    - paragraph [ref=e5246]: IDR 10,000,000.00
+                  - generic [ref=e5248]:
+                    - button "Link Products" [disabled]
+                - generic [ref=e5249]:
+                  - button "Back" [ref=e5251] [cursor=pointer]
+                  - generic [ref=e5253]:
+                    - button "Add 1 Product to Quote" [disabled]
+                  - button "Sync Cart with validation and pricing" [ref=e5257] [cursor=pointer]:
+                    - generic [ref=e5259]:
+                      - img
+                    - generic [ref=e5261]: Sync Cart with validation and pricing
+  - generic:
+    - status

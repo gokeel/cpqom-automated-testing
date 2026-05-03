@@ -1,0 +1,30 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - generic [ref=e8]: Salesforce login
+    - heading "Check Your Mobile Device" [level=2] [ref=e9]
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - paragraph [ref=e13]:
+          - text: Use Salesforce Authenticator to approve the request to
+          - text: Log In to Salesforce.
+        - generic [ref=e14]:
+          - img "Check Your Mobile Device" [ref=e15]
+          - img "Check Your Mobile Device" [ref=e16]
+          - generic [ref=e17]:
+            - generic [ref=e18]: Verify the details
+            - img "Check Your Mobile Device" [ref=e20]
+          - generic [ref=e21]:
+            - generic [ref=e22]: Verify the details
+            - img "Check Your Mobile Device" [ref=e24]
+          - generic [ref=e25]:
+            - generic [ref=e26]: Tap Approve or Deny
+            - img "Check Your Mobile Device" [ref=e28]
+        - paragraph [ref=e31]:
+          - link "Having Trouble?" [ref=e32] [cursor=pointer]:
+            - /url: javascript:%20void%280%29%3B
+      - generic [ref=e33]:
+        - checkbox "Don't ask again" [checked] [ref=e34]
+        - text: Don't ask again
+  - generic [ref=e35]: © 2026 Salesforce, Inc. All rights reserved.
