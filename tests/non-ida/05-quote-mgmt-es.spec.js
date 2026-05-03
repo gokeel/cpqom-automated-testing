@@ -3,7 +3,7 @@ import * as allure from "allure-js-commons";
 import dataAuth from "../../test-data/auth.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
-import { getRuntimeState, setRuntimeState, closeDb } from "../../utils/db.js";
+import { getRuntimeState, getTestParams, setRuntimeState, closeDb } from "../../utils/db.js";
 import quoteData from "../../test-data/non-ida-05-quote.json" assert { type: "json" };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,10 +15,12 @@ let opportunityId;
 const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
 let context;
 let page;
+let testParams;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
     opportunityId = await getRuntimeState('opportunityId');
+    testParams = await getTestParams('quote_mgmt', 'tc_quote');
     console.log('Opportunity ID: '+opportunityId);
 
     context = await chromium.launchPersistentContext(userDataDirectory, {
@@ -141,6 +143,12 @@ async function sfRequest(request, method, url, { headers, data } = {}) {
 }
 
 test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) => {
+    await allure.epic('Quote Management');
+    await allure.feature('Enterprise Quote');
+
+    await allure.story('Create an Enterprise Quote as ES Team');
+    await allure.severity('normal');
+    
     test.setTimeout(300_000);
 
     let cartId;
@@ -246,7 +254,7 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
         expect(records.length, 'No products returned from B2B price list').toBeGreaterThan(0);
 
         // Prefer the product named in test data; fall back to first available
-        const targetName = quoteData.tc010?.productName;
+        const targetName = testParams.productName;
         const match = targetName
             ? records.find(p => (p.Product2?.Name ?? p.Name ?? '').includes(targetName))
             : null;
@@ -272,7 +280,7 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
                         cartId,
                         price: true,
                         validate: true,
-                        items: [{ itemId: productId, quantity: 1 }],
+                        items: [{ itemId: productId, quantity: testParams.quantity }],
                     },
                 }
             );
@@ -328,25 +336,30 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
         console.log('Pricing sync complete.');
     });
 
-    // ── STEP 6 — Fetch quote total ────────────────────────────────────────────
-    await test.step('Step 6: Fetch and verify quote total', async () => {
-        let body;
-        try {
-            body = await sfRequest(request, 'get',
-                `${instanceUrl}/services/data/v66.0/sobjects/Quote/${cartId}` +
-                `?fields=TotalPrice,GrandTotal,vlocity_cmt__QuoteTotal__c`,
-                { headers: hdrs() }
-            );
-        } catch (e) {
-            await testInfo.attach('quote-total-error', { body: JSON.stringify(e.body ?? e.message), contentType: 'application/json' });
-            throw e;
-        }
+    // Verify Quote Line Items on Quote Record Page
+    const quoteId = await getRuntimeState('cartId');
+    expect(quoteId, 'cartId not found in runtime state — run TC010 first').toBeTruthy();
 
-        const total = body.vlocity_cmt__QuoteTotal__c ?? body.GrandTotal ?? body.TotalPrice;
-        console.log(`Quote total: ${total}`);
-        expect(total, 'Quote total is null — pricing may not have applied').not.toBeNull();
-        expect(total, 'Quote total is undefined').not.toBeUndefined();
-    });
+    const quoteUrl = `${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${quoteId}/view`;
+    await page.goto(quoteUrl);
+
+    // Wait for the record page to load
+    await page.waitForURL('**/lightning/r/Quote/**', { timeout: 30_000 });
+    await expect(page.getByRole('tab', { name: 'Related' })).toBeVisible({ timeout: 15_000 });
+
+    // Click the Related tab
+    await page.getByRole('tab', { name: 'Related' }).click();
+    await page.waitForTimeout(3000);
+
+    // Wait for the Quote Line Items related list header to appear
+    const qliLink = page.getByRole('link', { name: /Quote Line Items \(\d+\)/ });
+    await expect(qliLink).toBeVisible({ timeout: 15_000 });
+
+    // Extract the count from the link text, e.g. "Quote Line Items (3)" → 3
+    const linkText = await qliLink.textContent();
+    const match = linkText?.match(/\((\d+)\)/);
+    const count = match ? parseInt(match[1], 10) : 0;
+
+    console.log(`Quote Line Items count: ${count}`);
+    expect(count, 'Expected at least 1 Quote Line Item').toBeGreaterThanOrEqual(1);
 });
-
-

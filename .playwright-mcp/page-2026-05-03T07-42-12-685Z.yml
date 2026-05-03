@@ -1,0 +1,431 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to Navigation" [ref=e4] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - link "Skip to Main Content" [ref=e5] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e9]:
+        - generic [ref=e13]:
+          - button "Toggle Panel" [ref=e17] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e24]: Menu
+          - generic [ref=e29]:
+            - img [ref=e33]
+            - generic [ref=e37]: Sandbox (cpqsitdelo)
+        - button "Show menu" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Show menu
+      - generic [ref=e52]:
+        - button "Search" [ref=e58]:
+          - img [ref=e60]
+          - text: Search...
+        - navigation "Global Header" [ref=e63]:
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - group [ref=e67]:
+                - button "Add favorite" [ref=e285] [cursor=pointer]:
+                  - generic [ref=e70]:
+                    - img [ref=e74]
+                    - tooltip "Add favorite"
+                - button "Favorites list" [ref=e78] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - img [ref=e83]
+                    - tooltip "Favorites list"
+            - listitem [ref=e86]:
+              - button "Global Actions" [ref=e290] [cursor=pointer]:
+                - generic [ref=e291]:
+                  - img [ref=e295]
+                  - tooltip "Global Actions"
+            - listitem [ref=e298]:
+              - button "Guidance Center" [ref=e300] [cursor=pointer]:
+                - generic [ref=e301]:
+                  - img [ref=e305]
+                  - tooltip "Guidance Center"
+            - listitem [ref=e95]:
+              - button "Salesforce Help" [ref=e98] [cursor=pointer]:
+                - generic [ref=e99]:
+                  - img [ref=e103]
+                  - tooltip "Salesforce Help"
+            - listitem [ref=e106]:
+              - button "Setup" [ref=e112] [cursor=pointer]:
+                - generic [ref=e113]:
+                  - img [ref=e117]
+                  - tooltip "Setup"
+            - listitem [ref=e120]:
+              - button "Notifications" [ref=e123] [cursor=pointer]:
+                - generic [ref=e124]:
+                  - img [ref=e129]
+                  - tooltip "Notifications"
+            - listitem [ref=e133]:
+              - button "View profile" [ref=e136] [cursor=pointer]:
+                - generic [ref=e137]:
+                  - tooltip "View profile"
+    - generic [ref=e141]:
+      - generic [ref=e144]:
+        - generic [ref=e146]:
+          - navigation "App" [ref=e147]:
+            - button "App Launcher" [ref=e149] [cursor=pointer]:
+              - generic [ref=e160]: App Launcher
+          - heading "IOH ESM" [level=1] [ref=e161]:
+            - generic "IOH ESM" [ref=e162]
+        - navigation "Global" [ref=e165]:
+          - list [ref=e166]:
+            - listitem [ref=e167]:
+              - link "Home" [ref=e168] [cursor=pointer]:
+                - /url: /lightning/page/home
+                - generic [ref=e169]: Home
+            - listitem [ref=e170]:
+              - link "Leads" [ref=e171] [cursor=pointer]:
+                - /url: /lightning/o/Lead/home
+                - generic [ref=e172]: Leads
+              - button "Leads List" [ref=e176] [cursor=pointer]:
+                - img [ref=e180]
+                - generic [ref=e183]: Leads List
+            - listitem [ref=e184]:
+              - link "Accounts" [ref=e185] [cursor=pointer]:
+                - /url: /lightning/o/Account/home
+                - generic [ref=e186]: Accounts
+              - button "Accounts List" [ref=e190] [cursor=pointer]:
+                - img [ref=e194]
+                - generic [ref=e197]: Accounts List
+            - listitem [ref=e198]:
+              - link "Opportunities" [ref=e199] [cursor=pointer]:
+                - /url: /lightning/o/Opportunity/home
+                - generic [ref=e200]: Opportunities
+              - button "Opportunities List" [ref=e204] [cursor=pointer]:
+                - img [ref=e208]
+                - generic [ref=e211]: Opportunities List
+            - listitem [ref=e212] [cursor=pointer]:
+              - link "Quotes" [ref=e213]:
+                - /url: /lightning/o/Quote/home
+                - generic [ref=e214]: Quotes
+              - button "Quotes List" [ref=e218]:
+                - img [ref=e222]
+                - generic [ref=e225]: Quotes List
+            - listitem [ref=e226]:
+              - link "Field Service" [ref=e227] [cursor=pointer]:
+                - /url: /lightning/n/FSL__FieldService
+                - generic [ref=e228]: Field Service
+            - listitem [ref=e229]:
+              - link "Contracts" [ref=e230] [cursor=pointer]:
+                - /url: /lightning/o/Contract/home
+                - generic [ref=e231]: Contracts
+              - button "Contracts List" [ref=e235] [cursor=pointer]:
+                - img [ref=e239]
+                - generic [ref=e242]: Contracts List
+            - listitem [ref=e243]:
+              - link "Orders" [ref=e244] [cursor=pointer]:
+                - /url: /lightning/o/Order/home
+                - generic [ref=e245]: Orders
+              - button "Orders List" [ref=e249] [cursor=pointer]:
+                - img [ref=e253]
+                - generic [ref=e256]: Orders List
+            - listitem [ref=e257]:
+              - button "Show more navigation items" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: More
+                - img [ref=e264]
+                - generic [ref=e267]: Show more navigation items
+            - listitem [ref=e268]:
+              - button "Edit nav items" [ref=e270] [cursor=pointer]:
+                - img [ref=e272]
+                - generic [ref=e275]: Edit nav items
+      - main [ref=e277]:
+        - generic [ref=e319]:
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - heading "Quote API Test Quote 1777793313416" [level=1] [ref=e336]:
+                - generic [ref=e338]: Quote
+                - generic [ref=e339]: API Test Quote 1777793313416
+              - button "Follow" [ref=e344] [cursor=pointer]:
+                - generic [ref=e345]:
+                  - img [ref=e349]
+                  - text: Follow
+              - generic [ref=e355]:
+                - generic "Configure Enterprise Quote" [ref=e356]:
+                  - button "Configure Enterprise Quote" [ref=e361] [cursor=pointer]
+                - generic "Submit for Approval" [ref=e362]:
+                  - button "Submit for Approval" [ref=e367] [cursor=pointer]
+                - generic "Generate Quote Document" [ref=e368]:
+                  - button "Generate Quote Document" [ref=e373] [cursor=pointer]
+                - button "Show more actions" [ref=e375] [cursor=pointer]:
+                  - img [ref=e377]
+                  - generic [ref=e380]: Show more actions
+            - generic [ref=e381]:
+              - generic [ref=e383]:
+                - paragraph [ref=e384]: Opportunity Name
+                - paragraph [ref=e385]:
+                  - generic [ref=e390]:
+                    - link "Test Oppty 1" [ref=e391] [cursor=pointer]:
+                      - /url: /lightning/r/Opportunity/006MR000009TlHiYAK/view
+                      - generic [ref=e395]: Test Oppty 1
+                    - button "Open Test Oppty 1 Preview" [ref=e397] [cursor=pointer]:
+                      - img [ref=e399]
+                      - generic [ref=e402]: Open Test Oppty 1 Preview
+              - generic [ref=e404]:
+                - paragraph [ref=e405]: Account Name
+                - paragraph [ref=e406]:
+                  - generic [ref=e411]:
+                    - link "ABAKUS INFORMINDO SYSTEMS" [ref=e412] [cursor=pointer]:
+                      - /url: /lightning/r/Account/001MS00000AKh0oYAD/view
+                      - generic [ref=e416]: ABAKUS INFORMINDO SYSTEMS
+                    - button "Open ABAKUS INFORMINDO SYSTEMS Preview" [ref=e418] [cursor=pointer]:
+                      - img [ref=e420]
+                      - generic [ref=e423]: Open ABAKUS INFORMINDO SYSTEMS Preview
+          - generic [ref=e427]:
+            - article [ref=e433]:
+              - generic [ref=e434]:
+                - heading "Path" [level=2] [ref=e435]
+                - generic [ref=e438]:
+                  - listbox "Path Options" [ref=e443]:
+                    - option "Draft" [selected] [ref=e444] [cursor=pointer]:
+                      - generic [ref=e445]: Draft
+                    - option "Solution Design" [ref=e446] [cursor=pointer]:
+                      - generic [ref=e447]: Solution Design
+                    - option "Pricing Approval" [ref=e448] [cursor=pointer]:
+                      - generic [ref=e449]: Pricing Approval
+                    - option "Negotiation" [ref=e450] [cursor=pointer]:
+                      - generic [ref=e451]: Negotiation
+                    - option "Closed" [ref=e452] [cursor=pointer]:
+                      - generic [ref=e453]: Closed
+                  - button "Mark Catalist Quote Status as Complete" [ref=e455] [cursor=pointer]:
+                    - img [ref=e459]
+                    - generic [ref=e462]: Mark Catalist Quote Status as Complete
+            - generic [ref=e466]:
+              - heading "Tabs" [level=2] [ref=e467]
+              - generic "Tabs" [ref=e468]:
+                - generic [ref=e469]:
+                  - heading "Tabs" [level=2] [ref=e470]
+                  - tablist "Tabs" [ref=e472]:
+                    - tab "Details" [ref=e473] [cursor=pointer]
+                    - tab "Serviceability" [ref=e474] [cursor=pointer]
+                    - tab "Related" [active] [selected] [ref=e475] [cursor=pointer]
+                    - tab "Chatter" [ref=e476] [cursor=pointer]
+                    - tab "Activity" [ref=e477] [cursor=pointer]
+                  - tabpanel "Related" [ref=e812]:
+                    - generic [ref=e817]:
+                      - article "Orders" [ref=e823]:
+                        - generic [ref=e828]:
+                          - generic [ref=e830]:
+                            - img [ref=e834]
+                            - heading "Orders (0)" [level=2] [ref=e836]:
+                              - link "Orders (0)" [ref=e837] [cursor=pointer]:
+                                - /url: /lightning/r/Quote/0Q0MR000001PCa50AG/related/vlocity_cmt__Orders__r/view
+                                - generic "Orders" [ref=e838]
+                                - generic "(0)" [ref=e839]
+                          - list [ref=e842]:
+                            - listitem [ref=e843]:
+                              - button "New Order" [ref=e844] [cursor=pointer]:
+                                - generic "New Order" [ref=e845]
+                      - article "Links" [ref=e851]:
+                        - generic [ref=e856]:
+                          - generic [ref=e858]:
+                            - img [ref=e862]
+                            - heading "Links (0)" [level=2] [ref=e864]:
+                              - link "Links (0)" [ref=e865] [cursor=pointer]:
+                                - /url: /lightning/r/Quote/0Q0MR000001PCa50AG/related/Links__r/view
+                                - generic "Links" [ref=e866]
+                                - generic "(0)" [ref=e867]
+                          - generic [ref=e870]:
+                            - generic "New" [ref=e871]:
+                              - button "New" [ref=e876] [cursor=pointer]
+                            - generic "Change Owner" [ref=e877]:
+                              - button "Change Owner" [ref=e882] [cursor=pointer]
+                      - generic [ref=e890]:
+                        - generic [ref=e891]:
+                          - generic [ref=e893]:
+                            - generic [ref=e894]:
+                              - generic [ref=e896]:
+                                - img [ref=e900]
+                                - heading "Quote Line Items (3)" [level=2] [ref=e902]:
+                                  - link "Quote Line Items (3)" [ref=e903] [cursor=pointer]:
+                                    - /url: /lightning/r/0Q0MR000001PCa50AG/related/QuoteLineItems/view
+                                    - generic "Quote Line Items" [ref=e904]
+                                    - generic "(3)" [ref=e905]
+                              - generic [ref=e907]:
+                                - button "List View Controls" [ref=e911] [cursor=pointer]:
+                                  - img [ref=e913]
+                                  - img [ref=e917]
+                                  - generic [ref=e920]: List View Controls
+                                - button "Refresh" [ref=e925] [cursor=pointer]:
+                                  - img [ref=e927]
+                                  - generic [ref=e930]: Refresh
+                              - list [ref=e933]:
+                                - listitem [ref=e934]:
+                                  - button "Add Products" [ref=e935] [cursor=pointer]:
+                                    - generic "Add Products" [ref=e936]
+                                - listitem [ref=e937]:
+                                  - button "Edit Products" [ref=e938] [cursor=pointer]:
+                                    - generic "Edit Products" [ref=e939]
+                                - listitem [ref=e940]:
+                                  - button "Show more actions" [ref=e945] [cursor=pointer]:
+                                    - generic [ref=e947]:
+                                      - generic [ref=e948]:
+                                        - img
+                                      - generic [ref=e949]: Show more actions
+                            - paragraph [ref=e952]:
+                              - generic [ref=e954]:
+                                - status "Quote Line Items" [ref=e955]: 3 items • Sorted by Sort Order •
+                                - text: Updated a few seconds ago
+                          - generic [ref=e960]:
+                            - grid [ref=e964]:
+                              - rowgroup:
+                                - row "Item Number Product Quantity Effective One Time Total One Time Total Recurring Total Action":
+                                  - columnheader "Item Number":
+                                    - generic [ref=e967]: Item Number
+                                  - columnheader "Product":
+                                    - generic [ref=e968]:
+                                      - generic [ref=e970]: Product
+                                      - button "Show Product Column Actions" [ref=e973] [cursor=pointer]:
+                                        - img [ref=e975]
+                                        - generic [ref=e978]: Show Product Column Actions
+                                      - slider "Product Column Width" [ref=e979]: "214"
+                                  - columnheader "Quantity":
+                                    - generic [ref=e982]:
+                                      - button "Sort Quantity" [ref=e983] [cursor=pointer]:
+                                        - generic [ref=e984]: Sort
+                                        - generic "Quantity" [ref=e985]
+                                      - button "Show Quantity Column Actions" [ref=e988] [cursor=pointer]:
+                                        - img [ref=e990]
+                                        - generic [ref=e993]: Show Quantity Column Actions
+                                      - slider "Quantity Column Width" [ref=e994]: "203"
+                                  - columnheader "Effective One Time Total":
+                                    - generic [ref=e997]:
+                                      - button "Sort Effective One Time Total" [ref=e998] [cursor=pointer]:
+                                        - generic [ref=e999]: Sort
+                                        - generic "Effective One Time Total" [ref=e1000]
+                                      - button "Show Effective One Time Total Column Actions" [ref=e1003] [cursor=pointer]:
+                                        - img [ref=e1005]
+                                        - generic [ref=e1008]: Show Effective One Time Total Column Actions
+                                      - slider "Effective One Time Total Column Width" [ref=e1009]: "203"
+                                  - columnheader "One Time Total":
+                                    - generic [ref=e1012]:
+                                      - button "Sort One Time Total" [ref=e1013] [cursor=pointer]:
+                                        - generic [ref=e1014]: Sort
+                                        - generic "One Time Total" [ref=e1015]
+                                      - button "Show One Time Total Column Actions" [ref=e1018] [cursor=pointer]:
+                                        - img [ref=e1020]
+                                        - generic [ref=e1023]: Show One Time Total Column Actions
+                                      - slider "One Time Total Column Width" [ref=e1024]: "203"
+                                  - columnheader "Recurring Total":
+                                    - generic [ref=e1027]:
+                                      - button "Sort Recurring Total" [ref=e1028] [cursor=pointer]:
+                                        - generic [ref=e1029]: Sort
+                                        - generic "Recurring Total" [ref=e1030]
+                                      - button "Show Recurring Total Column Actions" [ref=e1033] [cursor=pointer]:
+                                        - img [ref=e1035]
+                                        - generic [ref=e1038]: Show Recurring Total Column Actions
+                                      - slider "Recurring Total Column Width" [ref=e1039]: "203"
+                                  - columnheader "Action":
+                                    - generic [ref=e1044]: Action
+                              - rowgroup
+                              - rowgroup [ref=e1045]:
+                                - row "AI Contact Center 1.00 IDR 0 (USD 0.00) IDR 0 (USD 0.00) IDR 0 (USD 0.00) Show Actions" [ref=e1046]:
+                                  - gridcell [ref=e1047]
+                                  - rowheader "AI Contact Center" [ref=e1052]:
+                                    - link "AI Contact Center" [ref=e1055] [cursor=pointer]:
+                                      - /url: /lightning/r/0QLMR000001NAyz4AG/view
+                                  - gridcell "1.00" [ref=e1056]:
+                                    - generic [ref=e1058]: "1.00"
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1059]:
+                                    - generic [ref=e1061]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1062]:
+                                    - generic [ref=e1064]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1065]:
+                                    - generic [ref=e1067]: IDR 0 (USD 0.00)
+                                  - gridcell "Show Actions" [ref=e1068]:
+                                    - button "Show Actions" [ref=e1071] [cursor=pointer]:
+                                      - generic [ref=e1072]:
+                                        - generic [ref=e1073]:
+                                          - img
+                                        - generic [ref=e1074]: Show Actions
+                                - row "AI Chatbot 1.00 IDR 0 (USD 0.00) IDR 0 (USD 0.00) IDR 0 (USD 0.00) Show Actions" [ref=e1075]:
+                                  - gridcell [ref=e1076]
+                                  - rowheader "AI Chatbot" [ref=e1081]:
+                                    - link "AI Chatbot" [ref=e1084] [cursor=pointer]:
+                                      - /url: /lightning/r/0QLMR000001NAz04AG/view
+                                  - gridcell "1.00" [ref=e1085]:
+                                    - generic [ref=e1087]: "1.00"
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1088]:
+                                    - generic [ref=e1090]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1091]:
+                                    - generic [ref=e1093]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1094]:
+                                    - generic [ref=e1096]: IDR 0 (USD 0.00)
+                                  - gridcell "Show Actions" [ref=e1097]:
+                                    - button "Show Actions" [ref=e1100] [cursor=pointer]:
+                                      - generic [ref=e1101]:
+                                        - generic [ref=e1102]:
+                                          - img
+                                        - generic [ref=e1103]: Show Actions
+                                - row "Voice Bot 1.00 IDR 0 (USD 0.00) IDR 0 (USD 0.00) IDR 0 (USD 0.00) Show Actions" [ref=e1104]:
+                                  - gridcell [ref=e1105]
+                                  - rowheader "Voice Bot" [ref=e1110]:
+                                    - link "Voice Bot" [ref=e1113] [cursor=pointer]:
+                                      - /url: /lightning/r/0QLMR000001NAz14AG/view
+                                  - gridcell "1.00" [ref=e1114]:
+                                    - generic [ref=e1116]: "1.00"
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1117]:
+                                    - generic [ref=e1119]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1120]:
+                                    - generic [ref=e1122]: IDR 0 (USD 0.00)
+                                  - gridcell "IDR 0 (USD 0.00)" [ref=e1123]:
+                                    - generic [ref=e1125]: IDR 0 (USD 0.00)
+                                  - gridcell "Show Actions" [ref=e1126]:
+                                    - button "Show Actions" [ref=e1129] [cursor=pointer]:
+                                      - generic [ref=e1130]:
+                                        - generic [ref=e1131]:
+                                          - img
+                                        - generic [ref=e1132]: Show Actions
+                            - generic:
+                              - status
+                        - link "View All Quote Line Items" [ref=e1133] [cursor=pointer]:
+                          - /url: /lightning/r/Quote/0Q0MR000001PCa50AG/related/QuoteLineItems/view
+                          - generic [ref=e1135]:
+                            - text: View All
+                            - generic [ref=e1136]: Quote Line Items
+                      - article "Quote Members" [ref=e1142]:
+                        - generic [ref=e1147]:
+                          - generic [ref=e1149]:
+                            - img [ref=e1153]
+                            - heading "Quote Members (0)" [level=2] [ref=e1155]:
+                              - link "Quote Members (0)" [ref=e1156] [cursor=pointer]:
+                                - /url: /lightning/r/Quote/0Q0MR000001PCa50AG/related/vlocity_cmt__QuoteMembers__r/view
+                                - generic "Quote Members" [ref=e1157]
+                                - generic "(0)" [ref=e1158]
+                          - generic "New" [ref=e1162]:
+                            - button "New" [ref=e1167] [cursor=pointer]
+                      - article [ref=e1173]:
+                        - generic [ref=e1174]:
+                          - img [ref=e1176]
+                          - heading "Quote Groups" [level=2] [ref=e1177]
+                      - article [ref=e1184]:
+                        - generic [ref=e1185]:
+                          - img [ref=e1187]
+                          - heading "Quote Product Relationships" [level=2] [ref=e1188]
+                      - article [ref=e1195]:
+                        - generic [ref=e1196]:
+                          - img [ref=e1198]
+                          - heading "Quote Pricing" [level=2] [ref=e1199]
+                      - article [ref=e1206]:
+                        - generic [ref=e1207]:
+                          - img [ref=e1209]
+                          - heading "Quote Discounts" [level=2] [ref=e1210]
+                      - article [ref=e1217]:
+                        - generic [ref=e1218]:
+                          - img [ref=e1220]
+                          - heading "Quote Applied Promotions" [level=2] [ref=e1221]
+                      - article [ref=e1228]:
+                        - generic [ref=e1229]:
+                          - img [ref=e1231]
+                          - heading "Contracts" [level=2] [ref=e1232]
+                      - article [ref=e1239]:
+                        - generic [ref=e1240]:
+                          - img [ref=e1242]
+                          - heading "Notes & Attachments" [level=2] [ref=e1243]
+                      - article [ref=e1250]:
+                        - generic [ref=e1251]:
+                          - img [ref=e1253]
+                          - heading "Approval History" [level=2] [ref=e1254]
+  - generic:
+    - status

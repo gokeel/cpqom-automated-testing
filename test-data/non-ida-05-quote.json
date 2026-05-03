@@ -2,6 +2,7 @@
   "opportunityId": "006MS000008yNRqYAM",
   "tc010": {
     "productName": "AI Contact Center",
+    "quantity": 2,
     "otc": "5000000",
     "mrc": "10000000",
     "expectedOtc": "IDR 5,000,000",
