@@ -68,7 +68,7 @@ async function patchMissingScoreCard(request, instanceUrl, accessToken) {
 
     // Salesforce returns 204 No Content on a successful PATCH
     console.log('Patch response: '+patchResponse);
-    expect(patchResponse.status()).toBe(204);
+    expect(patchResponse.status(), 'Patch should be successful').toBe(204);
 }
 
 test('API Connection Test', async ({ request }) => {
@@ -142,7 +142,7 @@ async function sfRequest(request, method, url, { headers, data } = {}) {
     return body;
 }
 
-test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) => {
+test('TC023: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) => {
     await allure.epic('Quote Management');
     await allure.feature('Enterprise Quote');
 
@@ -176,7 +176,7 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
             throw e;
         }
         recordTypeId = body.records?.[0]?.Id ?? process.env.SF_RECORD_TYPE_ID;
-        expect(recordTypeId, 'EnterpriseQuote RecordType not found; set SF_RECORD_TYPE_ID as fallback').toBeTruthy();
+        expect(recordTypeId, 'EnterpriseQuote RecordType not found').toBeTruthy();
         console.log('RecordType Id:', recordTypeId);
     });
 
@@ -194,7 +194,7 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
             throw e;
         }
         priceListId = body.records?.[0]?.Id ?? process.env.SF_PRICE_LIST_ID;
-        expect(priceListId, 'B2B Pricelist not found; set SF_PRICE_LIST_ID as fallback').toBeTruthy();
+        expect(priceListId, 'B2B Pricelist not found').toBeTruthy();
         console.log('PriceList Id:', priceListId);
     });
 
@@ -338,14 +338,14 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
 
     // Verify Quote Line Items on Quote Record Page
     const quoteId = await getRuntimeState('cartId');
-    expect(quoteId, 'cartId not found in runtime state — run TC010 first').toBeTruthy();
+    expect(quoteId, 'cartId not found in runtime state').toBeTruthy();
 
     const quoteUrl = `${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${quoteId}/view`;
     await page.goto(quoteUrl);
 
     // Wait for the record page to load
     await page.waitForURL('**/lightning/r/Quote/**', { timeout: 30_000 });
-    await expect(page.getByRole('tab', { name: 'Related' })).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole('tab', { name: 'Related' }), 'Related tab should be visible on the Quote record page').toBeVisible({ timeout: 15_000 });
 
     // Click the Related tab
     await page.getByRole('tab', { name: 'Related' }).click();
@@ -353,7 +353,7 @@ test('TC010: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
 
     // Wait for the Quote Line Items related list header to appear
     const qliLink = page.getByRole('link', { name: /Quote Line Items \(\d+\)/ });
-    await expect(qliLink).toBeVisible({ timeout: 15_000 });
+    await expect(qliLink, 'Quote Line Items should be visible on the Quote Related List').toBeVisible({ timeout: 15_000 });
 
     // Extract the count from the link text, e.g. "Quote Line Items (3)" → 3
     const linkText = await qliLink.textContent();
