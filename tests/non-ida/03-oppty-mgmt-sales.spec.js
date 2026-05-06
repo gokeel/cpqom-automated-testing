@@ -17,6 +17,9 @@ const userDataDirectory = path.resolve(__dirname, '../../.sf-profile');
 let context;
 let page;
 
+// Resolve login user: sysadmin when TEST_USER_ADMIN=true, otherwise salesOperation
+const loginUser = process.env.TEST_USER_ADMIN === 'true' ? dataAuth.sysadmin : dataAuth.salesOperation;
+
 // runs only once before all tests in the file
 test.beforeAll(async () => {
     const module = await getModule('oppty_mgmt');
@@ -30,10 +33,10 @@ test.beforeAll(async () => {
     });
     page = await context.newPage();
 
-    await page.goto(dataAuth.salesOperation.url);
-    await page.getByRole('textbox', { name: 'Username' }).fill(dataAuth.salesOperation.username);
+    await page.goto(loginUser.url);
+    await page.getByRole('textbox', { name: 'Username' }).fill(loginUser.username);
     await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill(dataAuth.salesOperation.password);
+    await page.getByRole('textbox', { name: 'Password' }).fill(loginUser.password);
     await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
 
     await page.waitForURL('**/lightning/**', { timeout: 60000 });
