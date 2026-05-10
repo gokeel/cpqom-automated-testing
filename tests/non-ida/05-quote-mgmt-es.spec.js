@@ -467,7 +467,7 @@ test('TC023: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
     createdQuoteId = quoteId;
     expect(quoteId, 'cartId not found in runtime state').toBeTruthy();
 
-    const quoteUrl = `${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${quoteId}/view`;
+    const quoteUrl = `${loginUser.afterLoginUrl}lightning/r/Quote/${quoteId}/view`;
     await page.goto(quoteUrl);
 
     // Wait for the record page to load
@@ -598,7 +598,7 @@ test('TC029: Generate Business Case', async() => {
 test('TC035: Quote Clossure', async({ request }) => {
     await patchQuoteApprover(request, instanceUrl, accessToken, cartId, sysAdminUserId);
 
-    await page.goto(`${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${createdQuoteId}/view`);
+    await page.goto(`${loginUser.afterLoginUrl}lightning/r/Quote/${createdQuoteId}/view`);
 
     await expect(page.getByRole('button', { name: 'Submit for Approval' })).toBeVisible();
 
@@ -623,7 +623,7 @@ test('TC035: Quote Clossure', async({ request }) => {
     await approvalModal.getByRole('textbox', { name: 'Comments' }).fill('approve');
     await approvalModal.getByRole('button', { name: 'Approve' }).click();
 
-    await page.goto(`${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${createdQuoteId}/view`);
+    await page.goto(`${loginUser.afterLoginUrl}lightning/r/Quote/${createdQuoteId}/view`);
 
     // await expect(page.getByText('Approved')).toBeVisible();
     // await page.locator('#brandBand_2').getByRole('link', { name: 'API Test Quote' }).click();
