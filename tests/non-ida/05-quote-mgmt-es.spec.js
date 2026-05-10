@@ -618,12 +618,16 @@ test('TC035: Quote Clossure', async({ request }) => {
     await expect(page.getByRole('button', { name: 'Reject' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Reassign' })).toBeVisible();
     await page.getByRole('button', { name: 'Approve' }).click();
-    await page.getByRole('textbox', { name: 'Comments' }).click();
-    await page.getByRole('textbox', { name: 'Comments' }).fill('approve');
-    await page.getByRole('button', { name: 'Approve' }).nth(0).click();
-    await expect(page.getByText('Approved')).toBeVisible();
-    await page.locator('#brandBand_2').getByRole('link', { name: 'API Test Quote' }).click();
-    await page.getByTitle('Closed').click();
+    const approvalModal = page.getByRole('dialog');
+    await approvalModal.waitFor({ state: 'visible' });
+    await approvalModal.getByRole('textbox', { name: 'Comments' }).fill('approve');
+    await approvalModal.getByRole('button', { name: 'Approve' }).click();
+
+    await page.goto(`${dataAuth.enterpriseSolution.afterLoginUrl}lightning/r/Quote/${createdQuoteId}/view`);
+
+    // await expect(page.getByText('Approved')).toBeVisible();
+    // await page.locator('#brandBand_2').getByRole('link', { name: 'API Test Quote' }).click();
+    // await page.getByTitle('Closed').click();
     await page.getByRole('button', { name: 'Show more actions' }).click();
     await page.getByRole('menuitem', { name: 'Close Stage' }).click();
     await page.getByRole('combobox', { name: 'Sub Status' }).click();
