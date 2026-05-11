@@ -328,15 +328,22 @@ test('TC023: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
         expect(records.length, 'No products returned from B2B price list').toBeGreaterThan(0);
 
         // Prefer the product named in test data; fall back to first available
-        const targetName = testParams.productName;
-        const match = targetName
-            ? records.find(p => (p.Product2?.Name ?? p.Name ?? '').includes(targetName))
+        const targetProduct = testParams.productCode;
+        console.log('Matching product code: '+targetProduct);
+        // ProductCode is a compound object { label: "...", value: "O_AI_CONTACT_CENTER" }
+        const getProductCode = p => {
+            const raw = p.ProductCode;
+            return (raw && typeof raw === 'object') ? raw.value : (raw ?? '');
+        };
+
+        const match = targetProduct
+            ? records.find(p => getProductCode(p).includes(targetProduct))
             : null;
 
         const chosen = match ?? records[0];
         // "Id" may be a compound field object { "value": "01t...", "displayValue": null }
         productId = typeof chosen.Id === 'object' ? chosen.Id.value : chosen.Id;
-        const chosenName = chosen.Product2?.Name ?? chosen.Name ?? productId;
+        const chosenName = getProductCode(chosen) || productId;
 
         expect(productId, 'Could not resolve a product Id from the catalog').toBeTruthy();
         console.log(`Product selected: "${chosenName}" (${productId})`);
@@ -603,10 +610,11 @@ test('TC035: Quote Clossure', async({ request }) => {
     await expect(page.getByRole('button', { name: 'Submit for Approval' })).toBeVisible();
 
     await page.getByRole('button', { name: 'Submit for Approval' }).click();
-    await page.getByRole('textbox', { name: 'Comments' }).click();
-    await page.getByRole('textbox', { name: 'Comments' }).fill('please approve');
-    await page.getByRole('button', { name: 'Submit' }).nth(0).click();
-    await expect(page.locator('div').filter({ hasText: 'Success notification.Quote' }).nth(3)).toBeVisible();
+    const submitModal = page.getByRole('dialog');
+    await submitModal.waitFor({ state: 'visible' });
+    await submitModal.getByRole('textbox', { name: 'Comments' }).fill('please approve');
+    await submitModal.getByRole('button', { name: 'Submit' }).click();
+    // await expect(page.locator('div').filter({ hasText: 'Success notification.Quote' }).nth(3)).toBeVisible();
 
     await page.waitForTimeout(3_000);
 

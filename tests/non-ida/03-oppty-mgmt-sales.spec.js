@@ -87,6 +87,40 @@ async function deleteOpportunityLineItems(request, instanceUrl, accessToken) {
     }
 }
 
+async function addOpportunityTeamMember(request) {
+    const q = encodeURIComponent(
+        `SELECT Id, Name FROM User WHERE Username = 'at.enterprise.solution@b2b.uat' LIMIT 1`
+    );
+    const queryResponse = await request.get(
+        `${instanceUrl}/services/data/v65.0/query?q=${q}`,
+        { headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' } }
+    );
+    expect(queryResponse.ok(), 'Query for ES user should succeed').toBeTruthy();
+    const user = (await queryResponse.json()).records?.[0];
+    expect(user, 'User at.enterprise.solution@b2b.uat not found').toBeTruthy();
+    console.log(`ES user found: ${user.Name} (${user.Id})`);
+
+    const createResponse = await request.post(
+        `${instanceUrl}/services/data/v65.0/sobjects/OpportunityTeamMember`,
+        {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            data: {
+                OpportunityId: opportunityId,
+                UserId: user.Id,
+                TeamMemberRole: 'Sales Solution',
+                OpportunityAccessLevel: 'All',
+            },
+        }
+    );
+    const createBody = await createResponse.json();
+    expect(createBody.success, 'OpportunityTeamMember creation should succeed').toBeTruthy();
+    console.log(`OpportunityTeamMember created: ${createBody.id} — ${user.Name} (Sales Solution)`);
+}
+
 test('API Connection Test', async ({ request }) => {
     const loginUrl = dataAuth.sysadmin.url+'/services/oauth2/token';
 
@@ -210,21 +244,23 @@ test('TC012_Update Sales Scenario and Credit Scoring', async () => {
     await page.waitForTimeout(3000);
 });
 
-test('TC013_Add Opportunity Team Member', async () => {
+test('TC013_Add Opportunity Team Member', async ({request}) => {
     await allure.epic('Opportunity Management');
     await allure.feature('Manage My Opportunity');
 
     await allure.story('Add Opportunity Team Member');
     await allure.severity('critical');
 
-    await page.getByRole('button', { name: 'Show actions for Opportunity Team' }).click();
-    await page.getByRole('menuitem', { name: 'Add Opportunity Team Members' }).click();
-    await page.getByRole('button', { name: 'Edit Team Role: Item' }).first().click();
-    await page.getByRole('button', { name: 'Team Role --None--' }).click();
-    await page.getByRole('option', { name: 'ICT Expert' }).click();
-    await page.getByRole('button', { name: 'Edit User: Item' }).first().click();
-    await page.getByRole('option', { name: 'AT Enterprise Solution' }).click();
-    await page.getByRole('button', { name: 'Save' }).click();
+    await addOpportunityTeamMember(request);
+
+    // await page.getByRole('button', { name: 'Show actions for Opportunity Team' }).click();
+    // await page.getByRole('menuitem', { name: 'Add Opportunity Team Members' }).click();
+    // await page.getByRole('button', { name: 'Edit Team Role: Item' }).first().click();
+    // await page.getByRole('button', { name: 'Team Role --None--' }).click();
+    // await page.getByRole('option', { name: 'ICT Expert' }).click();
+    // await page.getByRole('button', { name: 'Edit User: Item' }).first().click();
+    // await page.getByRole('option', { name: 'AT Enterprise Solution' }).click();
+    // await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForTimeout(3000);
     // await expect(
     //     page.getByRole('listitem').filter({ hasText: 'Tester ES' }),

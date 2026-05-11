@@ -249,5 +249,7 @@ test('TC005_Create CA under CCA', async ({ request }) => {
         const newAccountName = (tc002.accountName + ' ' + counter).toUpperCase();
         await updateTestParams('lead_mgmt', 'tc002', { accountName: newAccountName, accountOption: newAccountName });
         console.log(`[TC005] Updated tc002.accountName and tc002.accountOption to: ${newAccountName}`);
+
+        await setRuntimeState('customerAccountId', body.id);
     });
 });
