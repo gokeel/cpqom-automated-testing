@@ -44,7 +44,7 @@ function parseBody(req) {
 
 // ─── run management ────────────────────────────────────────────────────────
 
-function startRun(modules = [], productRunId = null) {
+function startRun(modules = [], productRunId = null, productCode = null) {
     const runId = randomUUID();
     const relativeFiles = modules.length > 0
         ? modules.map(m => MODULE_FILES[m]).filter(Boolean)
@@ -64,7 +64,8 @@ function startRun(modules = [], productRunId = null) {
     activeRunId = runId;
 
     const env = { ...process.env };
-    if (productRunId != null) env.TEST_RUN_ID = String(productRunId);
+    if (productRunId != null) env.TEST_RUN_ID    = String(productRunId);
+    if (productCode  != null) env.PRODUCT_CODE   = String(productCode);
 
     const child = spawn('npx', ['playwright', 'test', ...specFiles], {
         cwd: ROOT_DIR,
@@ -114,10 +115,11 @@ const server = http.createServer(async (req, res) => {
             return;
         }
         const body = await parseBody(req);
-        const modules = Array.isArray(body.modules) ? body.modules : [];
-        const productRunId = body.run_id ?? null;
-        const runId = startRun(modules, productRunId);
-        sendJson(res, 202, { runId, productRunId, status: 'running' });
+        const modules     = Array.isArray(body.modules) ? body.modules : [];
+        const productRunId = body.run_id       ?? null;
+        const productCode  = body.product_code ?? null;
+        const runId = startRun(modules, productRunId, productCode);
+        sendJson(res, 202, { runId, productRunId, productCode, status: 'running' });
         return;
     }
 

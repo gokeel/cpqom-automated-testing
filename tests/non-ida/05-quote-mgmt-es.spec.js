@@ -8,7 +8,8 @@ import { request } from "http";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const runId = process.env.TEST_RUN_ID ? Number(process.env.TEST_RUN_ID) : null;
+const runId      = process.env.TEST_RUN_ID   ? Number(process.env.TEST_RUN_ID) : null;
+const productCode = process.env.PRODUCT_CODE ?? null;   // injected by run-server; overrides DB value
 let runError = null;
 
 let instanceUrl;
@@ -347,9 +348,9 @@ test('TC023: CPQ Enterprise Quote Flow — API', async ({ request }, testInfo) =
         const records = body.records ?? [];
         expect(records.length, 'No products returned from B2B price list').toBeGreaterThan(0);
 
-        // Prefer the product named in test data; fall back to first available
-        const targetProduct = testParams.productCode;
-        console.log('Matching product code: '+targetProduct);
+        // product_code injected at runtime via env var takes precedence over DB value
+        const targetProduct = productCode ?? testParams.productCode ?? null;
+        console.log('Matching product code: ' + targetProduct + (productCode ? ' (from env)' : ' (from DB)'));
         // ProductCode is a compound object { label: "...", value: "O_AI_CONTACT_CENTER" }
         const getProductCode = p => {
             const raw = p.ProductCode;
