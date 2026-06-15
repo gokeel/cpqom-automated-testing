@@ -1,6 +1,5 @@
 import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
-import dataAuth from "../../test-data/auth.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
 import {
@@ -10,7 +9,8 @@ import {
   incrementModuleCounter,
   closeDb,
   setRuntimeState,
-  updateRun
+  updateRun,
+  getSfEnvironment
 } from "../../utils/db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -31,14 +31,19 @@ const userDataDirectory = path.resolve(__dirname, "../../.sf-profile");
 let context;
 let page;
 
-// Resolve login user: sysadmin when TEST_USER_ADMIN=true, otherwise salesOperation
-const loginUser =
-  process.env.TEST_USER_ADMIN === "true"
-    ? dataAuth.sysadmin
-    : dataAuth.salesOperation;
+let sysadmin;
+let loginUser;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
+  sysadmin = await getSfEnvironment("sysadmin");
+  const loginPersona =
+    process.env.TEST_USER_ADMIN === "true" ? "sysadmin" : "salesOperation";
+  loginUser =
+    loginPersona === "sysadmin"
+      ? sysadmin
+      : await getSfEnvironment(loginPersona);
+
   await incrementModuleCounter("lead_mgmt");
 
   const module = await getModule("lead_mgmt");
@@ -133,11 +138,11 @@ async function getLeadStatus(
 }
 
 test("API Connection Test", async ({ request }) => {
-  const loginUrl = dataAuth.sysadmin.url + "/services/oauth2/token";
+  const loginUrl = sysadmin.url + "/services/oauth2/token";
 
   const grantType = "client_credentials";
-  const clientId = dataAuth.sysadmin.clientId;
-  const clientSecret = dataAuth.sysadmin.clientSecret;
+  const clientId = sysadmin.clientId;
+  const clientSecret = sysadmin.clientSecret;
 
   // Step 1: Authenticate and get access token
   const loginResponse = await request.post(loginUrl, {

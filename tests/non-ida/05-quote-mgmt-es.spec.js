@@ -1,6 +1,5 @@
 import { test, expect, chromium } from "@playwright/test";
 import * as allure from "allure-js-commons";
-import dataAuth from "../../test-data/auth.json" assert { type: "json" };
 import path from "path";
 import { fileURLToPath } from "url";
 import {
@@ -8,7 +7,8 @@ import {
   getTestParams,
   setRuntimeState,
   closeDb,
-  updateRun
+  updateRun,
+  getSfEnvironment
 } from "../../utils/db.js";
 import { request } from "http";
 
@@ -31,14 +31,19 @@ let context;
 let page;
 let testParams;
 
-// Resolve login user: sysadmin when TEST_USER_ADMIN=true, otherwise enterpriseSolution
-const loginUser =
-  process.env.TEST_USER_ADMIN === "true"
-    ? dataAuth.sysadmin
-    : dataAuth.enterpriseSolution;
+let sysadmin;
+let loginUser;
 
 // runs only once before all tests in the file
 test.beforeAll(async () => {
+  sysadmin = await getSfEnvironment("sysadmin");
+  const loginPersona =
+    process.env.TEST_USER_ADMIN === "true" ? "sysadmin" : "enterpriseSolution";
+  loginUser =
+    loginPersona === "sysadmin"
+      ? sysadmin
+      : await getSfEnvironment(loginPersona);
+
   opportunityId = await getRuntimeState("opportunityId");
   testParams = await getTestParams("quote_mgmt", "tc_quote", userId);
   console.log("Opportunity ID: " + opportunityId);
@@ -176,11 +181,11 @@ async function patchQuoteApprover(
 }
 
 test("API Connection Test", async ({ request }) => {
-  const loginUrl = dataAuth.sysadmin.url + "/services/oauth2/token";
+  const loginUrl = sysadmin.url + "/services/oauth2/token";
 
   const grantType = "client_credentials";
-  const clientId = dataAuth.sysadmin.clientId;
-  const clientSecret = dataAuth.sysadmin.clientSecret;
+  const clientId = sysadmin.clientId;
+  const clientSecret = sysadmin.clientSecret;
 
   // Step 1: Authenticate and get access token
   const loginResponse = await request.post(loginUrl, {

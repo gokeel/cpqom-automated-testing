@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import * as allure from "allure-js-commons";
-import dataAuth from "../../test-data/auth.json" assert { type: "json" };
 import {
   getModule,
   getTestParams,
@@ -8,12 +7,15 @@ import {
   incrementModuleCounter,
   closeDb,
   setRuntimeState,
-  updateRun
+  updateRun,
+  getSfEnvironment
 } from "../../utils/db.js";
 
 const runId = process.env.TEST_RUN_ID ? Number(process.env.TEST_RUN_ID) : null;
 const userId = process.env.USER_ID ? Number(process.env.USER_ID) : null;
 let runError = null;
+
+let sysadmin;
 
 let counter;
 let tc001;
@@ -26,6 +28,8 @@ let customerAccountId;
 let billingContactId;
 
 test.beforeAll(async () => {
+  sysadmin = await getSfEnvironment("sysadmin");
+
   await incrementModuleCounter("account_mgmt");
   await incrementModuleCounter("contact_mgmt");
 
@@ -130,13 +134,13 @@ async function getRecordTypeId(request, sobjectType, developerName) {
 
 test("API Connection Test", async ({ request }) => {
   const loginResponse = await request.post(
-    `${dataAuth.sysadmin.url}/services/oauth2/token`,
+    `${sysadmin.url}/services/oauth2/token`,
     {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       form: {
         grant_type: "client_credentials",
-        client_id: dataAuth.sysadmin.clientId,
-        client_secret: dataAuth.sysadmin.clientSecret
+        client_id: sysadmin.clientId,
+        client_secret: sysadmin.clientSecret
       }
     }
   );

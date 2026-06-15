@@ -1,4 +1,5 @@
 import pg from "pg";
+import crypto from "crypto";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -122,4 +123,45 @@ export async function updateRun(
 
 export async function closeDb() {
   await pool.end();
+}
+
+function laravelDecrypt(encryptedFromDb, appKey) {
+  const key = Buffer.from(appKey.replace("base64:", ""), "base64");
+  const payload = JSON.parse(
+    Buffer.from(encryptedFromDb, "base64").toString("utf8")
+  );
+  const iv = Buffer.from(payload.iv, "base64");
+  const value = Buffer.from(payload.value, "base64");
+  const decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
+  const raw = Buffer.concat([
+    decipher.update(value),
+    decipher.final()
+  ]).toString("utf8");
+  // Laravel PHP-serializes strings: s:<len>:"<value>";
+  const match = raw.match(/^s:\d+:"(.*)";$/s);
+  return match ? match[1] : raw;
+}
+
+export async function getSfEnvironment(personaKey) {
+  const appKey = process.env.LARAVEL_APP_KEY;
+  if (!appKey) throw new Error("LARAVEL_APP_KEY is not set in environment");
+
+  const { rows } = await pool.query(
+    "SELECT * FROM sf_environments WHERE persona_key = $1",
+    [personaKey]
+  );
+  const row = rows[0];
+  if (!row)
+    throw new Error(`sf_environments: persona_key '${personaKey}' not found`);
+
+  return {
+    url: row.sf_url,
+    afterLoginUrl: row.after_login_url,
+    username: row.username,
+    password: laravelDecrypt(row.password, appKey),
+    clientId: row.client_id ? laravelDecrypt(row.client_id, appKey) : null,
+    clientSecret: row.client_secret
+      ? laravelDecrypt(row.client_secret, appKey)
+      : null
+  };
 }
