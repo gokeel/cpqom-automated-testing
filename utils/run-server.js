@@ -9,6 +9,8 @@ import { getUserIdForRun } from "./db.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, "..");
 const PORT = process.env.TRIGGER_PORT ?? 3333;
+const PW_REPORT_PORT = process.env.PW_REPORT_PORT ?? 9323;
+const ALLURE_PORT = process.env.ALLURE_REPORT_PORT ?? 8100;
 
 const MODULE_FILES = {
   account_mgmt: "tests/non-ida/01-account-mgmt.spec.js",
@@ -98,10 +100,31 @@ function startRun(
     run.exitCode = code;
     run.status = code === 0 ? "passed" : "failed";
     run.finishedAt = new Date().toISOString();
-    run.reportUrl = `http://localhost:${PORT}/report`;
+    run.reportUrl = `http://localhost:${PW_REPORT_PORT}`;
+    run.allureUrl = `http://localhost:${ALLURE_PORT}`;
     if (activeRunId === runId) activeRunId = null;
     console.log(`[run:${runId}] finished — exit code ${code}`);
-    console.log(`[run:${runId}] report: ${run.reportUrl}`);
+    console.log(`[run:${runId}] playwright report: ${run.reportUrl}`);
+
+    // Regenerate Allure HTML report from the latest results
+    const allure = spawn(
+      "npx",
+      [
+        "allure",
+        "generate",
+        "allure-results",
+        "--clean",
+        "-o",
+        "allure-report"
+      ],
+      { cwd: ROOT_DIR }
+    );
+    allure.on("close", (allureCode) => {
+      console.log(
+        `[run:${runId}] allure generate finished — exit code ${allureCode}`
+      );
+      console.log(`[run:${runId}] allure report: ${run.allureUrl}`);
+    });
   });
 
   console.log(`[run:${runId}] started — specs: ${specFiles.join(", ")}`);
@@ -233,4 +256,66 @@ server.listen(PORT, () => {
     `Playwright trigger server listening on http://localhost:${PORT}`
   );
   console.log("Available modules:", Object.keys(MODULE_FILES).join(", "));
+});
+
+// ─── static report servers ─────────────────────────────────────────────────
+
+function createStaticServer(dir, label) {
+  return http.createServer((req, res) => {
+    const safePath = req.url === "/" ? "/index.html" : req.url;
+    const filePath = path.resolve(dir, "." + safePath);
+
+    if (!filePath.startsWith(dir)) {
+      res.writeHead(403);
+      res.end("Forbidden");
+      return;
+    }
+
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        if (err.code === "ENOENT") {
+          res.writeHead(404);
+          res.end(`${label} report not found — run the tests first`);
+        } else {
+          res.writeHead(500);
+          res.end("Server error");
+        }
+        return;
+      }
+      const ext = path.extname(filePath).slice(1);
+      const mime =
+        {
+          html: "text/html",
+          js: "application/javascript",
+          css: "text/css",
+          png: "image/png",
+          svg: "image/svg+xml",
+          json: "application/json",
+          woff2: "font/woff2",
+          woff: "font/woff",
+          txt: "text/plain",
+          xml: "application/xml"
+        }[ext] ?? "application/octet-stream";
+      res.writeHead(200, {
+        "Content-Type": mime,
+        "Access-Control-Allow-Origin": "*"
+      });
+      res.end(data);
+    });
+  });
+}
+
+const pwReportDir = path.resolve(ROOT_DIR, "playwright-report");
+const allureReportDir = path.resolve(ROOT_DIR, "allure-report");
+
+createStaticServer(pwReportDir, "Playwright").listen(PW_REPORT_PORT, () => {
+  console.log(
+    `Playwright report server listening on http://localhost:${PW_REPORT_PORT}`
+  );
+});
+
+createStaticServer(allureReportDir, "Allure").listen(ALLURE_PORT, () => {
+  console.log(
+    `Allure report server listening on http://localhost:${ALLURE_PORT}`
+  );
 });

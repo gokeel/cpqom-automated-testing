@@ -13,5 +13,7 @@ ENV CI=true
 ENV HEADLESS=true
 
 EXPOSE 3333
+EXPOSE 9323
+EXPOSE 8100
 
 CMD ["node", "utils/run-server.js"]
