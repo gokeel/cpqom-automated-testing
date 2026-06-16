@@ -8,6 +8,7 @@ import {
   updateRun,
   getSfEnvironment
 } from "../../utils/db.js";
+import { sfOAuthLogin } from "../../utils/sf-auth.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -26,7 +27,7 @@ let sysadmin;
 let loginUser;
 
 // runs only once before all tests in the file
-test.beforeAll(async () => {
+test.beforeAll(async ({ request }) => {
   sysadmin = await getSfEnvironment("sysadmin");
   const loginPersona =
     process.env.TEST_USER_ADMIN === "true" ? "sysadmin" : "enterpriseSolution";
@@ -38,7 +39,7 @@ test.beforeAll(async () => {
   opportunityId = await getRuntimeState("opportunityId");
 
   context = await chromium.launchPersistentContext(userDataDirectory, {
-    headless: false,
+    headless: process.env.HEADLESS === "true" || process.env.CI === "true",
     args: ["--start-maximized"]
   });
   page = await context.newPage();
@@ -55,6 +56,8 @@ test.beforeAll(async () => {
 
   await page.waitForURL("**/lightning/**", { timeout: 60000 });
   await context.storageState({ path: ".sf-profile/sf-state.json" });
+
+  ({ accessToken, instanceUrl } = await sfOAuthLogin(request, sysadmin));
 });
 
 test.afterEach(async ({}, testInfo) => {
@@ -131,34 +134,8 @@ async function patchStageQuoting(request, instanceUrl, accessToken) {
 }
 
 test("API Connection Test", async ({ request }) => {
-  const loginUrl = sysadmin.url + "/services/oauth2/token";
-
-  const grantType = "client_credentials";
-  const clientId = sysadmin.clientId;
-  const clientSecret = sysadmin.clientSecret;
-
-  // Step 1: Authenticate and get access token
-  const loginResponse = await request.post(loginUrl, {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    form: {
-      grant_type: grantType,
-      client_id: clientId,
-      client_secret: clientSecret
-    }
-  });
-
-  console.log("Login response is: ", (await loginResponse.body()).toString());
-  expect(loginResponse.ok(), "OAuth login should succeed").toBeTruthy();
-
-  const loginBody = await loginResponse.json();
-  accessToken = loginBody.access_token;
-  instanceUrl = loginBody.instance_url;
-
-  console.log("Access token is: ", accessToken);
-
-  console.log("Instance URL is: ", instanceUrl);
+  expect(instanceUrl, "instanceUrl should be set by beforeAll").toBeTruthy();
+  expect(accessToken, "accessToken should be set by beforeAll").toBeTruthy();
 
   await patchStageQuoting(request, instanceUrl, accessToken);
 });

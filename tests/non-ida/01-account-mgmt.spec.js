@@ -47,7 +47,7 @@ test.beforeAll(async () => {
   tcContact = await getTestParams("contact_mgmt", "tc_contact", userId);
 
   context = await chromium.launchPersistentContext(userDataDirectory, {
-    headless: false,
+    headless: process.env.HEADLESS === "true" || process.env.CI === "true",
     args: ["--start-maximized"]
   });
   page = await context.newPage();

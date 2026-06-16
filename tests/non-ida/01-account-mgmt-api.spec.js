@@ -10,6 +10,7 @@ import {
   updateRun,
   getSfEnvironment
 } from "../../utils/db.js";
+import { sfOAuthLogin } from "../../utils/sf-auth.js";
 
 const runId = process.env.TEST_RUN_ID ? Number(process.env.TEST_RUN_ID) : null;
 const userId = process.env.USER_ID ? Number(process.env.USER_ID) : null;
@@ -40,26 +41,7 @@ test.beforeAll(async ({ request }) => {
   tc002 = await getTestParams("account_mgmt", "tc002", userId);
   tcContact = await getTestParams("contact_mgmt", "tc_contact", userId);
 
-  const loginResponse = await request.post(
-    `${sysadmin.url}/services/oauth2/token`,
-    {
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      form: {
-        grant_type: "client_credentials",
-        client_id: sysadmin.clientId,
-        client_secret: sysadmin.clientSecret
-      }
-    }
-  );
-  if (!loginResponse.ok()) {
-    throw new Error(
-      `OAuth login failed: HTTP ${loginResponse.status()} — check clientId/clientSecret in sf_environments`
-    );
-  }
-  const loginBody = await loginResponse.json();
-  accessToken = loginBody.access_token;
-  instanceUrl = loginBody.instance_url;
-  console.log("Instance URL:", instanceUrl);
+  ({ accessToken, instanceUrl } = await sfOAuthLogin(request, sysadmin));
 });
 
 test.afterEach(async ({}, testInfo) => {
