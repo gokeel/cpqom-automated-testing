@@ -656,18 +656,13 @@ test("TC028: Upload file MLD", async () => {
   await page.getByRole("tab", { name: "Details" }).click();
   await page.waitForTimeout(3000);
 
-  // ── Pre-req: Change Catalist Quote Status → Solution Design ───────────
+  // ── Pre-req: Change Quote Status → Solution Design ───────────
   // Save status alone first. Changing the controlling picklist in the same
   // edit as Sub Status triggers a dependency reset that clears Sub Status
   // before the save reaches the server.
-  await page
-    .getByText("Catalist Quote Status", { exact: true })
-    .first()
-    .hover();
-  await page
-    .getByRole("button", { name: "Edit Catalist Quote Status" })
-    .click();
-  await page.getByRole("combobox", { name: "Catalist Quote Status" }).click();
+  await page.getByText("Quote Status", { exact: true }).first().hover();
+  await page.getByRole("button", { name: "Edit Quote Status" }).click();
+  await page.getByRole("combobox", { name: "Quote Status" }).click();
   await page
     .getByRole("option", { name: "Solution Design", exact: true })
     .nth(1)
