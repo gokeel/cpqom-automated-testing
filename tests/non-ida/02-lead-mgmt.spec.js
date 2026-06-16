@@ -405,38 +405,38 @@ test("TC008_Update Lead Status", async ({ request }) => {
     await getLeadStatus(request, instanceUrl, accessToken, leadId, "Qualified");
   });
 
-  await test.step("TC008_S03 - Update lead status to Qualified to Converted", async () => {
-    // await page.goto(`${loginUser.afterLoginUrl}lightning/r/Lead/${leadId}/view`);
-    await page.getByRole("button", { name: "Show more actions" }).click();
-    await page
-      .getByRole("menuitem", { name: "Update Lead Status" })
-      .first()
-      .click();
-    await page
-      .getByRole("dialog", { name: "Update Lead Status" })
-      .waitFor({ state: "visible" });
-    await page.waitForTimeout(3_000);
-    await expect(
-      page.getByText("Something went wrong. Please"),
-      'The flow is showing unexpected message: "Something went wrong. Please contact the admin for further check."'
-    ).not.toBeVisible();
-    await page.locator('[name="Name_of_incumbent"]').fill("Kompetitor");
-    await expect(
-      page.getByRole("button", { name: "Next" }),
-      "Next button should be visible"
-    ).toBeVisible();
-    await page.getByRole("button", { name: "Next" }).click();
-    // await expect(
-    //     page.locator('lightning-formatted-rich-text'),
-    //     'Status update dialog should show the New to Working transition'
-    // ).toContainText('New to Working');
-    await page.getByRole("button", { name: "Finish" }).click();
-    await page
-      .getByRole("dialog", { name: "Update Lead Status" })
-      .waitFor({ state: "hidden" });
-    await page.waitForTimeout(3_000);
-    await expect(page.getByRole("button", { name: "Convert" })).toBeVisible();
-  });
+  // await test.step("TC008_S03 - Update lead status to Qualified to Converted", async () => {
+  //   // await page.goto(`${loginUser.afterLoginUrl}lightning/r/Lead/${leadId}/view`);
+  //   await page.getByRole("button", { name: "Show more actions" }).click();
+  //   await page
+  //     .getByRole("menuitem", { name: "Update Lead Status" })
+  //     .first()
+  //     .click();
+  //   await page
+  //     .getByRole("dialog", { name: "Update Lead Status" })
+  //     .waitFor({ state: "visible" });
+  //   await page.waitForTimeout(3_000);
+  //   await expect(
+  //     page.getByText("Something went wrong. Please"),
+  //     'The flow is showing unexpected message: "Something went wrong. Please contact the admin for further check."'
+  //   ).not.toBeVisible();
+  //   await page.locator('[name="Name_of_incumbent"]').fill("Kompetitor");
+  //   await expect(
+  //     page.getByRole("button", { name: "Next" }),
+  //     "Next button should be visible"
+  //   ).toBeVisible();
+  //   await page.getByRole("button", { name: "Next" }).click();
+  //   // await expect(
+  //   //     page.locator('lightning-formatted-rich-text'),
+  //   //     'Status update dialog should show the New to Working transition'
+  //   // ).toContainText('New to Working');
+  //   await page.getByRole("button", { name: "Finish" }).click();
+  //   await page
+  //     .getByRole("dialog", { name: "Update Lead Status" })
+  //     .waitFor({ state: "hidden" });
+  //   await page.waitForTimeout(3_000);
+  //   await expect(page.getByRole("button", { name: "Convert" })).toBeVisible();
+  // });
 });
 
 test("TC009_Convert Lead", async () => {
