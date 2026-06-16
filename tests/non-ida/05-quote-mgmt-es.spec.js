@@ -771,7 +771,7 @@ test("TC035: Quote Clossure", async ({ request }) => {
     request,
     instanceUrl,
     accessToken,
-    cartId,
+    createdQuoteId,
     sysAdminUserId
   );
 
