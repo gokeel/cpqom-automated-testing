@@ -13,11 +13,11 @@ const PW_REPORT_PORT = process.env.PW_REPORT_PORT ?? 9323;
 const ALLURE_PORT = process.env.ALLURE_REPORT_PORT ?? 8100;
 
 const MODULE_FILES = {
-  account_mgmt: "tests/non-ida/01-account-mgmt.spec.js",
-  account_mgmt_v2: "tests/non-ida/01-account-mgmt-api.spec.js",
-  lead_mgmt: "tests/non-ida/02-lead-mgmt.spec.js",
-  oppty_mgmt_sales: "tests/non-ida/03-oppty-mgmt-sales.spec.js",
-  oppty_mgmt_es: "tests/non-ida/04-oppty-mgmt-es.spec.js",
+  account_mgmt: "tests/common/01-account-mgmt.spec.js",
+  account_mgmt_v2: "tests/common/01-account-mgmt-api.spec.js",
+  lead_mgmt: "tests/common/02-lead-mgmt.spec.js",
+  oppty_mgmt_sales: "tests/common/03-oppty-mgmt-sales.spec.js",
+  oppty_mgmt_es: "tests/common/04-oppty-mgmt-es.spec.js",
   quote_mgmt_es: "tests/non-ida/05-quote-mgmt-es.spec.js",
   contract_order_sd: "tests/non-ida/06-contract-mgmt-sales.spec.js"
 };
