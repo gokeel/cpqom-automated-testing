@@ -29,7 +29,7 @@
 
 import { test, expect } from "@playwright/test";
 import * as allure from "allure-js-commons";
-import { getTestParams, closeDb, updateRun } from "../../../../utils/db.js";
+import { getTestParams, closeDb, updateRun } from "../../../utils/db.js";
 
 // ─── Run context (dari trigger server / web app) ──────────────────────────────
 const runId = process.env.TEST_RUN_ID ? Number(process.env.TEST_RUN_ID) : null;
