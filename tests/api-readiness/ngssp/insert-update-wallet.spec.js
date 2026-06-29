@@ -27,7 +27,7 @@
 
 import { test, expect } from "@playwright/test";
 import * as allure from "allure-js-commons";
-import { getTestParams, closeDb, updateRun } from "../../../../utils/db.js";
+import { getTestParams, closeDb, updateRun } from "../../../utils/db.js";
 
 const runId = process.env.TEST_RUN_ID ? Number(process.env.TEST_RUN_ID) : null;
 const userId = process.env.USER_ID ? Number(process.env.USER_ID) : null;

@@ -115,13 +115,17 @@ test("TC-QUE-002 — Schema Check", async ({ request }) => {
   await allure.epic("API Readiness AIR");
   await allure.feature("QueryOffers");
   await allure.severity("critical");
-  let json;
+  let r;
   await test.step("TC-QUE-002_S01 - POST request", async () => {
-    const r = await postApi(request, buildBody(VALID_MSISDN));
-    json = r.json;
+    r = await postApi(request, buildBody(VALID_MSISDN));
+    expect(
+      r.response.ok(),
+      `API gagal dengan status ${r.response.status()}`
+    ).toBeTruthy();
+    expect(r.response.headers()["content-type"]).toContain("application/json");
   });
   await test.step("TC-QUE-002_S02 - Cek response tidak null", async () => {
-    expect(json).toBeTruthy();
+    expect(r.json, "Response body harus berupa JSON valid").toBeTruthy();
   });
 });
 
